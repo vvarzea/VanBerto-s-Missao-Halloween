@@ -453,6 +453,8 @@ export function loadLevel(scene,idx){
     "🚫 Nunca aceites pedidos de amizade de desconhecidos online!",
     "⚖️ Os teus direitos e deveres existem também no mundo digital!"
   ];
+  const _ORDEM_MUNDOS = [0, 5, 9, 12, 4, 11, 2, 16, 1, 7, 14, 3, 13, 15, 8, 17, 6, 10, 18, 19];
+  TIPS.splice(0, 20, ..._ORDEM_MUNDOS.map(i => TIPS[i]));
   set_currentLevelTip( (TIPS[currentLevel] || TIPS[0]) + (currentLevel >= 6 ? " ⚠️ Cuidado!" : ""));
   tipText.setText(currentLevelTip);
   ensureAudio(); SFX.door(); saveGame();

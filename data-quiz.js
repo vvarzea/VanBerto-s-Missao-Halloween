@@ -1,4 +1,4 @@
-// ===== Conteúdo educativo e perguntas do quiz — MISSÃO CIBERSEGURANÇA =====
+// ===== Conteúdo educativo e perguntas do quiz — MISSÃO HALLOWEEN (cibersegurança) =====
 // HISTORY, QUIZ_TIPS, QUIZ_ARTICLE, QUIZ_BY_THEME
 // Alinhado por artIdx (0-19), na mesma ordem lógica original do jogo.
 
@@ -90,7 +90,10 @@ export const HISTORY = [
     text: "Desde 2021 que a ONU reconhece que todos os direitos das crianças se aplicam também ao mundo digital — incluindo privacidade e proteção. Mas com direitos vêm deveres: usar a internet com responsabilidade e respeito por todos."
   }
 ];
-// ===== HALLOWEEN — «Dica de Halloween» no fim de cada um dos 20 cartões «Sabias que…?» (mesma ordem dos níveis) =====
+
+
+const _ORDEM_MUNDOS = [0, 5, 9, 12, 4, 11, 2, 16, 1, 7, 14, 3, 13, 15, 8, 17, 6, 10, 18, 19]; // nível i usa o tema antigo _ORDEM_MUNDOS[i] (reordenado pelos 4 mundos)
+// ===== HALLOWEEN — «Dica de Halloween» no fim de cada um dos 20 cartões «Sabias que…?» (ordem original dos temas) =====
 const HALLOWEEN_TIPS = [
   "a internet é como uma casa assombrada: há corredores simpáticos e outros nem por isso. Explora sempre com cuidado!",
   "uma palavra-passe forte é o feitiço mais poderoso: mistura letras, números e símbolos e não a contes a ninguém.",
@@ -114,7 +117,7 @@ const HALLOWEEN_TIPS = [
   "online também há boa educação: respeita os outros, mesmo nas brincadeiras de Halloween, e não assustes ninguém a sério.",
 ];
 HISTORY.forEach((h, i) => { if (HALLOWEEN_TIPS[i]) h.text += " 🎃 Dica de Halloween: " + HALLOWEEN_TIPS[i]; });
-
+HISTORY.splice(0, 20, ..._ORDEM_MUNDOS.map(i => HISTORY[i]));
 
 export const QUIZ_TIPS = {
   historia_internet:      "A Internet nasceu em 1969; a World Wide Web (as páginas com links) surgiu 20 anos depois, em 1989. A cibersegurança protege-te sempre que as usas.",

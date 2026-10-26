@@ -2,7 +2,8 @@
 // PRAISE, PAUSE_TIPS, LEVEL_ENTRY_PHRASES, DYNAMIC_MSGS_CORRECT, DYNAMIC_MSGS_WRONG,
 // VB_LEVEL_INTRO, VB_HIT, VB_QUIZ_CORRECT, VB_QUIZ_WRONG, VB_STAR_POWER, VB_PERFECT_LEVEL
 
-export const PRAISE = ["🌟 Excelente!", "🛡️ Muito bem!", "🔐 Boa resposta!", "🎉 Fantástico!", "✨ Brilhante!", "🏆 Continua assim!", "🎄 Ho ho ho! Muito bem!", "🎁 Resposta digna de presente!", "❄️ Gelado de tão bom!"];
+const _ORDEM_MUNDOS = [0, 5, 9, 12, 4, 11, 2, 16, 1, 7, 14, 3, 13, 15, 8, 17, 6, 10, 18, 19]; // nível i usa o tema antigo _ORDEM_MUNDOS[i] (reordenado pelos 4 mundos)
+export const PRAISE = ["🌟 Excelente!", "🛡️ Muito bem!", "🔐 Boa resposta!", "🎉 Fantástico!", "✨ Brilhante!", "🏆 Continua assim!", "🎃 Que resposta de arrepiar... de tão boa!", "🦇 Resposta digna de um Guardião!", "👻 Nem os fantasmas te enganam!", "🧙 Que feitiço de resposta!"];
 
 // PAUSE_TIPS são sobre MECÂNICAS de jogo (agachar, super-salto, power-ups,
 // tipos de vilão), não sobre o tema — mantidos tal como no original.
@@ -45,6 +46,7 @@ export const LEVEL_ENTRY_PHRASES = [
   "Cuidado com desconhecidos! 🚫",
   "Os teus direitos existem online! ⚖️"
 ];
+LEVEL_ENTRY_PHRASES.splice(0, 20, ..._ORDEM_MUNDOS.map(i => LEVEL_ENTRY_PHRASES[i]));
 
 export const DYNAMIC_MSGS_CORRECT = [
   "🌟 Fantástico!", "✨ Excelente!", "🎉 És incrível!",
@@ -81,6 +83,7 @@ export const VB_LEVEL_INTRO = [
   "Cuidado com desconhecidos online! 🚫 Vamos aprender a reconhecer o perigo?",
   "Os teus direitos também existem online! ⚖️ Último nível — dá tudo!"
 ];
+VB_LEVEL_INTRO.splice(0, 20, ..._ORDEM_MUNDOS.map(i => VB_LEVEL_INTRO[i]));
 
 export const VB_HIT = [
   "Ups! Perdemos uma vida, mas os heróis nunca desistem! 💪",

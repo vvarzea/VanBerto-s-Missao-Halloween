@@ -11,7 +11,7 @@ export const BOSSES = [
     id: "monstro_phishing",
     afterLevel: 8,           // Fecha o mundo "Vale da Comunicação Segura" (Níveis 6-9 —
                               // jogos seguros, pegada digital, fake news, phishing).
-    name: "Monstro do Phishing",
+    name: "Fantasma Hacker",
     emoji: "👾",
     // Cor alinhada com o redesenho "pirata-hacker" (ver makeBossTextures em
     // textures.js) — antes era roxo (0x8a5cff), a cor do blob antigo; agora
@@ -75,7 +75,7 @@ export const BOSSES = [
     phishingDecoyAtMaxRage: true,
     // Rótulo temático do contador de saltos no HUD (nova) — antes os 4
     // bosses mostravam sempre "👣 Saltos: X/3", sem ligação ao tema.
-    stompLabel: "🎣 Mordidas",
+    stompLabel: "👻 Tentativas de acesso travadas",
     // Reforço do chefe — habilidade exclusiva do Extremo (nova, pedido:
     // "algo qualitativamente novo no Extremo, não só +HP/×1.4", em vez do
     // Extremo continuar a ser só o mesmo combate mais apertado). Ao chegar
@@ -127,15 +127,15 @@ export const BOSSES = [
     // arenas) e por isso têm o seu próprio signX explícito, cada um com o
     // centro da sua plataforma baixa esquerda.
     signX: 230,
-    intro: "Um clique... e caíste na minha rede! Até no Halloween há anzóis!",
-    defeatLine: "Nãoo! Viste através do meu disfarce!",
-    quizTheme: "phishing",
+    intro: "Uhuhuhu! Vou adivinhar todas as tuas palavras-passe… até as do Halloween!",
+    defeatLine: "Nãoo! Aquelas palavras-passe… eram fortes demais!",
+    quizTheme: "palavras_passe",
     hp: 3,
     // Tema próprio removido — os temas passaram a estar agrupados por
     // família de mundo (ver data-levels.js/THEMES), por isso "saltar" para
     // um índice de outro mundo já não faz sentido; a arena usa agora o
     // mesmo tema/imagem do nível anterior, como todos os outros ecrãs.
-    rightRecovered: { emoji: "🕵️", name: "Alerta Anti-Phishing" },
+    rightRecovered: { emoji: "🕵️", name: "Contas Protegidas" },
     // Arena simples: do tamanho da janela (960x540, sem scroll), chão
     // principal + 3 plataformas (pedido: os 4 bosses com 3 plataformas
     // cada, tal como o Robô do Spam já tinha).
@@ -177,7 +177,7 @@ export const BOSSES = [
     id: "virus_gigante",
     afterLevel: 4,            // Fecha o mundo "Reino dos Fundamentos" (Níveis 1-5 — internet,
                                // palavras-passe, dados pessoais, instituições de apoio, vírus).
-    name: "Vírus Gigante",
+    name: "Rei Malware",
     emoji: "🦠",
     // Cor alinhada com o redesenho "robô-vírus" (ver makeBossTextures em
     // textures.js) — antes era rosa (0xe0409a), a cor da esfera antiga;
@@ -208,7 +208,7 @@ export const BOSSES = [
     rageLines: { angry: "Vou replicar-me outra vez!", desperate: "O antivírus... está a vencer!" },
     // Rótulo temático do contador de saltos no HUD (nova, ver mesmo
     // comentário no Monstro do Phishing).
-    stompLabel: "🦠 Infeções travadas",
+    stompLabel: "🦠 Ficheiros infetados travados",
     // Reforço do chefe no Extremo — ver comentário completo junto ao
     // Monstro do Phishing (data-bosses.js, boss monstro_phishing).
     extremoReinforcement: true,
@@ -315,8 +315,8 @@ export const BOSSES = [
     // cálculo por omissão (playerStartX+80, que com o playerStartX agora em
     // 400 daria 480 e cairia no vão aberto entre as plataformas).
     signX: 200,
-    intro: "Vou infetar todos os teus ficheiros, até os das fotos da noite de Halloween!",
-    defeatLine: "Argh! O antivírus... venceu-me!",
+    intro: "Vou infetar todos os teus ficheiros… até os das fotos da noite de Halloween!",
+    defeatLine: "Argh! O antivírus… venceu-me!",
     quizTheme: "virus_malware",
     hp: 3,                     // 4→3: agora são sempre 3 saltos na cabeça, como os outros bosses "stomp"
     // themeIdx próprio removido — ver comentário igual no boss do phishing.
@@ -357,7 +357,7 @@ export const BOSSES = [
                               // Digital" (Níveis 16-20) E o jogo inteiro. Ao ser derrotado,
                               // nextLevel() já não tem mais níveis a seguir (ver next>=LEVELS.length
                               // em goToNextLevel) e mostra o ecrã de vitória final.
-    name: "Espião das Sombras",
+    name: "Senhor das Sombras Digitais",
     emoji: "🌑",
     // Cor alinhada com o redesenho "feiticeiro-espião" (ver makeBossTextures
     // em textures.js, secção 3) — antes era um cinzento-arroxeado neutro
@@ -423,7 +423,7 @@ export const BOSSES = [
     // outros bosses "stomp" não têm nenhum efeito de ecrã na sua fúria.
     // Rótulo temático do contador de saltos no HUD (nova, ver mesmo
     // comentário no Monstro do Phishing).
-    stompLabel: "👁️ Exposições",
+    stompLabel: "👁️ Ameaças travadas",
     // Reforço do chefe no Extremo — ver comentário completo junto ao
     // Monstro do Phishing (data-bosses.js, boss monstro_phishing).
     extremoReinforcement: true,
@@ -444,8 +444,8 @@ export const BOSSES = [
     // abaixo) — mesma lógica dos outros bosses (ver comentário no Monstro
     // da Ignorância).
     signX: 220,
-    intro: "Nas sombras, ninguém vê os teus dados a desaparecer! Nem as bruxas me apanham!",
-    defeatLine: "A tua privacidade... venceu-me!",
+    intro: "Reuni todas as ameaças dos outros mundos! Ninguém escapa às Sombras Digitais!",
+    defeatLine: "A tua segurança… venceu-me!",
     quizTheme: "direitos_digitais", // CORRIGIDO: estava "contacto_desconhecidos" (tema do
                               // Nível 19), por isso a pergunta do boss não coincidia com a
                               // pergunta que já tinha fechado o Nível 20 — pareciam duas
@@ -489,7 +489,7 @@ export const BOSSES = [
     id: "robo_spam",
     afterLevel: 14,          // Fecha o mundo "Fortaleza da Proteção Digital" (Níveis 10-15 —
                              // dispositivos, família, wi-fi, backups, acessibilidade, spam).
-    name: "Robô do Spam",
+    name: "Bruxa do Phishing",
     emoji: "📮",
     color: 0xc7291f,
     // Mesma conversão para stompBoss — mantém a patrulha rápida (sensação
@@ -510,7 +510,7 @@ export const BOSSES = [
     rageLines: { angry: "Mais mensagens! Mais spam!", desperate: "Os meus circuitos... sobrecarregados!" },
     // Rótulo temático do contador de saltos no HUD (nova, ver mesmo
     // comentário no Monstro do Phishing).
-    stompLabel: "📛 Bloqueios",
+    stompLabel: "🎣 Mensagens falsas travadas",
     // Reforço do chefe no Extremo — ver comentário completo junto ao
     // Monstro do Phishing (data-bosses.js, boss monstro_phishing).
     extremoReinforcement: true,
@@ -591,12 +591,12 @@ export const BOSSES = [
     // abaixo) — mesma lógica dos outros bosses (ver comentário no Monstro
     // da Ignorância).
     signX: 200,
-    intro: "Vou encher a tua caixa de correio para sempre! Até de convites falsos para festas de Halloween!",
-    defeatLine: "As minhas mensagens... foram todas bloqueadas!",
-    quizTheme: "spam_compras",
+    intro: "Tenho mensagens tentadoras só para ti… clica no link! Hehehe… até convites falsos para festas de Halloween!",
+    defeatLine: "O meu feitiço… foi desfeito! As mensagens falsas foram todas descobertas!",
+    quizTheme: "phishing",
     hp: 3,                     // 5→3: agora são sempre 3 saltos na cabeça
     // themeIdx próprio removido — ver comentário igual no boss do phishing.
-    rightRecovered: { emoji: "📭", name: "Caixa de Correio Limpa" },
+    rightRecovered: { emoji: "📭", name: "Mensagens Verificadas" },
     // Arena do tamanho do ecrã, tal como o Monstro.
     arena: {
       worldW: 960,
