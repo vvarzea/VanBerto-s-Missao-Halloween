@@ -7,23 +7,23 @@
  * As variáveis de estado vivem em state.js; aqui alteram-se com set_<nome>().
  *************************************************/
 
-import { vbSay } from "./dialogue.js?v=20261025halloween1";
-import { startOverlay } from "./dom.js?v=20261025halloween1";
-import { playLevelTransition } from "./door.js?v=20261025halloween1";
-import { loadLevel } from "./level.js?v=20261025halloween1";
-import { openOverlay, saveGame } from "./overlays.js?v=20261025halloween1";
-import { showHistory } from "./quiz.js?v=20261025halloween1";
-import { initPhaser } from "./scene.js?v=20261025halloween1";
-import { currentLevel, getStartLives, mapProgress, pausedByTeacher, playerName, playerNameHUD, powerHaloGfx, sceneRef, score, set__historySubOpen, set__overlayPaused, set__winOverlaySubOpen, set_currentLevel, set_lives, shadowGfx } from "./state.js?v=20261025halloween1";
-import { loadNamespace, saveNamespace } from "../storage.js?v=20261025halloween1";
-import { MAP_REGIONS } from "../data-progression.js?v=20261025halloween1";
-import { applyBackground as applyBackgroundRaw } from "../background.js?v=20261025halloween1";
-import { LEVELS, THEMES } from "../data-levels.js?v=20261025halloween1";
-import { ensureAudio, SFX } from "../audio.js?v=20261025halloween1";
-import { playTitleCard } from "../cinematics.js?v=20261025halloween1";
-import { starsForLevel } from "../stars.js?v=20261025halloween1";
-import { REGION_INTRO } from "../data-story.js?v=20261025halloween1";
-import { VB_LEVEL_INTRO } from "../data-flavor.js?v=20261025halloween1";
+import { vbSay } from "./dialogue.js?v=20261026halloween2";
+import { startOverlay } from "./dom.js?v=20261026halloween2";
+import { playLevelTransition } from "./door.js?v=20261026halloween2";
+import { loadLevel } from "./level.js?v=20261026halloween2";
+import { openOverlay, saveGame } from "./overlays.js?v=20261026halloween2";
+import { showHistory } from "./quiz.js?v=20261026halloween2";
+import { initPhaser } from "./scene.js?v=20261026halloween2";
+import { currentLevel, getStartLives, mapProgress, pausedByTeacher, playerName, playerNameHUD, powerHaloGfx, sceneRef, score, set__historySubOpen, set__overlayPaused, set__winOverlaySubOpen, set_currentLevel, set_lives, shadowGfx } from "./state.js?v=20261026halloween2";
+import { loadNamespace, saveNamespace } from "../storage.js?v=20261026halloween2";
+import { MAP_REGIONS } from "../data-progression.js?v=20261026halloween2";
+import { applyBackground as applyBackgroundRaw } from "../background.js?v=20261026halloween2";
+import { LEVELS, THEMES } from "../data-levels.js?v=20261026halloween2";
+import { ensureAudio, SFX } from "../audio.js?v=20261026halloween2";
+import { playTitleCard } from "../cinematics.js?v=20261026halloween2";
+import { starsForLevel } from "../stars.js?v=20261026halloween2";
+import { REGION_INTRO } from "../data-story.js?v=20261026halloween2";
+import { VB_LEVEL_INTRO } from "../data-flavor.js?v=20261026halloween2";
 
 
 // ===== Dicas =====
@@ -113,8 +113,8 @@ export function bgKeyForLevel(idx) {
 // o céu desenhado e troca pela ilustração assim que ela chegar.
 
 export const BG_FILES = {
-  bg_origens: "map-mundo1.webp", bg_desenvolvimento: "map-mundo2.webp",
-  bg_protecao: "map-mundo3.webp", bg_participacao: "map-mundo4.webp", // só de reserva (ver bgKeyForLevel)
+  bg_origens: "mundo1_n1e2.webp", bg_desenvolvimento: "mundo2_n6.webp",
+  bg_protecao: "mundo3_n10e11.webp", bg_participacao: "mundo4_n16e17.webp", // só de reserva (ver bgKeyForLevel)
   bg_mundo1_n1e2: "mundo1_n1e2.webp", 
   bg_mundo2_n6: "mundo2_n6.webp", 
   bg_mundo3_n10e11: "mundo3_n10e11.webp", 

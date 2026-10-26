@@ -15,8 +15,8 @@
 // que o ficheiro principal fazia às variáveis internas `doorGlowGfx` e
 // `platDecorGfx`/`platDecorData` ao (re)carregar um nível.
 
-import { THEMES } from "./data-levels.js?v=20261025halloween1";
-import { QUIZ_TIPS } from "./data-quiz.js?v=20261025halloween1";
+import { THEMES } from "./data-levels.js?v=20261026halloween2";
+import { QUIZ_TIPS } from "./data-quiz.js?v=20261026halloween2";
 
 let bgGraphics, farGraphics, hillsGraphics, groundGraphics, decorGraphics;
 let platDecorGfx, sunGraphics, moonGraphics, starGraphics, doorGlowGfx;
@@ -616,6 +616,7 @@ export function updatePlatformDecor(scene){
 // fica de propósito fora da família noturna do seu mundo.
 export const NIGHT_THEMES = new Set([6,7,10,11,12,13,14,15,17,18]);
 
+let worldBgShade = null; // HALLOWEEN: véu escuro por cima da ilustração
 let worldBgImage = null; // imagem fixa (não faz scroll) do mundo atual, por trás de tudo
 
 export function applyBackground(scene,themeIdx,worldW,hazardDefs=[],bgImageKey=null){
@@ -637,8 +638,18 @@ export function applyBackground(scene,themeIdx,worldW,hazardDefs=[],bgImageKey=n
     // mas o setDisplaySize cobre bem qualquer ligeira diferença de rácio)
     worldBgImage.setDisplaySize(960, 540);
     worldBgImage.setVisible(true);
+    // HALLOWEEN — variedade dentro do mesmo mundo: cada nível aplica um tom ligeiramente diferente à mesma ilustração
+    const LEVEL_TINT = [0xffffff, 0xe4dcff, 0xcfd9ff, 0xffe0cc, 0xd6ffe6, 0xbfb6e6];
+    worldBgImage.setTint(LEVEL_TINT[themeIdx % LEVEL_TINT.length]);
+    // HALLOWEEN — véu escuro por trás da zona de jogo, para as plataformas e os vilões se lerem bem em cima de ilustrações carregadas
+    if (!worldBgShade || worldBgShade.scene !== scene) {
+      if (worldBgShade) worldBgShade.destroy();
+      worldBgShade = scene.add.rectangle(480, 330, 960, 420, 0x0a0420, 0.30).setDepth(-60.5).setScrollFactor(0);
+    }
+    worldBgShade.setVisible(true);
   } else if (worldBgImage) {
     worldBgImage.setVisible(false);
+    if (worldBgShade) worldBgShade.setVisible(false);
   }
 
   const showImage = !!(worldBgImage && worldBgImage.visible);

@@ -6,17 +6,17 @@
 // mantêm-se exatamente iguais à estrutura original.
 export const MAP_REGIONS = [
   { id:"origens",        icon:"🎃", name:"Floresta Assombrada dos Vírus", sub:"Dispositivos, malware e o Rei Malware",      levels:[0,1,2,3,4],
-    mapBg:"map-mundo1.webp",
-    nodePos:[{x:22.7,y:85.0},{x:37.1,y:76.5},{x:52.6,y:68.0},{x:68.8,y:51.0},{x:85.5,y:20.2}] },
+    mapBg:"mundo1_n1e2.webp",
+    nodePos:[{x:9,y:80.0},{x:28,y:66.1},{x:47,y:63.8},{x:63,y:56.9},{x:68,y:29.3}] },
   { id:"desenvolvimento",icon:"🏰", name:"Castelo das Palavras-Passe",    sub:"Palavras-passe, dados e o Fantasma Hacker",    levels:[5,6,7,8],
-    mapBg:"map-mundo2.webp",
-    nodePos:[{x:25.0,y:53.0},{x:40.0,y:56.5},{x:53.0,y:58.5},{x:60.5,y:54.5}] },
+    mapBg:"mundo2_n6.webp",
+    nodePos:[{x:8,y:81.1},{x:33,y:62.7},{x:56,y:61.5},{x:65,y:36.2}] },
   { id:"protecao",       icon:"🪦", name:"Cemitério das Mensagens Malditas", sub:"Phishing, fake news e a Bruxa do Phishing",  levels:[9,10,11,12,13,14],
-    mapBg:"map-mundo3.webp",
-    nodePos:[{x:5.0,y:87.0},{x:14.5,y:76.0},{x:24.5,y:67.5},{x:22.5,y:57.0},{x:33.0,y:54.0},{x:40.0,y:49.5}] },
+    mapBg:"mundo3_n10e11.webp",
+    nodePos:[{x:7,y:82.3},{x:18,y:59.2},{x:36,y:65.0},{x:56,y:70.7},{x:66,y:47.7},{x:68,y:30.4}] },
   { id:"participacao",   icon:"🕯️", name:"Mansão das Sombras Digitais",  sub:"Privacidade, desconhecidos e o Senhor das Sombras",   levels:[15,16,17,18,19],
-    mapBg:"map-mundo4.webp",
-    nodePos:[{x:5.0,y:78.0},{x:18.0,y:89.0},{x:35.0,y:82.0},{x:30.0,y:59.0},{x:50.0,y:53.0}] },
+    mapBg:"mundo4_n16e17.webp",
+    nodePos:[{x:10,y:84.6},{x:33,y:73.0},{x:47,y:52.3},{x:66,y:73.0},{x:72,y:27.0}] },
   { id:"base",           icon:"🏠", name:"Base do VanBerto's",            sub:"O teu ponto de partida",                           levels:[] },
 ];
 
