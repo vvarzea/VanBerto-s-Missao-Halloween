@@ -8,7 +8,8 @@
 > - Sons: motivos misteriosos compostos de raiz (`audio.js`).
 > - «🎃 Dica de Halloween» no fim de cada um dos 20 cartões «Sabias que…?» (`data-quiz.js`, lista `HALLOWEEN_TIPS`).
 > - Ícones da aplicação com chapéu de bruxa e abóbora (o ícone de Natal original ficou em `_dev/icon-512.orig.png`).
-> - **Fase 1:** o quiz continua a ser o de cibersegurança. O quiz de Halloween (Fase 2) ainda não foi escrito.
+> - **Mundos:** 1 Floresta Assombrada dos Vírus (boss Rei Malware), 2 Castelo das Palavras-Passe Perdidas (Fantasma Hacker), 3 Cemitério das Mensagens Malditas (Bruxa do Phishing), 4 Mansão das Sombras Digitais (Senhor das Sombras Digitais). Os fundos são `mundo1_n1e2.webp`, `mundo2_n6.webp`, `mundo3_n10e11.webp` e `mundo4_n16e17.webp` (um por mundo). Os 20 temas do quiz foram reordenados pelos mundos (`_ORDEM_MUNDOS` nos ficheiros `data-*.js` e `game/level.js`).
+> - O quiz é o de cibersegurança. O quiz de curiosidades de Halloween está guardado em `_dev/extra/data-quiz-halloween.js` (ainda não ligado ao jogo).
 > - O progresso e a cache offline têm nomes próprios (`vanbertos_ciberseguranca_halloween_save_v1`, `halloween-vanbertos-…`).
 
 
