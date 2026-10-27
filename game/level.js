@@ -7,21 +7,21 @@
  * As variáveis de estado vivem em state.js; aqui alteram-se com set_<nome>().
  *************************************************/
 
-import { createArtOrbs } from "./artefacts.js?v=20261026halloween2";
-import { clearBossArenaDecor } from "./boss-core.js?v=20261026halloween2";
-import { tryOpenDoor } from "./door.js?v=20261026halloween2";
-import { showFloat } from "./feedback.js?v=20261026halloween2";
-import { clearDoubleJump, clearPower, clearStarPower } from "./items.js?v=20261026halloween2";
-import { applyBackground, bgKeyForLevel, prefetchBackgrounds } from "./map.js?v=20261026halloween2";
-import { saveGame } from "./overlays.js?v=20261026halloween2";
-import { setCrouchHitbox, snapPlayerToGround } from "./rooms.js?v=20261026halloween2";
-import { _doorWatchdogTimer, _landingCheckTimer, awaitingQuiz, bossExtremoAllies, bossState, bossTimers, currentLevel, currentLevelTip, decorativePipes, difficulty, door, doorOverlap, enemyTimers, getDifficulty, getMaxLives, getVillainJumpIntervalMult, getVillainSpeedMult, heartsGfx, hudText, invuln, isItemVisibleInDificil, isReducibleItemKind, isStarAllowedExtremo, itemCountText, itemsCollected, itemsGroup, itemsTotal, lives, malwareGroup, pipeExitDecor, pipes, platforms, player, playerName, playerNameHUD, powerHaloGfx, powerIndicator, powered, progressFill, resetPipeWarpState, score, scoreText, set__doorAnimRunning, set__doorWatchdogTimer, set__hudDirty, set__landingCheckTimer, set__pendingEntranceReveal, set_awaitingQuiz, set_bossExtremoAllies, set_bossTimers, set_collectedItemIndices, set_collectedRoomPipes, set_controlsInvertedUntil, set_currentLevel, set_currentLevelTip, set_decorativePipes, set_door, set_doorOverlap, set_enemyTimers, set_extraShieldCounted, set_inSecretRoom, set_invuln, set_isCrouching, set_itemsCollected, set_itemsTotal, set_livesLostThisLevel, set_pipeExitDecor, set_pipes, set_secretRoomHidden, set_secretRoomReturn, set_secretRoomTemp, shadowGfx, tipText, touch } from "./state.js?v=20261026halloween2";
-import { clearHazards, clearMovingPlatforms, clearPipeHintSign, clearSecretSigns, clearSecrets, clearTrampolines, difficultyFactor, spawnBalloons, spawnCritters, spawnHazards, spawnLevelSign, spawnMovingPlatforms, spawnPipeHintSign, spawnSecrets, spawnShields, spawnTrampolines } from "./world.js?v=20261026halloween2";
-import { LEVELS, THEMES } from "../data-levels.js?v=20261026halloween2";
-import { resetLevelStarTracking } from "../stars.js?v=20261026halloween2";
-import { makePlatformTextureThemed, makePipeTexture } from "../textures.js?v=20261026halloween2";
-import { spawnPlatformDecor, resetDoorGlow } from "../background.js?v=20261026halloween2";
-import { ensureAudio, SFX, beep } from "../audio.js?v=20261026halloween2";
+import { createArtOrbs } from "./artefacts.js?v=20261026halloween3";
+import { clearBossArenaDecor } from "./boss-core.js?v=20261026halloween3";
+import { tryOpenDoor } from "./door.js?v=20261026halloween3";
+import { showFloat } from "./feedback.js?v=20261026halloween3";
+import { clearDoubleJump, clearPower, clearStarPower } from "./items.js?v=20261026halloween3";
+import { applyBackground, bgKeyForLevel, prefetchBackgrounds } from "./map.js?v=20261026halloween3";
+import { saveGame } from "./overlays.js?v=20261026halloween3";
+import { setCrouchHitbox, snapPlayerToGround } from "./rooms.js?v=20261026halloween3";
+import { _doorWatchdogTimer, _landingCheckTimer, awaitingQuiz, bossExtremoAllies, bossState, bossTimers, currentLevel, currentLevelTip, decorativePipes, difficulty, door, doorOverlap, enemyTimers, getDifficulty, getMaxLives, getVillainJumpIntervalMult, getVillainSpeedMult, heartsGfx, hudText, invuln, isItemVisibleInDificil, isReducibleItemKind, isStarAllowedExtremo, itemCountText, itemsCollected, itemsGroup, itemsTotal, lives, malwareGroup, pipeExitDecor, pipes, platforms, player, playerName, playerNameHUD, powerHaloGfx, powerIndicator, powered, progressFill, resetPipeWarpState, score, scoreText, set__doorAnimRunning, set__doorWatchdogTimer, set__hudDirty, set__landingCheckTimer, set__pendingEntranceReveal, set_awaitingQuiz, set_bossExtremoAllies, set_bossTimers, set_collectedItemIndices, set_collectedRoomPipes, set_controlsInvertedUntil, set_currentLevel, set_currentLevelTip, set_decorativePipes, set_door, set_doorOverlap, set_enemyTimers, set_extraShieldCounted, set_inSecretRoom, set_invuln, set_isCrouching, set_itemsCollected, set_itemsTotal, set_livesLostThisLevel, set_pipeExitDecor, set_pipes, set_secretRoomHidden, set_secretRoomReturn, set_secretRoomTemp, shadowGfx, tipText, touch } from "./state.js?v=20261026halloween3";
+import { clearHazards, clearMovingPlatforms, clearPipeHintSign, clearSecretSigns, clearSecrets, clearTrampolines, difficultyFactor, spawnBalloons, spawnCritters, spawnHazards, spawnLevelSign, spawnMovingPlatforms, spawnPipeHintSign, spawnSecrets, spawnShields, spawnTrampolines } from "./world.js?v=20261026halloween3";
+import { LEVELS, THEMES } from "../data-levels.js?v=20261026halloween3";
+import { resetLevelStarTracking } from "../stars.js?v=20261026halloween3";
+import { makePlatformTextureThemed, makePipeTexture } from "../textures.js?v=20261026halloween3";
+import { spawnPlatformDecor, resetDoorGlow } from "../background.js?v=20261026halloween3";
+import { ensureAudio, SFX, beep } from "../audio.js?v=20261026halloween3";
 
 // ===== Carregar nível =====
 
@@ -431,30 +431,28 @@ export function loadLevel(scene,idx){
   snapPlayerToGround();
   set__pendingEntranceReveal( true);
 
-  const TIPS = [
-    "🌐 A internet liga o mundo — apanha as estrelas e chega ao Portal ✨!",
-    "🔐 Uma palavra-passe forte é o teu primeiro escudo digital!",
-    "🪪 Nunca partilhes os teus dados pessoais com desconhecidos!",
+    const TIPS = [
+    "🎃 Apanha as estrelas e chega ao Portal ✨ para descobrir a origem do Halloween!",
+    "🏮 Uma abóbora com luz lá dentro chama-se «jack-o’-lantern»!",
+    "🎭 Escolhe sempre um fato onde vejas bem e que não arraste no chão!",
     "🦘 USA OS TRAMPOLINS! Os vãos são intransponíveis sem eles!",
-    "🦠 Um antivírus atualizado protege-te dos vírus informáticos!",
-    "🎮 Respeita sempre a idade mínima recomendada (PEGI) dos jogos!",
-    "👣 Tudo o que publicas deixa um rasto digital — pensa antes!",
-    "📰 Nem tudo o que lês online é verdade — verifica a fonte!",
-    "🎣 Nunca cliques em links suspeitos — pode ser phishing!",
-    "💻 Mantém os teus dispositivos sempre atualizados!",
-    "👨‍👩‍👧 Combina regras de ecrã com a tua família!",
-    "📶 Evita iniciar sessão em contas importantes em Wi-Fi público!",
-    "💾 Faz sempre cópias de segurança dos teus trabalhos!",
+    "🦇 Os morcegos usam sons e ecos para «ver» no escuro!",
+    "🕸️ As aranhas têm oito patas e ajudam a controlar os insetos!",
+    "👻 Quase todos os «sustos» têm uma explicação simples. Investiga!",
+    "🧙 As bruxas do Halloween são fantasia: não acredites em superstições!",
+    "🧟 Drácula, Frankenstein, múmias e lobisomens: monstros de livros e filmes!",
+    "💀 O teu esqueleto tem 206 ossos e precisa de cálcio para crescer forte!",
+    "🕯️ A 1 de novembro, em Portugal, é Dia de Todos os Santos e do Pão-por-Deus!",
+    "🌍 Cada país tem a sua forma de celebrar esta altura do ano!",
+    "🌕 A Lua só brilha porque reflete a luz do Sol!",
     "🔥 CUIDADO COM A LAVA! Mantém-te nas plataformas — não caias!",
-    "🛒 Desconfia de ofertas online boas demais para ser verdade!",
-    "📢 Usa o botão de denúncia sempre que precisares de ajuda!",
-    "🧑‍💻 A maioria das redes sociais exige, no mínimo, 13 anos!",
+    "🦷 Doces com moderação e dentes bem lavados!",
+    "🧪 Faz experiências sempre com um adulto por perto!",
+    "📖 Inventa uma história com início, meio e fim!",
     "🏃 As plataformas MOVEM-SE! Observa o ritmo antes de saltar!",
-    "🚫 Nunca aceites pedidos de amizade de desconhecidos online!",
-    "⚖️ Os teus direitos e deveres existem também no mundo digital!"
+    "🔦 Vai sempre acompanhado e leva uma lanterna!",
+    "🏆 Diverte-te, sê curioso e cuida de ti e dos outros!"
   ];
-  const _ORDEM_MUNDOS = [0, 5, 9, 12, 4, 11, 2, 16, 1, 7, 14, 3, 13, 15, 8, 17, 6, 10, 18, 19];
-  TIPS.splice(0, 20, ..._ORDEM_MUNDOS.map(i => TIPS[i]));
   set_currentLevelTip( (TIPS[currentLevel] || TIPS[0]) + (currentLevel >= 6 ? " ⚠️ Cuidado!" : ""));
   tipText.setText(currentLevelTip);
   ensureAudio(); SFX.door(); saveGame();

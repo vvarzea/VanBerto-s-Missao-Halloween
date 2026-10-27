@@ -8,8 +8,9 @@
 > - Sons: motivos misteriosos compostos de raiz (`audio.js`).
 > - «🎃 Dica de Halloween» no fim de cada um dos 20 cartões «Sabias que…?» (`data-quiz.js`, lista `HALLOWEEN_TIPS`).
 > - Ícones da aplicação com chapéu de bruxa e abóbora (o ícone de Natal original ficou em `_dev/icon-512.orig.png`).
-> - **Mundos:** 1 Floresta Assombrada dos Vírus (boss Rei Malware), 2 Castelo das Palavras-Passe Perdidas (Fantasma Hacker), 3 Cemitério das Mensagens Malditas (Bruxa do Phishing), 4 Mansão das Sombras Digitais (Senhor das Sombras Digitais). Os fundos são `mundo1_n1e2.webp`, `mundo2_n6.webp`, `mundo3_n10e11.webp` e `mundo4_n16e17.webp` (um por mundo). Os 20 temas do quiz foram reordenados pelos mundos (`_ORDEM_MUNDOS` nos ficheiros `data-*.js` e `game/level.js`).
-> - O quiz é o de cibersegurança. O quiz de curiosidades de Halloween está guardado em `_dev/extra/data-quiz-halloween.js` (ainda não ligado ao jogo).
+> - **Mundos:** 1 Floresta Assombrada dos Vírus (boss Rei Malware), 2 Castelo das Palavras-Passe Perdidas (Fantasma Hacker), 3 Cemitério das Mensagens Malditas (Bruxa do Phishing), 4 Mansão das Sombras Digitais (Senhor das Sombras Digitais). Os fundos são `mundo1_n1e2.webp`, `mundo2_n6.webp`, `mundo3_n10e11.webp` e `mundo4_n16e17.webp` (um por mundo). Os temas de Halloween seguem a ordem dos níveis e encaixam nos mundos.
+> - **Quiz:** os 20 níveis usam o quiz de Halloween (temas `h00`–`h19` em `data-quiz.js`: 5 perguntas fáceis e 4 difíceis por nível, mais um cartão «Sabias que…?» por nível). Os 4 bosses mantêm o quiz de cibersegurança (temas `virus_malware`, `palavras_passe`, `phishing` e `direitos_digitais`).
+> - Os textos por nível (nomes, frases de entrada, sinais, dicas e artefactos) seguem a ordem dos temas de Halloween; as dicas de jogabilidade (trampolins, lava, plataformas móveis) ficam nos níveis 4, 14 e 18, onde o nível tem essas mecânicas.
 > - O progresso e a cache offline têm nomes próprios (`vanbertos_ciberseguranca_halloween_save_v1`, `halloween-vanbertos-…`).
 
 
@@ -125,7 +126,7 @@ e abrir <http://localhost:8000>.
 ## Versões e cache
 
 Todos os ficheiros carregados pelo `index.html` e todos os `import` internos levam **a mesma**
-string `?v=…` (atualmente `20261026halloween2`). Tem de ser sempre igual em todo o lado: o mesmo módulo
+string `?v=…` (atualmente `20261026halloween3`). Tem de ser sempre igual em todo o lado: o mesmo módulo
 importado com strings diferentes é carregado duas vezes, como duas instâncias separadas, e os
 browsers que já têm o jogo podem ficar com uma mistura de ficheiros velhos e novos.
 

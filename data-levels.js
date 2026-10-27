@@ -53,8 +53,8 @@ export const THEMES = [
 // Ver comentário completo em dia-crianca.js junto a "let pipes=[]".
 export const LEVELS = [
   {
-    name: "Nível 1 — Nasce a Internet",
-    artIdx:0, theme:0, quizTheme:"historia_internet", worldW:2900,
+    name: "Nível 1 — A História do Halloween",
+    artIdx:0, theme:0, quizTheme:"h00", worldW:2900,
     spawn:{x:480,y:460}, doorX:2400,
     // signX: por defeito o letreiro ficaria em spawn.x+240 (=720). Colocado
     // bem antes do túnel (que agora só começa em x=850) — a criança lê a
@@ -95,8 +95,8 @@ export const LEVELS = [
     malwares:[{x:1800,y:480,vx:0,pattern:"mini"},{x:2260,y:480,vx:-150,pattern:"patrol"}]
   },
   {
-    name: "Nível 2 — Jogar em Segurança",
-    artIdx:1, theme:1, quizTheme:"jogos_seguros", worldW:2800,
+    name: "Nível 2 — Abóboras e Lanternas",
+    artIdx:1, theme:1, quizTheme:"h01", worldW:2800,
     spawn:{x:480,y:460}, doorX:2350,
     platforms:[
       {x:520,y:520,w:980,h:28},{x:900,y:450,w:240,h:22},{x:1180,y:380,w:240,h:22},
@@ -105,14 +105,14 @@ export const LEVELS = [
     ],
     // 1 par, a meio do nível — recompensa: ❤️ vida extra.
     pipes:[
-      {x:1180,y:337,room:true,kind:"heart",fact:"Sabias que os sites falsos de lojas aparecem mais perto do Halloween, com «ofertas» assustadoramente baixas?"}
+      {x:1180,y:337,room:true,kind:"heart",fact:"Sabias que o Samhain, a festa celta que deu origem ao Halloween, marcava o fim do verão?"}
     ],
     items:[{x:900,y:400,kind:"balao"},{x:1460,y:260,kind:"medalha"},{x:1740,y:330,kind:"estrela"}],
     malwares:[{x:1320,y:480,vx:0,pattern:"mini"},{x:2140,y:480,vx:-155,pattern:"patrol"}]
   },
   {
-    name: "Nível 3 — Cuida dos Teus Dispositivos",
-    artIdx:2, theme:2, quizTheme:"dispositivos", worldW:2900,
+    name: "Nível 3 — Fatos e Máscaras",
+    artIdx:2, theme:2, quizTheme:"h02", worldW:2900,
     spawn:{x:480,y:460}, doorX:2500,
     // signX: por defeito o letreiro/informação ficaria em spawn.x+240 (=720), que
     // cai mesmo debaixo da plataforma elevada {x:840,y:460,w:240} (720-960).
@@ -132,8 +132,8 @@ export const LEVELS = [
     malwares:[{x:1000,y:480,vx:0,pattern:"mini"},{x:1700,y:480,vx:-160,pattern:"patrol"},{x:2350,y:480,vx:155,pattern:"patrol"}]
   },
   {
-    name: "Nível 4 — Faz Cópias de Segurança",
-    artIdx:3, theme:3, quizTheme:"copias_seguranca", worldW:3300,
+    name: "Nível 4 — Doces ou Travessuras",
+    artIdx:3, theme:3, quizTheme:"h03", worldW:3300,
     spawn:{x:480,y:460}, doorX:2950,
     // Layout: "trampolim central obrigatório" — vão largo a meio onde o trampolim é o único caminho
     platforms:[
@@ -156,7 +156,7 @@ export const LEVELS = [
     pipes:[
       {x:650,y:474,toX:600,toY:157},
       {x:600,y:157,toX:650,toY:474},
-      {x:1320,y:417,room:true,kind:"estrela",returnX:1880,returnY:417,fact:"Sabias que o cadeado no browser não garante que uma loja online é de confiança?"}
+      {x:1320,y:417,room:true,kind:"estrela",returnX:1880,returnY:417,fact:"Sabias que os morcegos usam sons e ecos para «ver» no escuro?"}
     ],
     items:[{x:840,y:390,kind:"brinquedo"},{x:1080,y:310,kind:"estrela"},{x:1600,y:330,kind:"duplosalto"},{x:2100,y:310,kind:"balao"},{x:2580,y:310,kind:"medalha"},{x:560,y:470,kind:"heart"},{x:650,y:165,kind:"balao"}],
     malwares:[{x:980,y:480,vx:180,pattern:"patrol"},{x:1580,y:480,vx:-183,pattern:"jumper"},{x:2040,y:480,vx:182,pattern:"jumper"},{x:2450,y:480,vx:-179,pattern:"jumper"},{x:2780,y:480,vx:177}],
@@ -164,8 +164,8 @@ export const LEVELS = [
     secrets:[{x:1190,y:355,kind:"estrela",points:25}]
   },
   {
-    name: "Nível 5 — Vírus e Malware",
-    artIdx:4, theme:4, quizTheme:"virus_malware", worldW:3100,
+    name: "Nível 5 — Os Morcegos",
+    artIdx:4, theme:4, quizTheme:"h04", worldW:3100,
     spawn:{x:480,y:460}, doorX:2950,
     platforms:[
       {x:520,y:520,w:1000,h:28},{x:880,y:450,w:220,h:22},{x:1160,y:380,w:220,h:22},
@@ -186,8 +186,8 @@ export const LEVELS = [
     secrets:[{x:740,y:470,kind:"estrela",points:20}]
   },
   {
-    name: "Nível 6 — Cuidado com o Wi-Fi Público",
-    artIdx:5, theme:5, quizTheme:"wifi_publico", worldW:3100,
+    name: "Nível 6 — Aranhas e Teias",
+    artIdx:5, theme:5, quizTheme:"h05", worldW:3100,
     spawn:{x:480,y:460}, doorX:2700,
     // Layout: ilhas a alturas variadas — umas altas, outras baixas, sem padrão regular
     platforms:[
@@ -204,7 +204,7 @@ export const LEVELS = [
     ],
     // 1 par, perto do fim do nível — recompensa: 🛡️ escudo.
     pipes:[
-      {x:2260,y:407,room:true,kind:"medalha",fact:"Sabias que ninguém de confiança te pede o código do MB WAY ou do cartão por mensagem?"}
+      {x:2260,y:407,room:true,kind:"medalha",fact:"Sabias que um adulto tem 206 ossos, mas um bebé nasce com cerca de 300?"}
     ],
     items:[{x:860,y:380,kind:"medalha"},{x:1100,y:290,kind:"duplosalto"},{x:1560,y:260,kind:"estrela"},{x:2050,y:290,kind:"brinquedo"},{x:560,y:470,kind:"heart"}],
     malwares:[{x:1010,y:480,vx:170},{x:1480,y:480,vx:-170},{x:1940,y:480,vx:172},{x:2400,y:480,vx:-168},{x:2720,y:480,vx:165}],
@@ -212,8 +212,8 @@ export const LEVELS = [
     secrets:[{x:2160,y:355,kind:"estrela",points:20}]
   },
   {
-    name: "Nível 7 — Não Partilhes Dados Pessoais",
-    artIdx:6, theme:6, quizTheme:"dados_pessoais", worldW:2800,
+    name: "Nível 7 — Fantasmas e Sombras",
+    artIdx:6, theme:6, quizTheme:"h06", worldW:2800,
     spawn:{x:480,y:460}, doorX:2630,
     // signX: por defeito o letreiro/informação ficaria em spawn.x+240 (=720),
     // o que cai quase em cima do 1º trampolim (x:680) e a poucos passos do
@@ -256,8 +256,8 @@ export const LEVELS = [
     secrets:[{x:1060,y:415,kind:"estrela",points:20}]
   },
   {
-    name: "Nível 8 — A Tua Identidade Digital",
-    artIdx:7, theme:7, quizTheme:"identidade_digital", worldW:3400,
+    name: "Nível 8 — Bruxas e Vassouras",
+    artIdx:7, theme:7, quizTheme:"h07", worldW:3400,
     spawn:{x:480,y:460}, doorX:3050,
     // Layout: "cascata de terraços" — desce e sobe de forma orgânica, com plataformas a alturas muito variadas
     platforms:[
@@ -280,7 +280,7 @@ export const LEVELS = [
     pipes:[
       {x:570,y:474,toX:450,toY:157},
       {x:450,y:157,toX:570,toY:474},
-      {x:1820,y:327,room:true,kind:"balaofesta",fact:"Sabias que as mensagens de «encomenda retida» que pedem pagamento são uma burla comum?"}
+      {x:1820,y:327,room:true,kind:"balaofesta",fact:"Sabias que as aranhas têm oito patas e não são insetos?"}
     ],
     items:[{x:800,y:220,kind:"estrela"},{x:980,y:280,kind:"balao"},{x:1600,y:220,kind:"medalha"},{x:2270,y:290,kind:"brinquedo"},{x:2720,y:260,kind:"duplosalto"},{x:500,y:165,kind:"medalha"}],
     malwares:[{x:940,y:480,vx:185,pattern:"jumper"},{x:1490,y:480,vx:-188,pattern:"jumper"},{x:1960,y:480,vx:186,pattern:"jumper"},{x:2400,y:480,vx:-184,pattern:"jumper"},{x:2830,y:480,vx:182,pattern:"patrol"}],
@@ -289,8 +289,8 @@ export const LEVELS = [
     secrets:[{x:660,y:462,kind:"heart"}]
   },
   {
-    name: "Nível 9 — Palavras-passe Fortes",
-    artIdx:8, theme:8, quizTheme:"palavras_passe", worldW:3500,
+    name: "Nível 9 — Monstros Famosos",
+    artIdx:8, theme:8, quizTheme:"h08", worldW:3500,
     spawn:{x:480,y:460}, doorX:3100,
     platforms:[
       {x:520,y:520,w:1000,h:28},{x:920,y:442,w:185,h:22},{x:1200,y:368,w:185,h:22},
@@ -305,7 +305,7 @@ export const LEVELS = [
     pipes:[
       {x:1760,y:325,toX:1810,toY:99},
       {x:1810,y:99,toX:1760,toY:325},
-      {x:2320,y:325,room:true,kind:"estrela",fact:"Sabias que um «prémio grátis» num link desconhecido costuma ser phishing?"}
+      {x:2320,y:325,room:true,kind:"estrela",fact:"Sabias que a Lua não tem luz própria e só brilha porque reflete a luz do Sol?"}
     ],
     items:[{x:920,y:342,kind:"estrela"},{x:1480,y:248,kind:"medalha"},{x:2040,y:392,kind:"balao"},{x:2600,y:392,kind:"brinquedo"},{x:560,y:470,kind:"heart"},{x:1760,y:107,kind:"heart"}],
     malwares:[{x:1060,y:480,vx:190,pattern:"jumper"},{x:1660,y:480,vx:-195,pattern:"jumper"},{x:2260,y:480,vx:190,pattern:"jumper"},{x:2860,y:480,vx:-185,pattern:"jumper"},{x:3200,y:480,vx:188,pattern:"jumper"}],
@@ -317,8 +317,8 @@ export const LEVELS = [
     secrets:[{x:1150,y:430,kind:"heart"}]
   },
   {
-    name: "Nível 10 — Notícias Falsas (Fake News)",
-    artIdx:9, theme:9, quizTheme:"fake_news", worldW:3600,
+    name: "Nível 10 — Esqueletos e Ossos",
+    artIdx:9, theme:9, quizTheme:"h09", worldW:3600,
     spawn:{x:480,y:460}, doorX:3200,
     // Layout: "escadinhas duplas" — dois picos com vale ao meio
     platforms:[
@@ -342,8 +342,8 @@ export const LEVELS = [
     secrets:[{x:1600,y:370,kind:"estrela",points:25}]
   },
   {
-    name: "Nível 11 — Spam e Compras Seguras",
-    artIdx:10, theme:10, quizTheme:"spam_compras", worldW:3200,
+    name: "Nível 11 — Todos os Santos",
+    artIdx:10, theme:10, quizTheme:"h10", worldW:3200,
     spawn:{x:480,y:460}, doorX:2850,
     // Layout: pirâmide central alta + plataformas laterais baixas
     platforms:[
@@ -369,8 +369,8 @@ export const LEVELS = [
     secrets:[{x:680,y:462,kind:"heart"}]
   },
   {
-    name: "Nível 12 — Quem Nos Protege Online",
-    artIdx:11, theme:11, quizTheme:"instituicoes_apoio", worldW:3650,
+    name: "Nível 12 — Halloween pelo Mundo",
+    artIdx:11, theme:11, quizTheme:"h11", worldW:3650,
     spawn:{x:480,y:460}, doorX:3340,
     // Layout: "mini-mundos" — 3 grupos de plataformas isolados com vãos entre eles
     platforms:[
@@ -392,7 +392,7 @@ export const LEVELS = [
       {x:3370,y:520,w:960,h:28}
     ],
     pipes:[
-      {x:2100,y:307,room:true,kind:"medalha",fact:"Sabias que o Wi-Fi do centro comercial é público: evita fazer pagamentos nele?"}
+      {x:2100,y:307,room:true,kind:"medalha",fact:"Sabias que, em Portugal, as crianças pedem o Pão-por-Deus a 1 de novembro?"}
     ],
     items:[{x:820,y:380,kind:"balao"},{x:1040,y:290,kind:"estrela"},{x:1640,y:300,kind:"duplosalto"},{x:2320,y:220,kind:"medalha"},{x:2780,y:390,kind:"brinquedo"},{x:560,y:470,kind:"heart"}],
     malwares:[{x:950,y:480,vx:194,pattern:"patrol"},{x:1530,y:480,vx:-198,pattern:"jumper"},{x:1980,y:480,vx:196,pattern:"jumper"},{x:2440,y:480,vx:-194,pattern:"patrol"},{x:2880,y:480,vx:192,pattern:"jumper"}],
@@ -400,8 +400,8 @@ export const LEVELS = [
     secrets:[{x:3110,y:263,kind:"balao",points:15}]
   },
   {
-    name: "Nível 13 — Tecnologia para Todos",
-    artIdx:12, theme:12, quizTheme:"acessibilidade_digital", worldW:3700,
+    name: "Nível 13 — A Lua e a Noite",
+    artIdx:12, theme:12, quizTheme:"h12", worldW:3700,
     spawn:{x:480,y:460}, doorX:3300,
     // Layout: "labirinto horizontal" — plataformas em ziguezague apertado exige precisão
     platforms:[
@@ -428,8 +428,8 @@ export const LEVELS = [
     secrets:[{x:680,y:462,kind:"heart"}]
   },
   {
-    name: "Nível 14 — Denuncia e Pede Ajuda",
-    artIdx:13, theme:13, quizTheme:"denuncia_conteudo", worldW:3750,
+    name: "Nível 14 — Animais da Noite",
+    artIdx:13, theme:13, quizTheme:"h13", worldW:3750,
     spawn:{x:480,y:460}, doorX:3350,
     platforms:[
       {x:520,y:520,w:960,h:28},
@@ -451,7 +451,7 @@ export const LEVELS = [
     pipes:[
       {x:1400,y:397,toX:1450,toY:111},
       {x:1450,y:111,toX:1400,toY:397},
-      {x:2960,y:397,room:true,kind:"balaofesta",fact:"Sabias que os aparelhos ligados à internet precisam de uma palavra-passe nova?"}
+      {x:2960,y:397,room:true,kind:"balaofesta",fact:"Sabias que as lanternas de abóbora nasceram na Irlanda, onde se esculpiam nabos?"}
     ],
     movingPlatforms:[
       {x:1270,y:400,w:130,h:22,rangeX:120,rangeY:0,speed:80},
@@ -475,8 +475,8 @@ export const LEVELS = [
     secrets:[{x:2895,y:390,kind:"estrela",points:30}]
   },
   {
-    name: "Nível 15 — Reconhece o Phishing",
-    artIdx:14, theme:14, quizTheme:"phishing", worldW:3800,
+    name: "Nível 15 — Doces e Dentes",
+    artIdx:14, theme:14, quizTheme:"h14", worldW:3800,
     spawn:{x:480,y:460}, doorX:3400,
     platforms:[
       {x:520,y:520,w:1000,h:28},{x:980,y:432,w:160,h:22},{x:1260,y:350,w:160,h:22},
@@ -501,8 +501,8 @@ export const LEVELS = [
     secrets:[{x:760,y:470,kind:"medalha"},{x:2820,y:262,kind:"estrela",points:30}]
   },
   {
-    name: "Nível 16 — Respeita a Privacidade",
-    artIdx:15, theme:15, quizTheme:"privacidade", worldW:3850,
+    name: "Nível 16 — Poções e Ciência",
+    artIdx:15, theme:15, quizTheme:"h15", worldW:3850,
     spawn:{x:480,y:460}, doorX:3450,
     // Layout: "degraus duplos" — sobe dois andares, desce dois andares, plataformas estreitas
     platforms:[
@@ -523,7 +523,7 @@ export const LEVELS = [
       {x:3530,y:520,w:960,h:28}
     ],
     pipes:[
-      {x:2860,y:247,room:true,kind:"heart",fact:"Sabias que fotos de fatos e da casa podem mostrar onde moras? Pensa antes de partilhar!"},
+      {x:2860,y:247,room:true,kind:"heart",fact:"Sabias que as corujas conseguem rodar a cabeça cerca de 270 graus?"},
       // Túnel decorativo — mantido perto do início, afastado da plataforma
       // em x:820 (variedade: nem todos os túneis de um nível ficam juntos).
       {x:680,y:474,decorative:true}
@@ -535,8 +535,8 @@ export const LEVELS = [
     secrets:[{x:1100,y:273,kind:"estrela",points:25}]
   },
   {
-    name: "Nível 17 — A Tua Pegada Digital",
-    artIdx:16, theme:16, quizTheme:"pegada_digital", worldW:3900,
+    name: "Nível 17 — Histórias e Lendas",
+    artIdx:16, theme:16, quizTheme:"h16", worldW:3900,
     spawn:{x:480,y:460}, doorX:3500,
     // Layout: "cultura em círculos" — plataformas em grupos de 3 como constelações
     platforms:[
@@ -567,8 +567,8 @@ export const LEVELS = [
     secrets:[{x:2020,y:283,kind:"estrela",points:25}]
   },
   {
-    name: "Nível 18 — Regras de Ecrã em Família",
-    artIdx:17, theme:17, quizTheme:"regras_familia", worldW:3950,
+    name: "Nível 18 — A Matemática do Halloween",
+    artIdx:17, theme:17, quizTheme:"h17", worldW:3950,
     spawn:{x:480,y:460}, doorX:3550,
     // ══ MECÂNICA ESPECIAL: ESTEIRA — PLATAFORMAS TODAS EM MOVIMENTO ══
     // Todas as plataformas intermédias se movem. Umas horizontalmente (esq/dir),
@@ -618,8 +618,8 @@ export const LEVELS = [
     secrets:[{x:1820,y:263,kind:"estrela",points:30}]
   },
   {
-    name: "Nível 19 — Cuidado com Desconhecidos",
-    artIdx:18, theme:18, quizTheme:"contacto_desconhecidos", worldW:4000,
+    name: "Nível 19 — Halloween em Segurança",
+    artIdx:18, theme:18, quizTheme:"h18", worldW:4000,
     spawn:{x:480,y:460}, doorX:3600,
     // Layout: "floresta" — muitas plataformas pequenas a alturas variadas, como ramos de árvores
     platforms:[
@@ -646,7 +646,7 @@ export const LEVELS = [
     pipes:[
       {x:1160,y:397,toX:1210,toY:111},
       {x:1210,y:111,toX:1160,toY:397},
-      {x:2920,y:297,room:true,kind:"balaofesta",fact:"Sabias que aplicações e jogos só se devem instalar nas lojas oficiais?"}
+      {x:2920,y:297,room:true,kind:"balaofesta",fact:"Sabias que o bicarbonato com vinagre faz bolhas porque liberta dióxido de carbono?"}
     ],
     items:[{x:800,y:220,kind:"estrela"},{x:1520,y:230,kind:"balao"},{x:1920,y:220,kind:"duplosalto"},{x:2720,y:210,kind:"medalha"},{x:3120,y:380,kind:"brinquedo"},{x:560,y:470,kind:"heart"},{x:1160,y:119,kind:"balao"}],
     malwares:[{x:880,y:480,vx:208,pattern:"patrol"},{x:1440,y:480,vx:-212,pattern:"jumper"},{x:2020,y:480,vx:208,pattern:"jumper"},{x:2620,y:480,vx:-204,pattern:"jumper"},{x:3220,y:480,vx:-206,pattern:"patrol"}],
@@ -659,8 +659,8 @@ export const LEVELS = [
     secrets:[{x:1620,y:193,kind:"estrela",points:35},{x:2820,y:173,kind:"heart"}]
   },
   {
-    name: "Nível 20 — Direitos e Deveres Digitais",
-    artIdx:19, theme:19, quizTheme:"direitos_digitais", worldW:4100,
+    name: "Nível 20 — A Grande Final",
+    artIdx:19, theme:19, quizTheme:"h19", worldW:4100,
     spawn:{x:480,y:460}, doorX:3700,
     // Layout: "circuito digital" — plataformas em padrão de circuito impresso: retas longas com viragens bruscas
     platforms:[
@@ -682,7 +682,7 @@ export const LEVELS = [
     pipes:[
       {x:1920,y:317,toX:1970,toY:91},
       {x:1970,y:91,toX:1920,toY:317},
-      {x:3300,y:387,room:true,kind:"medalha",fact:"Sabias que, se algo parece bom demais para ser verdade, deves pedir ajuda a um adulto?"},
+      {x:3300,y:387,room:true,kind:"medalha",fact:"Sabias que as fitas refletoras num fato ajudam os condutores a ver-te à noite?"},
       // Túnel decorativo — perto do fim, no chão fixo, antes da porta,
       // afastado da plataforma em x:3300 (que fica logo por cima).
       {x:3480,y:474,decorative:true}

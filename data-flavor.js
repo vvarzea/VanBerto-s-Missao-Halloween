@@ -2,7 +2,6 @@
 // PRAISE, PAUSE_TIPS, LEVEL_ENTRY_PHRASES, DYNAMIC_MSGS_CORRECT, DYNAMIC_MSGS_WRONG,
 // VB_LEVEL_INTRO, VB_HIT, VB_QUIZ_CORRECT, VB_QUIZ_WRONG, VB_STAR_POWER, VB_PERFECT_LEVEL
 
-const _ORDEM_MUNDOS = [0, 5, 9, 12, 4, 11, 2, 16, 1, 7, 14, 3, 13, 15, 8, 17, 6, 10, 18, 19]; // nível i usa o tema antigo _ORDEM_MUNDOS[i] (reordenado pelos 4 mundos)
 export const PRAISE = ["🌟 Excelente!", "🛡️ Muito bem!", "🔐 Boa resposta!", "🎉 Fantástico!", "✨ Brilhante!", "🏆 Continua assim!", "🎃 Que resposta de arrepiar... de tão boa!", "🦇 Resposta digna de um Guardião!", "👻 Nem os fantasmas te enganam!", "🧙 Que feitiço de resposta!"];
 
 // PAUSE_TIPS são sobre MECÂNICAS de jogo (agachar, super-salto, power-ups,
@@ -25,28 +24,27 @@ export const PAUSE_TIPS = [
 // Frase curta mostrada ao entrar em cada nível — alinhada por posição no
 // array LEVELS (0-19), NÃO por artIdx.
 export const LEVEL_ENTRY_PHRASES = [
-  "A internet liga o mundo! 🌐",
-  "Uma boa palavra-passe protege-te! 🔐",
-  "Os teus dados são só teus! 🪪",
-  "Nunca estás sozinho online! 🆘",
-  "Cuidado com os vírus! 🦠",
-  "Joga sempre com regras! 🎮",
-  "Pensa antes de publicar! 👣",
-  "Nem tudo o que lês é verdade! 📰",
-  "Cuidado com o phishing! 🎣",
-  "Mantém tudo atualizado! 💻",
-  "A família ajuda a decidir! 👨‍👩‍👧",
-  "Wi-Fi público? Atenção redobrada! 📶",
-  "Guarda sempre uma cópia! 💾",
-  "A tecnologia é para todos! ♿",
-  "Desconfia de ofertas boas demais! 🛒",
-  "Denunciar é um direito! 📢",
-  "A tua identidade também é digital! 🧑‍💻",
-  "A tua privacidade é sagrada! 🔒",
-  "Cuidado com desconhecidos! 🚫",
-  "Os teus direitos existem online! ⚖️"
+  "O Halloween nasceu há mais de 2000 anos! 🎃",
+  "Uma abóbora, uma luz e muita magia! 🏮",
+  "Escolhe um fato seguro e divertido! 🎭",
+  "Doces ou travessuras? Vai sempre acompanhado! 🍬",
+  "Os morcegos veem com os ouvidos! 🦇",
+  "Oito patas, uma teia e muita paciência! 🕸️",
+  "Nem todo o susto é o que parece! 👻",
+  "Bruxas e vassouras: só fantasia! 🧙",
+  "Drácula, múmias e lobisomens! 🧟",
+  "206 ossos num só esqueleto! 💀",
+  "Pão-por-Deus e Todos os Santos! 🕯️",
+  "Cada país festeja à sua maneira! 🌍",
+  "A Lua só brilha com a luz do Sol! 🌕",
+  "A noite é das corujas e dos gatos! 🦉",
+  "Doces com moderação e dentes limpos! 🦷",
+  "A ciência faz poções de verdade! 🧪",
+  "Conta uma história de arrepiar! 📖",
+  "Com números, até os doces se contam! 🔢",
+  "Halloween seguro é Halloween feliz! 🔦",
+  "A grande final do Halloween! 🏆"
 ];
-LEVEL_ENTRY_PHRASES.splice(0, 20, ..._ORDEM_MUNDOS.map(i => LEVEL_ENTRY_PHRASES[i]));
 
 export const DYNAMIC_MSGS_CORRECT = [
   "🌟 Fantástico!", "✨ Excelente!", "🎉 És incrível!",
@@ -62,28 +60,27 @@ export const DYNAMIC_MSGS_WRONG = [
 // posição no array LEVELS (0-19), NÃO por artIdx. O motor usa sempre
 // VB_LEVEL_INTRO[0] no arranque do jogo (ver dia-crianca.js).
 export const VB_LEVEL_INTRO = [
-  "Hoje vamos recuperar a competência de Navegar em Segurança! 🌐 Estás preparado?",
-  "Uma palavra-passe forte é o teu primeiro escudo digital! 🔐 Vamos descobrir como criá-la?",
-  "Os teus dados pessoais são um tesouro! 🪪 Vamos aprender a protegê-los?",
-  "Nunca estamos sozinhos online! 🆘 Vamos descobrir quem nos ajuda?",
-  "Sinto um vírus por perto! 🦠 Vamos aprender a proteger o computador?",
-  "Jogar com regras é jogar melhor! 🎮 Vamos ver como jogar em segurança?",
-  "Tudo o que publicamos deixa um rasto! 👣 Vamos pensar antes de publicar?",
-  "Nem tudo o que lemos online é verdade! 📰 Vamos aprender a verificar?",
-  "Atenção aos links suspeitos! 🎣 Vamos aprender a reconhecer o phishing?",
-  "Dispositivos atualizados são dispositivos protegidos! 💻 Vamos cuidar deles?",
-  "Em família, decidimos juntos as regras de ecrã! 👨‍👩‍👧 Vamos lá?",
-  "Wi-Fi público pede cuidados redobrados! 📶 Vamos aprender quais?",
-  "Uma cópia de segurança pode salvar-nos de um grande susto! 💾 Vamos fazê-la?",
-  "A tecnologia é para todos! ♿ Vamos torná-la acessível?",
-  "Cuidado com ofertas boas demais para ser verdade! 🛒 Vamos aprender a desconfiar?",
-  "Denunciar é um direito nosso! 📢 Vamos usá-lo sem medo?",
-  "A tua identidade digital também merece proteção! 🧑‍💻 Vamos protegê-la?",
-  "Os teus segredos são teus! 🔒 A privacidade também é um direito!",
-  "Cuidado com desconhecidos online! 🚫 Vamos aprender a reconhecer o perigo?",
-  "Os teus direitos também existem online! ⚖️ Último nível — dá tudo!"
+  "Hoje vamos descobrir a origem do Halloween! 🎃 Estás preparado?",
+  "As abóboras iluminadas vêm de uma lenda antiga! 🏮 Vamos descobrir qual?",
+  "Fatos e máscaras têm história! 🎭 Vamos aprender a escolher um fato seguro?",
+  "Doces ou travessuras! 🍬 Vamos ver como pedir doces em segurança?",
+  "Ouço asas por perto! 🦇 Vamos descobrir os segredos dos morcegos?",
+  "Cuidado com as teias! 🕸️ Vamos descobrir como vivem as aranhas?",
+  "Ouço ruídos estranhos! 👻 Vamos descobrir a explicação por trás dos sustos?",
+  "Há vassouras a voar! 🧙 Vamos separar a fantasia da realidade?",
+  "Monstros famosos à vista! 🧟 Vamos descobrir as suas histórias?",
+  "Sinto ossos a ranger! 💀 Vamos aprender como é o nosso esqueleto?",
+  "Em Portugal, também há tradições nesta altura! 🕯️ Vamos conhecê-las?",
+  "O Halloween dá a volta ao mundo! 🌍 Vamos viajar pelas tradições?",
+  "A Lua cheia ilumina o caminho! 🌕 Vamos descobrir os seus segredos?",
+  "A noite está cheia de olhos a brilhar! 🦉 Vamos conhecer os animais noturnos?",
+  "Tantos doces! 🦷 Vamos aprender a cuidar dos dentes?",
+  "Vou preparar uma poção! 🧪 Vamos descobrir a ciência por trás da magia?",
+  "Já sabes contar histórias de arrepiar? 📖 Vamos inventar uma?",
+  "Há doces para contar! 🔢 Vamos fazer contas e descobrir padrões?",
+  "Antes de a noite começar, vamos rever a segurança! 🔦 Estás pronto?",
+  "Chegámos à grande final! 🏆 Vamos mostrar tudo o que aprendemos?"
 ];
-VB_LEVEL_INTRO.splice(0, 20, ..._ORDEM_MUNDOS.map(i => VB_LEVEL_INTRO[i]));
 
 export const VB_HIT = [
   "Ups! Perdemos uma vida, mas os heróis nunca desistem! 💪",

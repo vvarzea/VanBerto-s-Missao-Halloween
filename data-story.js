@@ -1,23 +1,22 @@
 // ===== Conteúdo narrativo — MISSÃO CIBERSEGURANÇA =====
 // Ficheiro puramente de dados, sem lógica de jogo.
 
-const _ORDEM_MUNDOS = [0, 5, 9, 12, 4, 11, 2, 16, 1, 7, 14, 3, 13, 15, 8, 17, 6, 10, 18, 19]; // nível i usa o tema antigo _ORDEM_MUNDOS[i] (reordenado pelos 4 mundos)
 export const REGION_INTRO = {
   origens: {
-    vanberto: "Esta floresta está cheia de ficheiros suspeitos... vamos descobrir os vírus e proteger o computador!",
-    arrival: "Bem-vindo à Floresta Assombrada dos Vírus — a Internet, os dispositivos e o malware. 🦇 Há abóboras a brilhar entre as árvores e o Rei Malware esconde-se algures! 🎃"
+    vanberto: "Esta floresta está cheia de abóboras acesas e morcegos... vamos descobrir os segredos do Halloween!",
+    arrival: "Bem-vindo à Floresta Assombrada dos Vírus — a origem do Halloween, as abóboras, os fatos, os doces e os morcegos. 🦇 O Rei Malware esconde-se algures! 🎃"
   },
   desenvolvimento: {
-    vanberto: "Este castelo guarda as chaves digitais... não deixemos os fantasmas entrar nas contas!",
-    arrival: "Bem-vindo ao Castelo das Palavras-Passe Perdidas — palavras-passe fortes e dados pessoais protegidos. 👻 Os fantasmas guardiões andam à solta! 🔐"
+    vanberto: "Este castelo está cheio de fantasmas, teias e vassouras... mas sabemos que os sustos têm explicação!",
+    arrival: "Bem-vindo ao Castelo das Palavras-Passe Perdidas — aranhas, fantasmas, bruxas e monstros famosos. 👻 O Fantasma Hacker guarda as chaves digitais! 🔐"
   },
   protecao: {
-    vanberto: "Estas mensagens brilham no escuro... vamos descobrir quais são falsas!",
-    arrival: "Bem-vindo ao Cemitério das Mensagens Malditas — phishing, notícias falsas e links suspeitos. 🪦 A Bruxa do Phishing está a preparar mensagens tentadoras! ✉️"
+    vanberto: "Neste cemitério vamos descobrir tradições, a Lua e os animais da noite!",
+    arrival: "Bem-vindo ao Cemitério das Mensagens Malditas — esqueletos, Todos os Santos, a Lua e os animais da noite. 🪦 A Bruxa do Phishing prepara mensagens tentadoras! ✉️"
   },
   participacao: {
-    vanberto: "Estamos quase lá! Sinto todas as ameaças juntas nas sombras desta mansão...",
-    arrival: "Bem-vindo à Mansão das Sombras Digitais — privacidade, fotografias, desconhecidos e segurança online. 🧪 O Senhor das Sombras espera pelo desafio final! 🕯️"
+    vanberto: "Estamos quase lá! Esta mansão guarda poções, histórias e o desafio final...",
+    arrival: "Bem-vindo à Mansão das Sombras Digitais — poções, lendas, matemática e segurança. 🧪 O Senhor das Sombras espera pelo desafio final! 🕯️"
   }
 };
 
@@ -109,25 +108,24 @@ export const BOSS_HP_TAUNTS = {
 
 // Um "letreiro"/NPC por nível — alinhado por artIdx (0-19), tal como HISTORY[].
 export const NPC_SIGNS = [
-  { emoji:"🌐", text:"Sabias que a primeira página web foi publicada em 1991?" },
-  { emoji:"🔐", text:"Uma palavra-passe com 12 ou mais carateres é muito mais difícil de adivinhar!" },
-  { emoji:"🪪", text:"Nunca partilhes a tua morada ou telefone com quem só conheces online." },
-  { emoji:"🆘", text:"Linha Internet Segura: 800 21 90 90 (gratuita, dias úteis). Em perigo, liga 112!" },
-  { emoji:"🦠", text:"Um antivírus atualizado é como uma vacina para o teu computador!" },
-  { emoji:"🎮", text:"Sabias que os jogos têm uma idade mínima recomendada (PEGI) escrita na caixa?" },
-  { emoji:"👣", text:"Tudo o que publicas online deixa uma pegada digital — pensa sempre antes de publicar!" },
-  { emoji:"📰", text:"Antes de acreditares numa notícia chocante, procura-a noutra fonte de confiança." },
-  { emoji:"🎣", text:"Um link urgente e suspeito é quase sempre um sinal de phishing!" },
-  { emoji:"💻", text:"Atualizar o teu telemóvel ou computador fecha portas a quem quer atacar." },
-  { emoji:"👨‍👩‍👧", text:"Combinar regras de ecrã com a família ajuda todos a navegar com equilíbrio." },
-  { emoji:"📶", text:"Em Wi-Fi público, evita iniciar sessão em contas com dados importantes." },
-  { emoji:"💾", text:"Uma cópia de segurança pode salvar-te de perder um trabalho inteiro!" },
-  { emoji:"♿", text:"Leitores de ecrã e legendas tornam a internet acessível a todos!" },
-  { emoji:"🛒", text:"Uma oferta boa demais para ser verdade... normalmente não é verdade." },
-  { emoji:"📢", text:"O botão de denúncia existe para te proteger — usa-o sem medo!" },
-  { emoji:"🧑‍💻", text:"A maioria das redes sociais só permite criar conta a partir dos 13 anos." },
-  { emoji:"🔒", text:"Pede sempre autorização antes de publicares uma foto com outras pessoas." },
-  { emoji:"🚫", text:"Se um desconhecido insistir para guardares segredo, conta sempre a um adulto." },
-  { emoji:"⚖️", text:"Sabias que, desde 2021, a ONU reconhece direitos das crianças também online?" }
+  { emoji:"🎃", text:"Sabias que o Halloween se celebra há mais de 2000 anos, desde o Samhain celta?" },
+  { emoji:"🏮", text:"As primeiras lanternas eram feitas de nabos, na Irlanda!" },
+  { emoji:"🎭", text:"Um fato com fitas refletoras ajuda os condutores a ver-te à noite." },
+  { emoji:"🍬", text:"Em Portugal, o Pão-por-Deus é a 1 de novembro. Vai sempre com um adulto!" },
+  { emoji:"🦇", text:"Os morcegos são os únicos mamíferos que voam de verdade!" },
+  { emoji:"🕸️", text:"As aranhas têm oito patas, por isso não são insetos." },
+  { emoji:"👻", text:"Quando aproximas um objeto da luz, a sua sombra fica maior!" },
+  { emoji:"🧙", text:"As bruxas do Halloween são só fantasia: diverte-te sem acreditar em superstições." },
+  { emoji:"🧟", text:"Frankenstein é o nome do cientista, não o do monstro!" },
+  { emoji:"💀", text:"Um adulto tem 206 ossos, mas um bebé nasce com cerca de 300!" },
+  { emoji:"🕯️", text:"O Dia de Todos os Santos, 1 de novembro, é feriado nacional em Portugal." },
+  { emoji:"🌍", text:"No México, o Dia de Muertos recorda com alegria quem já partiu." },
+  { emoji:"🌕", text:"A Lua não tem luz própria: reflete a luz do Sol." },
+  { emoji:"🦉", text:"As corujas conseguem rodar a cabeça cerca de 270 graus!" },
+  { emoji:"🦷", text:"Depois de comer doces, lava os dentes ou bebe água." },
+  { emoji:"🧪", text:"Bicarbonato com vinagre faz bolhas porque liberta dióxido de carbono!" },
+  { emoji:"📖", text:"Todas as boas histórias têm início, meio e fim." },
+  { emoji:"🔢", text:"Se dobrares uma abóbora esculpida ao meio, os dois lados são iguais: é a simetria!" },
+  { emoji:"🔦", text:"Em caso de emergência, liga 112." },
+  { emoji:"🏆", text:"Diverte-te, sê curioso e cuida de ti e dos outros!" }
 ];
-NPC_SIGNS.splice(0, 20, ..._ORDEM_MUNDOS.map(i => NPC_SIGNS[i]));
