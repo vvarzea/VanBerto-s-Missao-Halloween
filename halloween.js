@@ -134,10 +134,9 @@ function buildLights() {
 
 function init() {
   document.body.appendChild(canvas);
-  document.body.appendChild(lights);
-  resize(); buildLights(); apply();
+  resize(); apply();
   let rt = 0;
-  window.addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(() => { resize(); buildLights(); apply(); }, 150); });
+  window.addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(() => { resize(); apply(); }, 150); });
   const btn = document.getElementById("btnNevoeiro");
   if (btn) btn.addEventListener("click", () => {
     if (fxOn && !fxAuto) { fxAuto = true; lite = 0; scale = 1; lights.classList.remove("lite"); makeBats(); sumRaw = nRaw = 0; startedAt = performance.now(); } // tenta outra vez

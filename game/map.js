@@ -7,23 +7,23 @@
  * As variáveis de estado vivem em state.js; aqui alteram-se com set_<nome>().
  *************************************************/
 
-import { vbSay } from "./dialogue.js?v=20261027halloween4";
-import { startOverlay } from "./dom.js?v=20261027halloween4";
-import { playLevelTransition } from "./door.js?v=20261027halloween4";
-import { loadLevel } from "./level.js?v=20261027halloween4";
-import { openOverlay, saveGame } from "./overlays.js?v=20261027halloween4";
-import { showHistory } from "./quiz.js?v=20261027halloween4";
-import { initPhaser } from "./scene.js?v=20261027halloween4";
-import { currentLevel, getStartLives, mapProgress, pausedByTeacher, playerName, playerNameHUD, powerHaloGfx, sceneRef, score, set__historySubOpen, set__overlayPaused, set__winOverlaySubOpen, set_currentLevel, set_lives, shadowGfx } from "./state.js?v=20261027halloween4";
-import { loadNamespace, saveNamespace } from "../storage.js?v=20261027halloween4";
-import { MAP_REGIONS } from "../data-progression.js?v=20261027halloween4";
-import { applyBackground as applyBackgroundRaw } from "../background.js?v=20261027halloween4";
-import { LEVELS, THEMES } from "../data-levels.js?v=20261027halloween4";
-import { ensureAudio, SFX } from "../audio.js?v=20261027halloween4";
-import { playTitleCard } from "../cinematics.js?v=20261027halloween4";
-import { starsForLevel } from "../stars.js?v=20261027halloween4";
-import { REGION_INTRO } from "../data-story.js?v=20261027halloween4";
-import { VB_LEVEL_INTRO } from "../data-flavor.js?v=20261027halloween4";
+import { vbSay } from "./dialogue.js?v=20261028halloween5";
+import { startOverlay } from "./dom.js?v=20261028halloween5";
+import { playLevelTransition } from "./door.js?v=20261028halloween5";
+import { loadLevel } from "./level.js?v=20261028halloween5";
+import { openOverlay, saveGame } from "./overlays.js?v=20261028halloween5";
+import { showHistory } from "./quiz.js?v=20261028halloween5";
+import { initPhaser } from "./scene.js?v=20261028halloween5";
+import { currentLevel, getStartLives, mapProgress, pausedByTeacher, playerName, playerNameHUD, powerHaloGfx, sceneRef, score, set__historySubOpen, set__overlayPaused, set__winOverlaySubOpen, set_currentLevel, set_lives, shadowGfx } from "./state.js?v=20261028halloween5";
+import { loadNamespace, saveNamespace } from "../storage.js?v=20261028halloween5";
+import { MAP_REGIONS } from "../data-progression.js?v=20261028halloween5";
+import { applyBackground as applyBackgroundRaw } from "../background.js?v=20261028halloween5";
+import { LEVELS, THEMES } from "../data-levels.js?v=20261028halloween5";
+import { ensureAudio, SFX } from "../audio.js?v=20261028halloween5";
+import { playTitleCard } from "../cinematics.js?v=20261028halloween5";
+import { starsForLevel } from "../stars.js?v=20261028halloween5";
+import { REGION_INTRO } from "../data-story.js?v=20261028halloween5";
+import { VB_LEVEL_INTRO } from "../data-flavor.js?v=20261028halloween5";
 
 
 // ===== Dicas =====

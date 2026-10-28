@@ -475,7 +475,7 @@ export const LEVELS = [
     secrets:[{x:2895,y:390,kind:"estrela",points:30}]
   },
   {
-    name: "Nível 15 — Doces e Dentes",
+    name: "Nível 15 — O Pão-por-Deus",
     artIdx:14, theme:14, quizTheme:"h14", worldW:3800,
     spawn:{x:480,y:460}, doorX:3400,
     platforms:[

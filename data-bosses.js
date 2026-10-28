@@ -129,7 +129,7 @@ export const BOSSES = [
     signX: 230,
     intro: "Uhuhuhu! Vou adivinhar todas as tuas palavras-passe… até as do Halloween!",
     defeatLine: "Nãoo! Aquelas palavras-passe… eram fortes demais!",
-    quizTheme: "palavras_passe",
+    quizTheme: "hb2",
     hp: 3,
     // Tema próprio removido — os temas passaram a estar agrupados por
     // família de mundo (ver data-levels.js/THEMES), por isso "saltar" para
@@ -317,7 +317,7 @@ export const BOSSES = [
     signX: 200,
     intro: "Eu sou o Rei Abóbora! Vou infetar todas as abóboras (e todos os teus ficheiros) desta floresta!",
     defeatLine: "Argh! A minha coroa… e o meu vírus… derrotados!",
-    quizTheme: "virus_malware",
+    quizTheme: "hb1",
     hp: 3,                     // 4→3: agora são sempre 3 saltos na cabeça, como os outros bosses "stomp"
     // themeIdx próprio removido — ver comentário igual no boss do phishing.
     rightRecovered: { emoji: "🛡️", name: "Dispositivo Protegido" },
@@ -446,7 +446,7 @@ export const BOSSES = [
     signX: 220,
     intro: "Reuni todas as ameaças dos outros mundos! Ninguém escapa às Sombras Digitais!",
     defeatLine: "A tua segurança… venceu-me!",
-    quizTheme: "direitos_digitais", // CORRIGIDO: estava "contacto_desconhecidos" (tema do
+    quizTheme: "hb4", // CORRIGIDO: estava "contacto_desconhecidos" (tema do
                               // Nível 19), por isso a pergunta do boss não coincidia com a
                               // pergunta que já tinha fechado o Nível 20 — pareciam duas
                               // perguntas a mais/desencontradas em vez de reforçarem o mesmo tema.
@@ -593,7 +593,7 @@ export const BOSSES = [
     signX: 200,
     intro: "Tenho mensagens tentadoras só para ti… clica no link! Hehehe… até convites falsos para festas de Halloween!",
     defeatLine: "O meu feitiço… foi desfeito! As mensagens falsas foram todas descobertas!",
-    quizTheme: "phishing",
+    quizTheme: "hb3",
     hp: 3,                     // 5→3: agora são sempre 3 saltos na cabeça
     // themeIdx próprio removido — ver comentário igual no boss do phishing.
     rightRecovered: { emoji: "📭", name: "Mensagens Verificadas" },

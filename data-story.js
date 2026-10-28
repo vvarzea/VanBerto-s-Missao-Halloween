@@ -122,7 +122,7 @@ export const NPC_SIGNS = [
   { emoji:"🌍", text:"No México, o Dia de Muertos recorda com alegria quem já partiu." },
   { emoji:"🌕", text:"A Lua não tem luz própria: reflete a luz do Sol." },
   { emoji:"🦉", text:"As corujas conseguem rodar a cabeça cerca de 270 graus!" },
-  { emoji:"🦷", text:"Depois de comer doces, lava os dentes ou bebe água." },
+  { emoji:"🧺", text:"No Pão-por-Deus, as crianças recebem pão, broas, romãs e frutos secos num saco de pano." },
   { emoji:"🧪", text:"Bicarbonato com vinagre faz bolhas porque liberta dióxido de carbono!" },
   { emoji:"📖", text:"Todas as boas histórias têm início, meio e fim." },
   { emoji:"🔢", text:"Se dobrares uma abóbora esculpida ao meio, os dois lados são iguais: é a simetria!" },

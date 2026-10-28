@@ -38,7 +38,7 @@ export const ARTEFACTS = [
   { emoji:"🌍", name:"Globo Assombrado", short:"Halloween pelo Mundo", color:"#ffc060", glow:"rgba(255,192,96,0.6)", vanberto:"Cada país, uma tradição!", set:2 },
   { emoji:"🌕", name:"Lua Cheia", short:"A Lua e a Noite", color:"#80c8ff", glow:"rgba(128,200,255,0.6)", vanberto:"Reflete a luz do Sol!", set:2 },
   { emoji:"🦉", name:"Pena de Coruja", short:"Animais da Noite", color:"#ff6060", glow:"rgba(255,96,96,0.6)", vanberto:"Noturnos e muito atentos!", set:2 },
-  { emoji:"🦷", name:"Dente Brilhante", short:"Doces e Dentes", color:"#ffd080", glow:"rgba(255,208,128,0.6)", vanberto:"Moderação e dentes limpos!", set:2 },
+  { emoji:"🧺", name:"Saco do Pão-por-Deus", short:"O Pão-por-Deus", color:"#ffd080", glow:"rgba(255,208,128,0.6)", vanberto:"Pão, broas e romãs!", set:2 },
   // idx 15-19 — Conjunto: Identidade
   { emoji:"🧪", name:"Poção Borbulhante", short:"Poções e Ciência", color:"#c080ff", glow:"rgba(192,128,255,0.6)", vanberto:"A magia é ciência!", set:3 },
   { emoji:"📖", name:"Livro de Lendas", short:"Histórias e Lendas", color:"#ff80a0", glow:"rgba(255,128,160,0.6)", vanberto:"Início, meio e fim!", set:3 },
