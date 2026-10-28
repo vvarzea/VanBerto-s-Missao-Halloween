@@ -4,7 +4,7 @@
 export const REGION_INTRO = {
   origens: {
     vanberto: "Esta floresta está cheia de abóboras acesas e morcegos... vamos descobrir os segredos do Halloween!",
-    arrival: "Bem-vindo à Floresta Assombrada dos Vírus — a origem do Halloween, as abóboras, os fatos, os doces e os morcegos. 🦇 O Rei Malware esconde-se algures! 🎃"
+    arrival: "Bem-vindo à Floresta Assombrada dos Vírus — a origem do Halloween, as abóboras, os fatos, os doces e os morcegos. 🦇 O Rei Abóbora esconde-se algures! 🎃"
   },
   desenvolvimento: {
     vanberto: "Este castelo está cheio de fantasmas, teias e vassouras... mas sabemos que os sustos têm explicação!",
@@ -26,20 +26,20 @@ export const REGION_INTRO = {
 // diretamente: antes disto, os 4 textos tinham sempre "3 vezes" fixo, o que
 // ficava errado no modo Difícil (onde o boss aguenta 4 saltos).
 export const BOSS_OBJECTIVE = {
-  virus_gigante: "Desvia-te dos ficheiros infetados 🦠 que o Rei Malware atira e salta-lhe em cima {N} vezes para o vencer!",
+  virus_gigante: "Desvia-te das abóboras infetadas 🎃 que o Rei Abóbora atira e salta-lhe em cima {N} vezes para o vencer!",
   // CORRIGIDO — este texto ainda descrevia a bola "?" roxa genérica de
   // antes do redesenho "pirata-hacker" (ver orbTexture:"boss_proj_hook" e
   // hookDrift em data-bosses.js): o ataque deste boss já tinha passado a
   // ser um anzol lançado na horizontal, mas o letreiro nunca foi atualizado.
-  monstro_phishing: "Desvia-te dos feitiços de palavras-passe 🔑 que o Fantasma Hacker lança e salta-lhe em cima {N} vezes para o vencer!",
-  robo_spam: "A Bruxa do Phishing patrulha depressa a espalhar mensagens falsas ✉️ — apanha o ritmo e salta-lhe em cima {N} vezes para o vencer!",
+  monstro_phishing: "Desvia-te das chaves 🔑 que o Fantasma Hacker lança e salta-lhe em cima {N} vezes para o vencer!",
+  robo_spam: "A Bruxa do Phishing patrulha depressa a atirar cartas amaldiçoadas ✉️ — apanha o ritmo e salta-lhe em cima {N} vezes para o vencer!",
   // CORRIGIDO (pedido: "no nível do último boss faz isto, não quero nada
   // disto") — este texto ainda descrevia o teletransporte antigo ("ele
   // teleporta-se... assim que ele reaparecer"), que já foi removido (ver
   // movementType em data-bosses.js: passou de "teleport" para "patrol",
   // mais rápido que todos os outros 3, mas nunca desaparece do ecrã). O
   // texto ficava a prometer um comportamento que já não existe.
-  espiao_sombras: "O Senhor das Sombras Digitais anda muito depressa a atirar orbes sombrios 🔮! Salta-lhe em cima {N} vezes para o vencer!"
+  espiao_sombras: "O Senhor das Sombras Digitais anda muito depressa a atirar morcegos 🦇! Salta-lhe em cima {N} vezes para o vencer!"
 };
 
 // Diálogo de boss, por boss.
@@ -48,7 +48,7 @@ export const BOSS_OBJECTIVE = {
 export const BOSS_INTRO_VB = {
   virus_gigante: {
     reaction: "Ugh, esta floresta está cheia de ficheiros suspeitos... alguma coisa aqui não está nada bem.",
-    rally: "Vamos mostrar ao Rei Malware que um dispositivo protegido é mais forte!"
+    rally: "Vamos mostrar ao Rei Abóbora que um dispositivo protegido é mais forte!"
   },
   monstro_phishing: {
     reaction: "Há um fantasma a rondar as nossas contas... alguém quer adivinhar as palavras-passe!",
@@ -66,9 +66,9 @@ export const BOSS_INTRO_VB = {
 
 // Uma única fala de vitória por boss, ligada à competência que acabou de ser recuperada.
 export const BOSS_VICTORY_VB = {
-  virus_gigante: "Conseguimos! A floresta está limpa e o nosso dispositivo protegido!",
+  virus_gigante: "Conseguimos! O Rei Abóbora foi derrotado e a floresta está protegida!",
   monstro_phishing: "Vencemos! As nossas contas estão seguras com palavras-passe fortes!",
-  robo_spam: "Feitiço desfeito! Agora sabemos reconhecer mensagens falsas e links suspeitos!",
+  robo_spam: "Feitiço desfeito! Agora sabemos reconhecer mensagens falsas e links suspeitos! 🧙",
   espiao_sombras: "A nossa privacidade venceu as Sombras Digitais! Está tudo seguro!"
 };
 
@@ -85,7 +85,7 @@ export const KNOWLEDGE_FACTS = [
 // Falas curtas do boss em marcos de HP durante o combate.
 export const BOSS_HP_TAUNTS = {
   virus_gigante: {
-    atStart: ["Vou multiplicar-me sem parar!", "Não me consegues apanhar!", "Infeto todos os ficheiros da floresta!"],
+    atStart: ["Vou encher-te de abóboras!", "Não me consegues apanhar!", "Infeto todas as abóboras da floresta!"],
     hp2: ["Argh! Isso picou...", "Não contava com esse salto!", "Ainda tenho força de sobra!"],
     hp1: ["Não... o antivírus é forte demais!", "Isto não pode ser...", "Estou a ser eliminado!"]
   },
@@ -95,12 +95,12 @@ export const BOSS_HP_TAUNTS = {
     hp1: ["Não! As palavras-passe eram fortes demais!", "Isto não pode ser...", "A segurança... é mais forte!"]
   },
   robo_spam: {
-    atStart: ["Tenho mensagens tentadoras só para ti!", "Não me apanhas, sou rápida demais!", "Clica no link, clica no link!"],
+    atStart: ["Tenho cartas amaldiçoadas só para ti!", "Não me apanhas, sou rápida demais!", "Clica no link, clica no link! Hehehe!"],
     hp2: ["Essa estragou-me o feitiço!", "Não contava com essa pancada!", "Ainda tenho muitas mensagens para enviar!"],
     hp1: ["Não... estão todas a ser descobertas!", "O meu feitiço... está a falhar!", "Isto não pode ser!"]
   },
   espiao_sombras: {
-    atStart: ["Todas as ameaças estão comigo!", "Nunca me vais apanhar no ar!", "Ninguém escapa às Sombras Digitais!"],
+    atStart: ["Todas as ameaças estão comigo!", "Os meus morcegos vão apanhar-te!", "Ninguém escapa às Sombras Digitais!"],
     hp2: ["Impossível! Consegues ver-me na sombra?", "Isso não devia ter acontecido...", "Grrr, mais rápido da próxima vez!"],
     hp1: ["Não... a tua segurança está a vencer!", "As sombras... estão a desaparecer!", "Isto não pode ser o fim!"]
   }

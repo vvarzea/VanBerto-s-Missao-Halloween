@@ -75,7 +75,7 @@ export const BOSSES = [
     phishingDecoyAtMaxRage: true,
     // Rótulo temático do contador de saltos no HUD (nova) — antes os 4
     // bosses mostravam sempre "👣 Saltos: X/3", sem ligação ao tema.
-    stompLabel: "👻 Tentativas de acesso travadas",
+    stompLabel: "👻 Tentativas travadas",
     // Reforço do chefe — habilidade exclusiva do Extremo (nova, pedido:
     // "algo qualitativamente novo no Extremo, não só +HP/×1.4", em vez do
     // Extremo continuar a ser só o mesmo combate mais apertado). Ao chegar
@@ -177,7 +177,7 @@ export const BOSSES = [
     id: "virus_gigante",
     afterLevel: 4,            // Fecha o mundo "Reino dos Fundamentos" (Níveis 1-5 — internet,
                                // palavras-passe, dados pessoais, instituições de apoio, vírus).
-    name: "Rei Malware",
+    name: "Rei Abóbora",
     emoji: "🦠",
     // Cor alinhada com o redesenho "robô-vírus" (ver makeBossTextures em
     // textures.js) — antes era rosa (0xe0409a), a cor da esfera antiga;
@@ -208,7 +208,7 @@ export const BOSSES = [
     rageLines: { angry: "Vou replicar-me outra vez!", desperate: "O antivírus... está a vencer!" },
     // Rótulo temático do contador de saltos no HUD (nova, ver mesmo
     // comentário no Monstro do Phishing).
-    stompLabel: "🦠 Ficheiros infetados travados",
+    stompLabel: "🎃 Abóboras travadas",
     // Reforço do chefe no Extremo — ver comentário completo junto ao
     // Monstro do Phishing (data-bosses.js, boss monstro_phishing).
     extremoReinforcement: true,
@@ -294,7 +294,7 @@ export const BOSSES = [
     chaserGermAtMaxRage: true,
     // orbTint: era rosa (0xe0409a, a condizer com a esfera antiga) — agora
     // vermelho, a condizer com o redesenho "robô-vírus".
-    orbTint: 0xff4030,
+    orbTint: 0xffffff,
     // bossY: recalculado com o redesenho "robô-vírus" (ver makeBossTextures
     // em textures.js) — a esfera antiga não tinha pernas (pixel mais baixo
     // a ~44px do centro); agora tem botas, tal como os outros 3 bosses, com
@@ -315,8 +315,8 @@ export const BOSSES = [
     // cálculo por omissão (playerStartX+80, que com o playerStartX agora em
     // 400 daria 480 e cairia no vão aberto entre as plataformas).
     signX: 200,
-    intro: "Vou infetar todos os teus ficheiros… até os das fotos da noite de Halloween!",
-    defeatLine: "Argh! O antivírus… venceu-me!",
+    intro: "Eu sou o Rei Abóbora! Vou infetar todas as abóboras (e todos os teus ficheiros) desta floresta!",
+    defeatLine: "Argh! A minha coroa… e o meu vírus… derrotados!",
     quizTheme: "virus_malware",
     hp: 3,                     // 4→3: agora são sempre 3 saltos na cabeça, como os outros bosses "stomp"
     // themeIdx próprio removido — ver comentário igual no boss do phishing.
@@ -395,7 +395,7 @@ export const BOSSES = [
     hopEvery: 2200,
     qmarkEvery: 1600,          // 2000→1600: pedido "demoram muito a atirar" (ver mesmo ajuste nos outros 2 bosses "normais", em monstro_phishing e robo_spam)
     orbTexture: "boss_proj_shadow", // orbe sombrio próprio — antes reutilizava a bola "?" do Monstro só retintada, sem sentido temático para um guardião das sombras
-    orbTint: 0x6a3fb5,
+    orbTint: 0xffffff,
     // Personalidade do arremesso (ver doBossRollQmark em dia-crianca.js):
     // a orbe parte mais devagar que os outros 3, mas vai-se "puxando"
     // ligeiramente atrás do VanBerto's nos primeiros instantes de voo —
@@ -423,7 +423,7 @@ export const BOSSES = [
     // outros bosses "stomp" não têm nenhum efeito de ecrã na sua fúria.
     // Rótulo temático do contador de saltos no HUD (nova, ver mesmo
     // comentário no Monstro do Phishing).
-    stompLabel: "👁️ Ameaças travadas",
+    stompLabel: "🦇 Ameaças travadas",
     // Reforço do chefe no Extremo — ver comentário completo junto ao
     // Monstro do Phishing (data-bosses.js, boss monstro_phishing).
     extremoReinforcement: true,
@@ -510,7 +510,7 @@ export const BOSSES = [
     rageLines: { angry: "Mais mensagens! Mais spam!", desperate: "Os meus circuitos... sobrecarregados!" },
     // Rótulo temático do contador de saltos no HUD (nova, ver mesmo
     // comentário no Monstro do Phishing).
-    stompLabel: "🎣 Mensagens falsas travadas",
+    stompLabel: "🧪 Feitiços de phishing travados",
     // Reforço do chefe no Extremo — ver comentário completo junto ao
     // Monstro do Phishing (data-bosses.js, boss monstro_phishing).
     extremoReinforcement: true,

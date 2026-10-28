@@ -5,7 +5,7 @@
 // nível mudou, ver data-levels.js). Os 4 mundos e as posições dos bosses
 // mantêm-se exatamente iguais à estrutura original.
 export const MAP_REGIONS = [
-  { id:"origens",        icon:"🎃", name:"Floresta Assombrada dos Vírus", sub:"Abóboras, fatos, doces, morcegos e o Rei Malware",      levels:[0,1,2,3,4],
+  { id:"origens",        icon:"🎃", name:"Floresta Assombrada dos Vírus", sub:"Abóboras, fatos, doces, morcegos e o Rei Abóbora",      levels:[0,1,2,3,4],
     mapBg:"mundo1_n1e2.webp",
     nodePos:[{x:9,y:80.0},{x:28,y:66.1},{x:47,y:63.8},{x:63,y:56.9},{x:68,y:29.3}] },
   { id:"desenvolvimento",icon:"🏰", name:"Castelo das Palavras-Passe",    sub:"Aranhas, fantasmas, bruxas, monstros e o Fantasma Hacker",    levels:[5,6,7,8],

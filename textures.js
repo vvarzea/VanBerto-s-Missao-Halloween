@@ -43,6 +43,212 @@ function witchHat(ctx,x,y,w,flip){
   ctx.fillStyle="#2f1553"; ctx.fillRect(-1.6,-4.8,3.2,2.8);
   ctx.restore();
 }
+// ===== HALLOWEEN — redesenho dos 4 bosses (116×116, 7 expressões cada) e dos seus projéteis =====
+// v = { arms: "up"|"down", eyes: "open"|"blink"|"x"|"happy"|"angry"|"sad", mouth: "grin"|"laugh"|"o"|"frown" }
+const HB_VARIANTS = {
+  "":          { arms:"up",   eyes:"open",  mouth:"grin"  },
+  "_armsdown": { arms:"down", eyes:"open",  mouth:"grin"  },
+  "_blink":    { arms:"up",   eyes:"blink", mouth:"grin"  },
+  "_ouch":     { arms:"up",   eyes:"x",     mouth:"o"     },
+  "_laugh":    { arms:"up",   eyes:"happy", mouth:"laugh" },
+  "_angry":    { arms:"up",   eyes:"angry", mouth:"grin"  },
+  "_sad":      { arms:"down", eyes:"sad",   mouth:"frown" },
+};
+function hbEllipse(ctx,x,y,rx,ry,fill,stroke,lw){ ctx.beginPath(); ctx.ellipse(x,y,rx,ry,0,0,Math.PI*2); if(fill){ctx.fillStyle=fill;ctx.fill();} if(stroke){ctx.lineWidth=lw||2.4;ctx.strokeStyle=stroke;ctx.stroke();} }
+function hbEyes(ctx,v,xs,y,r,fill,glow,shape){
+  ctx.save(); ctx.lineCap="round"; ctx.lineJoin="round";
+  for(const x of xs){
+    const left = x<xs[0]+1 && xs.length>1 && x===xs[0];
+    if(v.eyes==="blink"){ ctx.strokeStyle="#12062a"; ctx.lineWidth=2.6; ctx.beginPath(); ctx.moveTo(x-r,y); ctx.lineTo(x+r,y); ctx.stroke(); continue; }
+    if(v.eyes==="x"){ ctx.strokeStyle="#12062a"; ctx.lineWidth=2.8; ctx.beginPath(); ctx.moveTo(x-r*.8,y-r*.8); ctx.lineTo(x+r*.8,y+r*.8); ctx.moveTo(x+r*.8,y-r*.8); ctx.lineTo(x-r*.8,y+r*.8); ctx.stroke(); continue; }
+    if(v.eyes==="happy"){ ctx.strokeStyle="#12062a"; ctx.lineWidth=2.8; ctx.beginPath(); ctx.arc(x,y+r*.5,r,Math.PI*1.1,Math.PI*1.9); ctx.stroke(); continue; }
+    ctx.shadowColor=glow; ctx.shadowBlur=6; ctx.fillStyle=fill;
+    if(shape==="tri"){ ctx.beginPath(); ctx.moveTo(x-r,y+r*.7); ctx.lineTo(x,y-r*.9); ctx.lineTo(x+r,y+r*.7); ctx.closePath(); ctx.fill(); }
+    else { ctx.beginPath(); ctx.ellipse(x,y,r,r*1.1,0,0,Math.PI*2); ctx.fill(); ctx.shadowBlur=0; ctx.fillStyle="#12062a"; ctx.beginPath(); ctx.ellipse(x+(v.eyes==="sad"?0:0),y+(v.eyes==="sad"?r*.35:r*.1),r*.45,r*.6,0,0,Math.PI*2); ctx.fill(); ctx.fillStyle="#fff"; ctx.beginPath(); ctx.arc(x-r*.3,y-r*.3,r*.22,0,Math.PI*2); ctx.fill(); }
+    ctx.shadowBlur=0;
+    if(v.eyes==="angry"||v.eyes==="sad"){ // sobrancelhas
+      ctx.strokeStyle="#12062a"; ctx.lineWidth=3; ctx.beginPath();
+      const inward = v.eyes==="angry";
+      const isL = (x===xs[0]);
+      const dy = inward ? 1 : -1; // angry: cantos interiores para baixo; sad: interiores para cima
+      if(isL){ ctx.moveTo(x-r*1.2,y-r*1.5-dy*2); ctx.lineTo(x+r*1.2,y-r*1.5+dy*3); }
+      else   { ctx.moveTo(x-r*1.2,y-r*1.5+dy*3); ctx.lineTo(x+r*1.2,y-r*1.5-dy*2); }
+      ctx.stroke();
+    }
+  }
+  ctx.restore();
+}
+function hbMouth(ctx,v,x,y,w,fill,teeth){
+  ctx.save(); ctx.lineJoin="round"; ctx.lineCap="round"; ctx.strokeStyle="#12062a"; ctx.lineWidth=2.4;
+  if(v.mouth==="o"){ ctx.fillStyle="#2a0a1a"; ctx.beginPath(); ctx.ellipse(x,y+2,w*.18,w*.22,0,0,Math.PI*2); ctx.fill(); ctx.stroke(); }
+  else if(v.mouth==="frown"){ ctx.beginPath(); ctx.moveTo(x-w*.35,y+5); ctx.quadraticCurveTo(x,y-3,x+w*.35,y+5); ctx.stroke(); }
+  else {
+    const open = v.mouth==="laugh" ? w*.34 : w*.2;
+    ctx.fillStyle=fill||"#2a0a1a"; ctx.beginPath(); ctx.moveTo(x-w*.45,y-1); ctx.quadraticCurveTo(x,y+open*2.2,x+w*.45,y-1); ctx.quadraticCurveTo(x,y+open*.2,x-w*.45,y-1); ctx.closePath(); ctx.fill(); ctx.stroke();
+    if(teeth){ ctx.fillStyle=teeth; for(const dx of [-.28,-.1,.1,.28]){ ctx.beginPath(); ctx.moveTo(x+w*dx-2.4,y); ctx.lineTo(x+w*dx+2.4,y); ctx.lineTo(x+w*dx,y+4.4); ctx.closePath(); ctx.fill(); } }
+  }
+  ctx.restore();
+}
+// ---------- 1) REI ABÓBORA ----------
+function hbPumpkinKing(ctx,v){
+  const cx=58, cy=64;
+  ctx.save(); ctx.lineJoin="round"; ctx.lineCap="round";
+  // braços de gavinha verde
+  ctx.strokeStyle="#2f7a2a"; ctx.lineWidth=5.5;
+  const up=v.arms==="up";
+  for(const sg of [-1,1]){ ctx.beginPath(); ctx.moveTo(cx+sg*34,cy+4); ctx.bezierCurveTo(cx+sg*46,up?cy-6:cy+12,cx+sg*50,up?cy-22:cy+22,cx+sg*(up?44:48),up?cy-34:cy+30); ctx.stroke();
+    ctx.fillStyle="#3fa03a"; ctx.beginPath(); ctx.arc(cx+sg*(up?44:48),up?cy-36:cy+32,5,0,Math.PI*2); ctx.fill(); ctx.lineWidth=2; ctx.strokeStyle="#1c4a18"; ctx.stroke(); ctx.lineWidth=5.5; ctx.strokeStyle="#2f7a2a"; }
+  // pés
+  ctx.fillStyle="#5a3416"; for(const sg of [-1,1]){ hbEllipse(ctx,cx+sg*16,104,11,6,"#5a3416","#2a1608",2); }
+  // corpo — 3 gomos
+  const g=ctx.createRadialGradient(cx-10,cy-18,6,cx,cy,46); g.addColorStop(0,"#ffb347"); g.addColorStop(1,"#e0600a");
+  ctx.fillStyle=g; ctx.strokeStyle="#7a3300"; ctx.lineWidth=2.6;
+  for(const [dx,rx] of [[-17,25],[17,25],[0,28]]){ ctx.beginPath(); ctx.ellipse(cx+dx,cy+2,rx,37,0,0,Math.PI*2); ctx.fill(); }
+  for(const [dx,rx] of [[-17,25],[17,25],[0,28]]){ ctx.beginPath(); ctx.ellipse(cx+dx,cy+2,rx,37,0,0,Math.PI*2); ctx.stroke(); }
+  // caule + folhas
+  ctx.fillStyle="#3a8a2c"; ctx.strokeStyle="#1c4a18"; ctx.lineWidth=2.2; ctx.beginPath(); ctx.roundRect(cx-5,cy-46,10,13,3); ctx.fill(); ctx.stroke();
+  for(const sg of [-1,1]){ ctx.beginPath(); ctx.ellipse(cx+sg*11,cy-40,9,4,sg*0.5,0,Math.PI*2); ctx.fill(); ctx.stroke(); }
+  // coroa dourada
+  ctx.fillStyle="#ffd23f"; ctx.strokeStyle="#8a5f00"; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(cx-17,cy-36); ctx.lineTo(cx-17,cy-50); ctx.lineTo(cx-9,cy-42); ctx.lineTo(cx,cy-54); ctx.lineTo(cx+9,cy-42); ctx.lineTo(cx+17,cy-50); ctx.lineTo(cx+17,cy-36); ctx.closePath(); ctx.fill(); ctx.stroke();
+  ctx.fillStyle="#c62828"; ctx.beginPath(); ctx.arc(cx,cy-41,2.4,0,Math.PI*2); ctx.fill();
+  // cara esculpida a brilhar
+  hbEyes(ctx,v,[cx-14,cx+14],cy-8,7,"#ffe27a","#ffb300","tri");
+  ctx.fillStyle="#ffcf6a"; ctx.beginPath(); ctx.moveTo(cx-3,cy+2); ctx.lineTo(cx+3,cy+2); ctx.lineTo(cx,cy-3); ctx.closePath(); ctx.fill();
+  hbMouth(ctx,v,cx,cy+14,40,"#ffcf3a","#fff3c0");
+  ctx.fillStyle="rgba(255,255,255,0.35)"; ctx.beginPath(); ctx.ellipse(cx-28,cy-14,5,9,0.5,0,Math.PI*2); ctx.fill();
+  ctx.restore();
+}
+// ---------- 2) FANTASMA HACKER ----------
+function hbGhost(ctx,v){
+  const cx=58;
+  ctx.save(); ctx.lineJoin="round"; ctx.lineCap="round";
+  const up=v.arms==="up";
+  const g=ctx.createLinearGradient(0,10,0,112); g.addColorStop(0,"#e9f6ff"); g.addColorStop(1,"#8fb4e8");
+  // corpo com cauda ondulada
+  ctx.beginPath(); ctx.moveTo(cx-34,100);
+  ctx.bezierCurveTo(cx-40,40,cx-30,10,cx,10); ctx.bezierCurveTo(cx+30,10,cx+40,40,cx+34,100);
+  ctx.quadraticCurveTo(cx+28,112,cx+22,102); ctx.quadraticCurveTo(cx+14,112,cx+8,102); ctx.quadraticCurveTo(cx,112,cx-8,102); ctx.quadraticCurveTo(cx-14,112,cx-22,102); ctx.quadraticCurveTo(cx-28,112,cx-34,100); ctx.closePath();
+  ctx.shadowColor="#6fd0ff"; ctx.shadowBlur=10; ctx.fillStyle=g; ctx.fill(); ctx.shadowBlur=0; ctx.lineWidth=2.6; ctx.strokeStyle="#35508a"; ctx.stroke();
+  // capuz de hacker (azul-escuro) por cima da cabeça
+  ctx.fillStyle="#1d2a55"; ctx.beginPath(); ctx.moveTo(cx-33,46); ctx.bezierCurveTo(cx-38,6,cx+38,6,cx+33,46); ctx.bezierCurveTo(cx+22,34,cx-22,34,cx-33,46); ctx.closePath(); ctx.fill(); ctx.strokeStyle="#0c1233"; ctx.lineWidth=2.4; ctx.stroke();
+  ctx.fillStyle="#3df2a0"; ctx.font="bold 9px monospace"; ctx.textAlign="center"; ctx.fillText("01",cx-14,24); ctx.fillText("10",cx+14,24); ctx.fillText("</>",cx,16);
+  // cara
+  ctx.fillStyle="#bfe0ff"; ctx.beginPath(); ctx.ellipse(cx,52,24,16,0,0,Math.PI*2); ctx.fill();
+  hbEyes(ctx,v,[cx-11,cx+11],50,6,"#7dffb8","#3df2a0","round");
+  hbMouth(ctx,v,cx,66,26,"#1d2a55","#ffffff");
+  // braços e cadeado
+  for(const sg of [-1,1]){ ctx.beginPath(); ctx.moveTo(cx+sg*30,70); ctx.quadraticCurveTo(cx+sg*(up?46:44),up?56:84,cx+sg*(up?44:38),up?42:96); ctx.lineWidth=7; ctx.strokeStyle="#cfe8ff"; ctx.stroke(); ctx.lineWidth=2.4; ctx.strokeStyle="#35508a"; ctx.stroke(); hbEllipse(ctx,cx+sg*(up?44:38),up?40:98,6.5,6.5,"#e9f6ff","#35508a",2.2); }
+  const lx=cx+(up?44:38), ly=up?28:84;
+  ctx.fillStyle="#ffd23f"; ctx.strokeStyle="#8a5f00"; ctx.lineWidth=2; ctx.beginPath(); ctx.roundRect(lx-7,ly+2,14,11,2); ctx.fill(); ctx.stroke();
+  ctx.beginPath(); ctx.arc(lx,ly+2,5,Math.PI,0); ctx.stroke(); ctx.fillStyle="#3a1a00"; ctx.fillRect(lx-1,ly+6,2,4);
+  ctx.restore();
+}
+// ---------- 3) BRUXA DO PHISHING ----------
+function hbWitch(ctx,v){
+  const cx=58;
+  ctx.save(); ctx.lineJoin="round"; ctx.lineCap="round";
+  const up=v.arms==="up";
+  // manto preto-roxo
+  const rg=ctx.createLinearGradient(0,50,0,112); rg.addColorStop(0,"#3a1a66"); rg.addColorStop(1,"#150826");
+  ctx.beginPath(); ctx.moveTo(cx-18,56); ctx.bezierCurveTo(cx-40,70,cx-46,100,cx-44,108); ctx.lineTo(cx+44,108); ctx.bezierCurveTo(cx+46,100,cx+40,70,cx+18,56); ctx.closePath();
+  ctx.fillStyle=rg; ctx.fill(); ctx.lineWidth=2.6; ctx.strokeStyle="#0a0418"; ctx.stroke();
+  ctx.fillStyle="#ff8a1f"; ctx.fillRect(cx-44,100,88,5); // orla
+  // braços
+  for(const sg of [-1,1]){ ctx.beginPath(); ctx.moveTo(cx+sg*20,64); ctx.quadraticCurveTo(cx+sg*(up?44:40),up?50:80,cx+sg*(up?40:30),up?32:94); ctx.lineWidth=9; ctx.strokeStyle="#3a1a66"; ctx.stroke(); ctx.lineWidth=2; ctx.strokeStyle="#0a0418"; ctx.stroke(); hbEllipse(ctx,cx+sg*(up?40:30),up?30:96,6,6,"#8fd16a","#2f6a1c",2); }
+  // poção na mão direita
+  const px=cx+(up?40:30), py=up?20:84;
+  ctx.fillStyle="rgba(235,245,255,0.7)"; ctx.strokeStyle="#35508a"; ctx.lineWidth=1.8; ctx.beginPath(); ctx.moveTo(px-2,py-8); ctx.lineTo(px-2,py-3); ctx.bezierCurveTo(px-9,py,px-9,py+10,px-3,py+10); ctx.lineTo(px+3,py+10); ctx.bezierCurveTo(px+9,py+10,px+9,py,px+2,py-3); ctx.lineTo(px+2,py-8); ctx.closePath(); ctx.fill(); ctx.stroke();
+  ctx.fillStyle="#7dff5a"; ctx.beginPath(); ctx.ellipse(px,py+6,5.5,4,0,0,Math.PI*2); ctx.fill();
+  // cara verde
+  ctx.fillStyle="#9be06a"; ctx.strokeStyle="#2f6a1c"; ctx.lineWidth=2.4; ctx.beginPath(); ctx.ellipse(cx,56,19,20,0,0,Math.PI*2); ctx.fill(); ctx.stroke();
+  // nariz comprido
+  ctx.beginPath(); ctx.moveTo(cx-3,56); ctx.quadraticCurveTo(cx-1,66,cx+4,64); ctx.quadraticCurveTo(cx+2,58,cx+3,55); ctx.closePath(); ctx.fillStyle="#86cc58"; ctx.fill(); ctx.stroke();
+  hbEyes(ctx,v,[cx-8,cx+8],50,5,"#ffe27a","#ffb300","round");
+  hbMouth(ctx,v,cx,70,22,"#3a0a2a","#ffffff");
+  // chapéu pontiagudo (aba larga, ponta dobrada, fita laranja)
+  const hg=ctx.createLinearGradient(0,0,0,40); hg.addColorStop(0,"#6a35a8"); hg.addColorStop(1,"#24103f");
+  ctx.fillStyle=hg; ctx.strokeStyle="#12062a"; ctx.lineWidth=2.4; ctx.beginPath(); ctx.moveTo(cx-17,38); ctx.bezierCurveTo(cx-14,24,cx-6,12,cx,6); ctx.bezierCurveTo(cx+6,-1,cx+16,2,cx+20,10); ctx.bezierCurveTo(cx+12,10,cx+12,24,cx+17,38); ctx.closePath(); ctx.fill(); ctx.stroke();
+  ctx.fillStyle="#2f1553"; ctx.beginPath(); ctx.ellipse(cx,39,33,7,0,0,Math.PI*2); ctx.fill(); ctx.stroke();
+  ctx.fillStyle="#ff8a1f"; ctx.fillRect(cx-16,30,32,6); ctx.fillStyle="#ffd23f"; ctx.fillRect(cx-4,29,8,8); ctx.strokeStyle="#8a5f00"; ctx.lineWidth=1.4; ctx.strokeRect(cx-4,29,8,8);
+  ctx.restore();
+}
+// ---------- 4) SENHOR DAS SOMBRAS (vampiro de capa) ----------
+function hbVampire(ctx,v){
+  const cx=58;
+  ctx.save(); ctx.lineJoin="round"; ctx.lineCap="round";
+  const up=v.arms==="up";
+  // capa aberta (asas de morcego) quando os braços estão para cima
+  const spread=up?50:36;
+  const cg=ctx.createLinearGradient(0,20,0,110); cg.addColorStop(0,"#5a0f2a"); cg.addColorStop(1,"#1a0612");
+  ctx.fillStyle=cg; ctx.strokeStyle="#0a0208"; ctx.lineWidth=2.6;
+  ctx.beginPath(); ctx.moveTo(cx-14,40);
+  ctx.quadraticCurveTo(cx-spread,up?22:44,cx-spread-4,up?60:84); ctx.quadraticCurveTo(cx-spread+10,up?58:88,cx-spread+14,up?74:100);
+  ctx.quadraticCurveTo(cx-spread+26,up?66:96,cx-26,108); ctx.lineTo(cx+26,108);
+  ctx.quadraticCurveTo(cx+spread-26,up?66:96,cx+spread-14,up?74:100); ctx.quadraticCurveTo(cx+spread-10,up?58:88,cx+spread+4,up?60:84);
+  ctx.quadraticCurveTo(cx+spread,up?22:44,cx+14,40); ctx.closePath(); ctx.fill(); ctx.stroke();
+  // forro vermelho
+  ctx.fillStyle="#c1121f"; ctx.beginPath(); ctx.moveTo(cx-14,44); ctx.lineTo(cx,106); ctx.lineTo(cx+14,44); ctx.closePath(); ctx.fill();
+  // fato preto e camisa
+  ctx.fillStyle="#150a22"; ctx.beginPath(); ctx.moveTo(cx-18,52); ctx.lineTo(cx-20,108); ctx.lineTo(cx+20,108); ctx.lineTo(cx+18,52); ctx.closePath(); ctx.fill(); ctx.stroke();
+  ctx.fillStyle="#f4f0ff"; ctx.beginPath(); ctx.moveTo(cx-6,54); ctx.lineTo(cx,84); ctx.lineTo(cx+6,54); ctx.closePath(); ctx.fill();
+  ctx.fillStyle="#ffd23f"; ctx.beginPath(); ctx.arc(cx,66,2.6,0,Math.PI*2); ctx.fill();
+  // mãos
+  for(const sg of [-1,1]){ hbEllipse(ctx,cx+sg*(up?44:26),up?44:96,6,6,"#e9e4f5","#3a2c5a",2); }
+  // gola alta
+  ctx.fillStyle="#7a0f1f"; ctx.beginPath(); ctx.moveTo(cx-24,36); ctx.lineTo(cx-12,52); ctx.lineTo(cx-4,46); ctx.lineTo(cx-8,30); ctx.closePath(); ctx.fill(); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(cx+24,36); ctx.lineTo(cx+12,52); ctx.lineTo(cx+4,46); ctx.lineTo(cx+8,30); ctx.closePath(); ctx.fill(); ctx.stroke();
+  // cara pálida
+  ctx.fillStyle="#efe9f7"; ctx.strokeStyle="#3a2c5a"; ctx.lineWidth=2.4; ctx.beginPath(); ctx.ellipse(cx,32,17,19,0,0,Math.PI*2); ctx.fill(); ctx.stroke();
+  // cabelo com bico de viúva
+  ctx.fillStyle="#12062a"; ctx.beginPath(); ctx.moveTo(cx-18,30); ctx.bezierCurveTo(cx-20,6,cx+20,6,cx+18,30); ctx.lineTo(cx+10,22); ctx.lineTo(cx,30); ctx.lineTo(cx-10,22); ctx.closePath(); ctx.fill();
+  hbEyes(ctx,v,[cx-8,cx+8],33,4.6,"#ff4d4d","#ff0000","round");
+  hbMouth(ctx,v,cx,46,22,"#3a0a14","#ffffff");
+  ctx.restore();
+}
+// ---------- projéteis ----------
+function hbProjPumpkin(ctx){ // 30×30 — mini-abóbora com espigões
+  ctx.save(); ctx.translate(15,15.5); ctx.scale(0.85,0.85); ctx.translate(-15,-17);
+  ctx.fillStyle="#ff8a1f"; ctx.strokeStyle="#7a3a00"; ctx.lineWidth=1.8; for(const [dx,rx] of [[-5,8],[5,8],[0,9]]){ ctx.beginPath(); ctx.ellipse(15+dx,17,rx,10,0,0,Math.PI*2); ctx.fill(); }
+  for(const [dx,rx] of [[-5,8],[5,8],[0,9]]){ ctx.beginPath(); ctx.ellipse(15+dx,17,rx,10,0,0,Math.PI*2); ctx.stroke(); }
+  ctx.fillStyle="#7dff5a"; ctx.strokeStyle="#1c4a18"; for(let i=0;i<8;i++){ const a=i/8*Math.PI*2; ctx.beginPath(); ctx.moveTo(15+Math.cos(a)*12,17+Math.sin(a)*11); ctx.lineTo(15+Math.cos(a)*15,17+Math.sin(a)*14); ctx.lineWidth=2; ctx.stroke(); }
+  ctx.fillStyle="#3a8a2c"; ctx.fillRect(13,3,4,5);
+  ctx.fillStyle="#3a1a00"; ctx.beginPath(); ctx.moveTo(9,14); ctx.lineTo(13,14); ctx.lineTo(11,18); ctx.fill(); ctx.beginPath(); ctx.moveTo(17,14); ctx.lineTo(21,14); ctx.lineTo(19,18); ctx.fill(); ctx.fillRect(10,21,10,2);
+  ctx.restore();
+}
+function hbProjKey(ctx){ // 30×30 — chave dourada
+  ctx.save(); ctx.translate(14,16); ctx.rotate(-0.7); ctx.scale(0.72,0.72); ctx.fillStyle="#ffd23f"; ctx.strokeStyle="#8a5f00"; ctx.lineWidth=1.8;
+  ctx.beginPath(); ctx.arc(-8,0,6,0,Math.PI*2); ctx.fill(); ctx.stroke(); ctx.fillStyle="#3a1a00"; ctx.beginPath(); ctx.arc(-8,0,2.4,0,Math.PI*2); ctx.fill();
+  ctx.fillStyle="#ffd23f"; ctx.fillRect(-2,-2,16,4); ctx.strokeRect(-2,-2,16,4); ctx.fillRect(8,2,3,5); ctx.strokeRect(8,2,3,5); ctx.fillRect(12,2,3,4); ctx.strokeRect(12,2,3,4); ctx.restore();
+}
+function hbProjLetter(ctx){ // 32×24 — carta amaldiçoada
+  ctx.fillStyle="#d9c6ff"; ctx.strokeStyle="#3a1a66"; ctx.lineWidth=1.8; ctx.beginPath(); ctx.roundRect(2,3,28,18,2); ctx.fill(); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(2,4); ctx.lineTo(16,14); ctx.lineTo(30,4); ctx.stroke();
+  ctx.fillStyle="#7a2fc0"; ctx.beginPath(); ctx.arc(16,15,5,0,Math.PI*2); ctx.fill(); ctx.fillStyle="#fff"; ctx.beginPath(); ctx.arc(16,14.5,2.2,0,Math.PI*2); ctx.fill(); ctx.fillRect(15,16,2,2.6);
+}
+function hbProjBat(ctx){ // 30×30 — morcego
+  ctx.fillStyle="#1b0b33"; ctx.strokeStyle="#7a2fc0"; ctx.lineWidth=1.2; ctx.beginPath(); ctx.moveTo(15,19);
+  ctx.quadraticCurveTo(10,6,1,10); ctx.quadraticCurveTo(4,13,4,17); ctx.quadraticCurveTo(8,14,10,21); ctx.quadraticCurveTo(13,17,15,22);
+  ctx.quadraticCurveTo(17,17,20,21); ctx.quadraticCurveTo(22,14,26,17); ctx.quadraticCurveTo(26,13,29,10); ctx.quadraticCurveTo(20,6,15,19); ctx.closePath(); ctx.fill(); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(12,12); ctx.lineTo(13,7); ctx.lineTo(15,11); ctx.lineTo(17,7); ctx.lineTo(18,12); ctx.fill();
+  ctx.fillStyle="#ff4d4d"; ctx.beginPath(); ctx.arc(13.3,14,1.1,0,Math.PI*2); ctx.arc(16.7,14,1.1,0,Math.PI*2); ctx.fill();
+}
+function halloweenBossesRedraw(scene){
+  const BOSSES={ virus_gigante:hbPumpkinKing, monstro_phishing:hbGhost, robo_spam:hbWitch, espiao_sombras:hbVampire };
+  for(const [name,draw] of Object.entries(BOSSES)){
+    for(const [suf,v] of Object.entries(HB_VARIANTS)){
+      const key="boss_"+name+suf;
+      if(scene.textures.exists(key)) scene.textures.remove(key);
+      const tex=scene.textures.createCanvas(key,116,116), ctx=tex.getContext();
+      draw(ctx,v); tex.refresh();
+    }
+  }
+  const PROJ={ boss_proj_germ:[30,30,hbProjPumpkin], boss_proj_hook:[30,30,hbProjKey], boss_proj_spam:[32,24,hbProjLetter], boss_proj_shadow:[30,30,hbProjBat] };
+  for(const [key,[w,h,draw]] of Object.entries(PROJ)){
+    if(scene.textures.exists(key)) scene.textures.remove(key);
+    const tex=scene.textures.createCanvas(key,w,h), ctx=tex.getContext(); draw(ctx); tex.refresh();
+  }
+}
+
 // ===== HALLOWEEN — chapéus nos bosses e coroa de abóboras no portal =====
 // Os bosses ocupam quase toda a textura (116x116), por isso o gorro é pequeno e assenta por cima do topo da cabeça.
 // A posição calcula-se a partir da própria imagem (o 1.º pixel opaco na zona central), igual em todas as expressões.
@@ -97,7 +303,7 @@ export function makeTextures(scene){
   makeDoorTexture(scene);
   makeVilaosTextures(scene);
   makeBossTextures(scene);
-  halloweenBossHats(scene); // HALLOWEEN
+  halloweenBossesRedraw(scene); // HALLOWEEN: os 4 bosses e projéteis redesenhados (substituem os originais)
   makeSparkTexture(scene);
   makeItemTextures(scene);
   makeVanBertoTexture(scene,"vanberto_open",false,-1);
