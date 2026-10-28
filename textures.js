@@ -232,6 +232,25 @@ function hbProjBat(ctx){ // 30×30 — morcego
   ctx.beginPath(); ctx.moveTo(12,12); ctx.lineTo(13,7); ctx.lineTo(15,11); ctx.lineTo(17,7); ctx.lineTo(18,12); ctx.fill();
   ctx.fillStyle="#ff4d4d"; ctx.beginPath(); ctx.arc(13.3,14,1.1,0,Math.PI*2); ctx.arc(16.7,14,1.1,0,Math.PI*2); ctx.fill();
 }
+function hbProjBook(ctx){ // 34×28 — livro de feitiços (bom, para apanhar)
+  ctx.fillStyle="#6a35a8"; ctx.strokeStyle="#24103f"; ctx.lineWidth=2; ctx.beginPath(); ctx.roundRect(4,3,26,22,3); ctx.fill(); ctx.stroke();
+  ctx.fillStyle="#8e5ad0"; ctx.fillRect(4,3,5,22); ctx.strokeRect(4,3,5,22);
+  ctx.fillStyle="#ffd23f"; ctx.beginPath(); for(let i=0;i<5;i++){ const a=-Math.PI/2+i*Math.PI*2/5, b=a+Math.PI/5; ctx.lineTo(20+Math.cos(a)*6,14+Math.sin(a)*6); ctx.lineTo(20+Math.cos(b)*2.6,14+Math.sin(b)*2.6); } ctx.closePath(); ctx.fill();
+  ctx.fillStyle="rgba(255,255,255,0.25)"; ctx.fillRect(11,5,16,2);
+}
+function hbProjBadBook(ctx){ // 34×28 — livro amaldiçoado (mau, para evitar)
+  ctx.shadowColor="#ff2a2a"; ctx.shadowBlur=5; ctx.fillStyle="#1a0b2e"; ctx.strokeStyle="#5a0f1f"; ctx.lineWidth=2; ctx.beginPath(); ctx.roundRect(4,3,26,22,3); ctx.fill(); ctx.stroke(); ctx.shadowBlur=0;
+  ctx.fillStyle="#3a1a55"; ctx.fillRect(4,3,5,22);
+  ctx.fillStyle="#f4f0ff"; ctx.beginPath(); ctx.ellipse(20,12,6,5.5,0,0,Math.PI*2); ctx.fill(); ctx.fillRect(16.5,15,7,4);
+  ctx.fillStyle="#1a0b2e"; ctx.beginPath(); ctx.arc(17.5,12,1.8,0,Math.PI*2); ctx.arc(22.5,12,1.8,0,Math.PI*2); ctx.fill(); ctx.fillRect(18,16,1,3); ctx.fillRect(20.5,16,1,3);
+  ctx.fillStyle="#ff4d4d"; ctx.beginPath(); ctx.arc(17.5,12,0.8,0,Math.PI*2); ctx.arc(22.5,12,0.8,0,Math.PI*2); ctx.fill();
+}
+function hbProjGhost(ctx){ // 32×24 — fantasminha (sombra)
+  const g=ctx.createLinearGradient(0,2,0,22); g.addColorStop(0,"#ffffff"); g.addColorStop(1,"#b9d4ff");
+  ctx.shadowColor="#9fd0ff"; ctx.shadowBlur=5; ctx.fillStyle=g; ctx.strokeStyle="#35508a"; ctx.lineWidth=1.6;
+  ctx.beginPath(); ctx.moveTo(6,21); ctx.bezierCurveTo(3,8,9,2,16,2); ctx.bezierCurveTo(23,2,29,8,26,21); ctx.quadraticCurveTo(23,18,21,22); ctx.quadraticCurveTo(18,18,16,22); ctx.quadraticCurveTo(14,18,11,22); ctx.quadraticCurveTo(9,18,6,21); ctx.closePath(); ctx.fill(); ctx.shadowBlur=0; ctx.stroke();
+  ctx.fillStyle="#12062a"; ctx.beginPath(); ctx.ellipse(12.5,10,2,2.8,0,0,Math.PI*2); ctx.ellipse(19.5,10,2,2.8,0,0,Math.PI*2); ctx.fill(); ctx.beginPath(); ctx.ellipse(16,16,2.2,1.8,0,0,Math.PI*2); ctx.fill();
+}
 function halloweenBossesRedraw(scene){
   const BOSSES={ virus_gigante:hbPumpkinKing, monstro_phishing:hbGhost, robo_spam:hbWitch, espiao_sombras:hbVampire };
   for(const [name,draw] of Object.entries(BOSSES)){
@@ -242,7 +261,7 @@ function halloweenBossesRedraw(scene){
       draw(ctx,v); tex.refresh();
     }
   }
-  const PROJ={ boss_proj_germ:[30,30,hbProjPumpkin], boss_proj_hook:[30,30,hbProjKey], boss_proj_spam:[32,24,hbProjLetter], boss_proj_shadow:[30,30,hbProjBat] };
+  const PROJ={ boss_proj_germ:[30,30,hbProjPumpkin], boss_proj_hook:[30,30,hbProjKey], boss_proj_spam:[32,24,hbProjGhost], boss_proj_shadow:[30,30,hbProjBat], boss_proj_book:[34,28,hbProjBook], boss_proj_badbook:[34,28,hbProjBadBook] };
   for(const [key,[w,h,draw]] of Object.entries(PROJ)){
     if(scene.textures.exists(key)) scene.textures.remove(key);
     const tex=scene.textures.createCanvas(key,w,h), ctx=tex.getContext(); draw(ctx); tex.refresh();

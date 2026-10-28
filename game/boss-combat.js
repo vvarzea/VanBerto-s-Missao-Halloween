@@ -7,21 +7,21 @@
  * As variáveis de estado vivem em state.js; aqui alteram-se com set_<nome>().
  *************************************************/
 
-import { clearMiniViruses, clearPopupHazard, clearToxicZones, currentContaminationZones, currentPopupConfig, doBossTeleport, showBossLaugh, spawnToxicZones, startPhishingDecoy, stopPhishingDecoy, triggerBossBlackout, updateToxicZones } from "./boss-attacks.js?v=20261028halloween5";
-import { destroyBossHpBar, drawBossHpBar, enterBossPhase, startBossFinalStandBurst } from "./boss-core.js?v=20261028halloween5";
-import { startBossQuizPhase } from "./boss-end.js?v=20261028halloween5";
-import { vbSayRandom } from "./dialogue.js?v=20261028halloween5";
-import { hitFlash } from "./dom.js?v=20261028halloween5";
-import { applyHitStop, showFloat } from "./feedback.js?v=20261028halloween5";
-import { showGameOver } from "./flow.js?v=20261028halloween5";
-import { setInvuln } from "./items.js?v=20261028halloween5";
-import { clearExtremoAllies, spawnExtremoReinforcement, updateHearts } from "./level.js?v=20261028halloween5";
-import { snapPlayerToGround } from "./rooms.js?v=20261028halloween5";
-import { awaitingQuiz, bossExtremoAllies, bossLockIcon, bossMiniViruses, bossOverlay, bossRageIcon, bossState, bossTimers, difficulty, heartsGfx, inBossFight, invuln, itemCountText, itemsGroup, lives, livesLostThisLevel, player, sceneRef, score, scoreText, set__hudDirty, set_awaitingQuiz, set_bossExtremoAllies, set_bossLockIcon, set_bossMiniViruses, set_bossOverlay, set_bossPopupAnchors, set_bossRageIcon, set_bossTimers, set_controlsInvertedUntil, set_invuln, set_lives, set_livesLostThisLevel, set_score, starPower, tipText } from "./state.js?v=20261028halloween5";
-import { triggerVanBertoSad } from "./vanberto.js?v=20261028halloween5";
-import { ensureAudio, beep, SFX } from "../audio.js?v=20261028halloween5";
-import { BOSS_HP_TAUNTS } from "../data-story.js?v=20261028halloween5";
-import { VB_STAR_POWER } from "../data-flavor.js?v=20261028halloween5";
+import { clearMiniViruses, clearPopupHazard, clearToxicZones, currentContaminationZones, currentPopupConfig, doBossTeleport, showBossLaugh, spawnToxicZones, startPhishingDecoy, stopPhishingDecoy, triggerBossBlackout, updateToxicZones } from "./boss-attacks.js?v=20261028halloween6";
+import { destroyBossHpBar, drawBossHpBar, enterBossPhase, startBossFinalStandBurst } from "./boss-core.js?v=20261028halloween6";
+import { startBossQuizPhase } from "./boss-end.js?v=20261028halloween6";
+import { vbSayRandom } from "./dialogue.js?v=20261028halloween6";
+import { hitFlash } from "./dom.js?v=20261028halloween6";
+import { applyHitStop, showFloat } from "./feedback.js?v=20261028halloween6";
+import { showGameOver } from "./flow.js?v=20261028halloween6";
+import { setInvuln } from "./items.js?v=20261028halloween6";
+import { clearExtremoAllies, spawnExtremoReinforcement, updateHearts } from "./level.js?v=20261028halloween6";
+import { snapPlayerToGround } from "./rooms.js?v=20261028halloween6";
+import { awaitingQuiz, bossExtremoAllies, bossLockIcon, bossMiniViruses, bossOverlay, bossRageIcon, bossState, bossTimers, difficulty, heartsGfx, inBossFight, invuln, itemCountText, itemsGroup, lives, livesLostThisLevel, player, sceneRef, score, scoreText, set__hudDirty, set_awaitingQuiz, set_bossExtremoAllies, set_bossLockIcon, set_bossMiniViruses, set_bossOverlay, set_bossPopupAnchors, set_bossRageIcon, set_bossTimers, set_controlsInvertedUntil, set_invuln, set_lives, set_livesLostThisLevel, set_score, starPower, tipText } from "./state.js?v=20261028halloween6";
+import { triggerVanBertoSad } from "./vanberto.js?v=20261028halloween6";
+import { ensureAudio, beep, SFX } from "../audio.js?v=20261028halloween6";
+import { BOSS_HP_TAUNTS } from "../data-story.js?v=20261028halloween6";
+import { VB_STAR_POWER } from "../data-flavor.js?v=20261028halloween6";
 
 // Reação exagerada tipo desenho animado sempre que QUALQUER boss é atingido:
 // achata-se por meio segundo (textura "_ouch" + squash) e volta ao normal,
@@ -686,8 +686,8 @@ export function handleBossMalwareCollision(malwareObj) {
     // contaminada continua com o texto de sempre por omissão; o reforço
     // do Extremo (ver spawnExtremoReinforcement) define as suas próprias
     // via mini_hitMsg/mini_destroyMsg, sem precisar de um ramo à parte.
-    const destroyMsg = malwareObj.getData("mini_destroyMsg") || "💥 Vírus eliminado!";
-    const hitMsg = malwareObj.getData("mini_hitMsg") || "🦠 Cuidado com os vírus!";
+    const destroyMsg = malwareObj.getData("mini_destroyMsg") || "💥 Abóbora travada!";
+    const hitMsg = malwareObj.getData("mini_hitMsg") || "🎃 Cuidado com as abóboras!";
     // Vírus pequeno da arena contaminada — com Star Power esmaga-se como um
     // vilão normal (sem afetar o HP do boss principal); sem Star Power, dói
     // como qualquer outro toque, mas o vírus continua vivo (o timer de

@@ -32,7 +32,7 @@ export const BOSS_OBJECTIVE = {
   // hookDrift em data-bosses.js): o ataque deste boss já tinha passado a
   // ser um anzol lançado na horizontal, mas o letreiro nunca foi atualizado.
   monstro_phishing: "Desvia-te das chaves 🔑 que o Fantasma Hacker lança e salta-lhe em cima {N} vezes para o vencer!",
-  robo_spam: "A Bruxa do Phishing patrulha depressa a atirar cartas amaldiçoadas ✉️ — apanha o ritmo e salta-lhe em cima {N} vezes para o vencer!",
+  robo_spam: "A Bruxa do Phishing patrulha depressa e atira morcegos 🦇 para apanhar — apanha o ritmo e salta-lhe em cima {N} vezes para o vencer!",
   // CORRIGIDO (pedido: "no nível do último boss faz isto, não quero nada
   // disto") — este texto ainda descrevia o teletransporte antigo ("ele
   // teleporta-se... assim que ele reaparecer"), que já foi removido (ver
@@ -55,31 +55,31 @@ export const BOSS_INTRO_VB = {
     rally: "Não vai resultar! As nossas palavras-passe são fortes e secretas!"
   },
   robo_spam: {
-    reaction: "Estas mensagens brilham demais para serem de confiança... é um feitiço de phishing!",
-    rally: "Não vamos clicar em links suspeitos! Vamos verificar sempre a origem!"
+    reaction: "Estes morcegos brilham demais... há um feitiço no ar!",
+    rally: "Vamos apanhar os morcegos e responder com coragem!"
   },
   espiao_sombras: {
     reaction: "Está tudo tão escuro aqui dentro... como se todas as ameaças se tivessem juntado.",
-    rally: "As sombras não resistem quando protegemos a nossa privacidade e pedimos ajuda!"
+    rally: "As sombras não resistem quando somos corajosos e curiosos!"
   }
 };
 
 // Uma única fala de vitória por boss, ligada à competência que acabou de ser recuperada.
 export const BOSS_VICTORY_VB = {
   virus_gigante: "Conseguimos! O Rei Abóbora foi derrotado e a floresta está protegida!",
-  monstro_phishing: "Vencemos! As nossas contas estão seguras com palavras-passe fortes!",
-  robo_spam: "Feitiço desfeito! Agora sabemos reconhecer mensagens falsas e links suspeitos! 🧙",
-  espiao_sombras: "A nossa privacidade venceu as Sombras Digitais! Está tudo seguro!"
+  monstro_phishing: "Vencemos! O Fantasma Hacker não nos assusta! Sabemos muito mais agora!",
+  robo_spam: "Feitiço desfeito! Agora sabemos mais sobre o Halloween e o Pão-por-Deus! 🧙",
+  espiao_sombras: "A nossa curiosidade venceu as Sombras Digitais! Está tudo em segurança!"
 };
 
 // Frases curtas mostradas (sem parar o jogo, só um "floatie") sempre que se
 // apanha um objeto de conhecimento no combate do Fantasma Hacker.
 export const KNOWLEDGE_FACTS = [
-  "🔐 Uma boa palavra-passe protege-nos.",
-  "🔗 Nunca clicar em links suspeitos.",
-  "🌟 Cibersegurança é um hábito diário.",
-  "🧠 Pensar antes de clicar é um super-poder.",
-  "🆘 Pedir ajuda também é proteger-nos."
+  "🎃 O Samhain foi a festa celta que deu origem ao Halloween.",
+  "🧺 No Pão-por-Deus, as crianças recebem pão, broas e romãs.",
+  "🦇 Os morcegos veem com os ouvidos: usam o eco!",
+  "🌕 A Lua só brilha porque reflete a luz do Sol.",
+  "🔦 Vai sempre acompanhado e leva uma lanterna."
 ];
 
 // Falas curtas do boss em marcos de HP durante o combate.
@@ -87,7 +87,7 @@ export const BOSS_HP_TAUNTS = {
   virus_gigante: {
     atStart: ["Vou encher-te de abóboras!", "Não me consegues apanhar!", "Infeto todas as abóboras da floresta!"],
     hp2: ["Argh! Isso picou...", "Não contava com esse salto!", "Ainda tenho força de sobra!"],
-    hp1: ["Não... o antivírus é forte demais!", "Isto não pode ser...", "Estou a ser eliminado!"]
+    hp1: ["Não... a minha coroa está a ceder!", "Isto não pode ser...", "Estou a ser derrotado!"]
   },
   monstro_phishing: {
     atStart: ["Vou adivinhar as tuas palavras-passe!", "Uhuhuhu! Ninguém me escapa!", "Achas mesmo que me vais vencer?"],
@@ -95,8 +95,8 @@ export const BOSS_HP_TAUNTS = {
     hp1: ["Não! As palavras-passe eram fortes demais!", "Isto não pode ser...", "A segurança... é mais forte!"]
   },
   robo_spam: {
-    atStart: ["Tenho cartas amaldiçoadas só para ti!", "Não me apanhas, sou rápida demais!", "Clica no link, clica no link! Hehehe!"],
-    hp2: ["Essa estragou-me o feitiço!", "Não contava com essa pancada!", "Ainda tenho muitas mensagens para enviar!"],
+    atStart: ["Tenho cartas amaldiçoadas só para ti!", "Não me apanhas, sou rápida demais!", "Apanha os morcegos, apanha os morcegos! Hehehe!"],
+    hp2: ["Essa estragou-me o feitiço!", "Não contava com essa pancada!", "Ainda tenho muitos morcegos para enviar!"],
     hp1: ["Não... estão todas a ser descobertas!", "O meu feitiço... está a falhar!", "Isto não pode ser!"]
   },
   espiao_sombras: {

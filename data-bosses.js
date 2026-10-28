@@ -58,7 +58,7 @@ export const BOSSES = [
     // nenhum dos 4 bosses. Distintas das taunts curtas de BOSS_HP_TAUNTS
     // (data-story.js) — aquelas disparam a cada salto certeiro; estas só
     // nos 2 momentos de escalada de fúria (mais impacto: câmara+flash).
-    rageLines: { angry: "Achavas que era só um clique?!", desperate: "Não... a isca não pegou!" },
+    rageLines: { angry: "Achavas que eram só chaves?!", desperate: "Não... as palavras-passe eram fortes!" },
     // Escalada própria na 1ª fúria (nova) — este boss passa a atirar em par
     // (ver doBossRollQmark em dia-crianca.js) já ao primeiro salto certeiro,
     // uma fúria mais cedo que os outros 3 "doubleThrowAtMaxRage" (só na 2ª).
@@ -205,7 +205,7 @@ export const BOSSES = [
     finalStandBurstHits: 2,
     // Falas próprias de fúria (nova) — ver comentário completo no Monstro
     // do Phishing.
-    rageLines: { angry: "Vou replicar-me outra vez!", desperate: "O antivírus... está a vencer!" },
+    rageLines: { angry: "Vou replicar-me outra vez!", desperate: "A minha coroa... está a ceder!" },
     // Rótulo temático do contador de saltos no HUD (nova, ver mesmo
     // comentário no Monstro do Phishing).
     stompLabel: "🎃 Abóboras travadas",
@@ -316,7 +316,7 @@ export const BOSSES = [
     // 400 daria 480 e cairia no vão aberto entre as plataformas).
     signX: 200,
     intro: "Eu sou o Rei Abóbora! Vou infetar todas as abóboras (e todos os teus ficheiros) desta floresta!",
-    defeatLine: "Argh! A minha coroa… e o meu vírus… derrotados!",
+    defeatLine: "Argh! A minha coroa… e as minhas abóboras… derrotadas!",
     quizTheme: "hb1",
     hp: 3,                     // 4→3: agora são sempre 3 saltos na cabeça, como os outros bosses "stomp"
     // themeIdx próprio removido — ver comentário igual no boss do phishing.
@@ -394,7 +394,7 @@ export const BOSSES = [
     patrolSpeed: 190,
     hopEvery: 2200,
     qmarkEvery: 1600,          // 2000→1600: pedido "demoram muito a atirar" (ver mesmo ajuste nos outros 2 bosses "normais", em monstro_phishing e robo_spam)
-    orbTexture: "boss_proj_shadow", // orbe sombrio próprio — antes reutilizava a bola "?" do Monstro só retintada, sem sentido temático para um guardião das sombras
+    orbTexture: "boss_proj_spam", // HALLOWEEN: o Senhor das Sombras atira fantasminhas (sombras) — antes: orbe sombrio, sem sentido temático para um guardião das sombras
     orbTint: 0xffffff,
     // Personalidade do arremesso (ver doBossRollQmark em dia-crianca.js):
     // a orbe parte mais devagar que os outros 3, mas vai-se "puxando"
@@ -410,7 +410,7 @@ export const BOSSES = [
     finalStandBurst: true,
     // Falas próprias de fúria (nova) — ver comentário completo no Monstro
     // do Phishing (data-bosses.js, boss monstro_phishing).
-    rageLines: { angry: "As sombras ficam mais fundas!", desperate: "A tua privacidade... está a vencer-me!" },
+    rageLines: { angry: "As sombras ficam mais fundas!", desperate: "A tua coragem... está a vencer-me!" },
     // extraTeleportOnRage removido (ver comentário completo junto a
     // movementType, acima) — dependia do teletransporte que fazia este
     // boss desaparecer; sem ele, a fúria só fica mais difícil pela
@@ -507,10 +507,10 @@ export const BOSSES = [
     finalStandBurst: true,
     // Falas próprias de fúria (nova) — ver comentário completo no Monstro
     // do Phishing.
-    rageLines: { angry: "Mais mensagens! Mais spam!", desperate: "Os meus circuitos... sobrecarregados!" },
+    rageLines: { angry: "Mais morcegos! Mais feitiços!", desperate: "O meu caldeirão... a transbordar!" },
     // Rótulo temático do contador de saltos no HUD (nova, ver mesmo
     // comentário no Monstro do Phishing).
-    stompLabel: "🧪 Feitiços de phishing travados",
+    stompLabel: "🧪 Feitiços travados",
     // Reforço do chefe no Extremo — ver comentário completo junto ao
     // Monstro do Phishing (data-bosses.js, boss monstro_phishing).
     extremoReinforcement: true,
@@ -556,7 +556,7 @@ export const BOSSES = [
     patrolSpeed: 150,        // mais rápido — sensação industrial
     hopEvery: 2000,
     qmarkEvery: 1750,        // 2000→1750: pedido "demoram muito a atirar" — corte mais pequeno que os outros 2, porque este já atira sempre a pares (alwaysDoubleThrow), logo já é o mais denso dos 4
-    orbTexture: "boss_proj_spam", // envelope de spam com selo de aviso vermelho — o robô atira correio, não parafusos
+    orbTexture: "boss_proj_shadow", // HALLOWEEN: a bruxa atira morcegos para apanhar
     orbTint: 0xffffff,       // sem tint — o envelope já tem as suas próprias cores (branco/vermelho)
     // CORRIGIDO (pedido: "as imagens dos spams são demasiado grandes") —
     // este boss é o único a atirar sempre a pares e com o intervalo mais
@@ -591,7 +591,7 @@ export const BOSSES = [
     // abaixo) — mesma lógica dos outros bosses (ver comentário no Monstro
     // da Ignorância).
     signX: 200,
-    intro: "Tenho mensagens tentadoras só para ti… clica no link! Hehehe… até convites falsos para festas de Halloween!",
+    intro: "Hehehe! Tenho morcegos e feitiços só para ti… apanha-os, se és capaz! Até no Dia de Todos os Santos há travessuras!",
     defeatLine: "O meu feitiço… foi desfeito! As mensagens falsas foram todas descobertas!",
     quizTheme: "hb3",
     hp: 3,                     // 5→3: agora são sempre 3 saltos na cabeça

@@ -7,11 +7,11 @@
  * As variáveis de estado vivem em state.js; aqui alteram-se com set_<nome>().
  *************************************************/
 
-import { bossHitPlayer } from "./boss-combat.js?v=20261028halloween5";
-import { showFloat } from "./feedback.js?v=20261028halloween5";
-import { bossMiniViruses, bossState, bossTimers, inBossFight, invuln, itemsGroup, malwareGroup, platforms, player, sceneRef, set_bossMiniViruses, set_bossPopupAnchors } from "./state.js?v=20261028halloween5";
-import { _drawHazard } from "./world.js?v=20261028halloween5";
-import { ensureAudio, beep } from "../audio.js?v=20261028halloween5";
+import { bossHitPlayer } from "./boss-combat.js?v=20261028halloween6";
+import { showFloat } from "./feedback.js?v=20261028halloween6";
+import { bossMiniViruses, bossState, bossTimers, inBossFight, invuln, itemsGroup, malwareGroup, platforms, player, sceneRef, set_bossMiniViruses, set_bossPopupAnchors } from "./state.js?v=20261028halloween6";
+import { _drawHazard } from "./world.js?v=20261028halloween6";
+import { ensureAudio, beep } from "../audio.js?v=20261028halloween6";
 
 // ---- Arena contaminada (Vírus Gigante): zonas tóxicas + vírus pequenos ----
 // 100% aditivo e opt-in via def.contaminatedArena — não afeta bosses normais.
@@ -176,16 +176,20 @@ export function currentPopupConfig() {
 // de uma caixa mais pequena.
 
 function makePopupWindow(scene, x, y, w, h) {
+  // HALLOWEEN — em vez de uma janela de spam, uma teia de aranha com névoa roxa tapa a zona de aterragem
+  // (obstáculo de visão, não de contacto, tal como antes). Mantém as 4 chaves devolvidas, para o resto do código não mudar.
   const gfx = scene.add.graphics().setDepth(25);
-  gfx.fillStyle(0xf5f5f5, 0.97);
-  gfx.fillRoundedRect(x - w/2, y - h/2, w, h, 6);
-  gfx.fillStyle(0xff3030, 1);
-  gfx.fillRoundedRect(x - w/2, y - h/2, w, 17);
-  gfx.lineStyle(3, 0xff3030, 1);
-  gfx.strokeRoundedRect(x - w/2, y - h/2, w, h, 6);
-  const label = scene.add.text(x, y - h/2 + 9, "📧 SPAM", { fontSize:"10px", fontStyle:"900", color:"#ffffff" }).setOrigin(0.5).setDepth(26);
-  const closeX = scene.add.text(x + w/2 - 12, y - h/2 + 9, "✖", { fontSize:"12px", fontStyle:"900", color:"#ffffff" }).setOrigin(0.5).setDepth(26);
-  const body = scene.add.text(x, y + 8, "💰 OFERTA!\n👆 CLICA AQUI", { fontSize:"11px", fontStyle:"800", color:"#c72030", align:"center" }).setOrigin(0.5).setDepth(26);
+  const rx = w / 2, ry = h / 2;
+  gfx.fillStyle(0xcdb8ff, 0.42); gfx.fillEllipse(x, y, w, h);
+  gfx.lineStyle(1.6, 0xffffff, 0.9);
+  const RAYS = 10, RINGS = [0.34, 0.67, 1];
+  const pts = (k) => Array.from({ length: RAYS }, (_, i) => { const a = i / RAYS * Math.PI * 2; return { x: x + Math.cos(a) * rx * k, y: y + Math.sin(a) * ry * k }; });
+  pts(1).forEach(p => gfx.lineBetween(x, y, p.x, p.y));
+  RINGS.forEach(k => { const p = pts(k); for (let i = 0; i < RAYS; i++) { const q = p[(i + 1) % RAYS]; gfx.lineBetween(p[i].x, p[i].y, q.x, q.y); } });
+  gfx.lineStyle(2.4, 0xb28cff, 0.95); gfx.strokeEllipse(x, y, w, h);
+  const label = scene.add.text(x, y - h/2 + 9, "🕸️ TEIA!", { fontSize:"10px", fontStyle:"900", color:"#ffffff", stroke:"#4a1d82", strokeThickness:3 }).setOrigin(0.5).setDepth(26);
+  const closeX = scene.add.text(x + w/2 - 8, y - h/2 + 6, "", { fontSize:"12px" }).setOrigin(0.5).setDepth(26);
+  const body = scene.add.text(x, y + 2, "🕷️", { fontSize:"20px" }).setOrigin(0.5).setDepth(26);
   return { gfx, label, closeX, body };
 }
 
