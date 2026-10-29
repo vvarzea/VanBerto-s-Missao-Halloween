@@ -2797,253 +2797,101 @@ function makeItemTextures(scene){
     tex.refresh();
   });
 
-  // Mini-Drone amigável — 64×52. Visual futurista: chassis facetado tipo
-  // "stealth", núcleo de energia pulsante ao centro, faixa de luz cyan,
-  // braços finos luminosos terminados em anéis de plasma (em vez de
-  // discos de hélice comuns), estabilizadores em lâmina e um scanner
-  // com feixe de luz por baixo em vez de uma câmara comum.
+  // ===== Morcegos de Halloween (substituem os antigos drones) =====
+  // Mesmas chaves internas de sempre ("item_drone" = morcego amigável apanhável,
+  // "drone_hostil" = morcego hostil do Difícil/Extremo) para não mexer no resto do código.
+  // Desenhados de frente, simétricos (viram-se com setFlipX sem problema), 64×52.
+  const drawHwBat=(ctx,p)=>{
+    const bx=32, by=27;
+    // aura
+    const aura=ctx.createRadialGradient(bx,by,4,bx,by,30);
+    aura.addColorStop(0,p.aura); aura.addColorStop(1,"rgba(0,0,0,0)");
+    ctx.fillStyle=aura; ctx.beginPath(); ctx.arc(bx,by,30,0,Math.PI*2); ctx.fill();
+    // asas (membrana com bico em cada "dedo")
+    [-1,1].forEach(sg=>{
+      const X=v=>bx+sg*v;
+      const wg=ctx.createLinearGradient(X(4),by-14,X(30),by+8);
+      wg.addColorStop(0,p.wing1); wg.addColorStop(1,p.wing2);
+      ctx.fillStyle=wg; ctx.strokeStyle=p.edge; ctx.lineWidth=1.4; ctx.lineJoin="round";
+      ctx.beginPath();
+      ctx.moveTo(X(5),by-7);
+      ctx.quadraticCurveTo(X(16),by-23,X(30),by-13);
+      ctx.quadraticCurveTo(X(27),by-5,X(29),by+4);
+      ctx.quadraticCurveTo(X(24),by+1,X(21),by+9);
+      ctx.quadraticCurveTo(X(16),by+3,X(12),by+11);
+      ctx.quadraticCurveTo(X(9),by+4,X(5),by+8);
+      ctx.closePath(); ctx.fill(); ctx.stroke();
+      // ossinhos das asas
+      ctx.strokeStyle=p.bone; ctx.lineWidth=0.9; ctx.lineCap="round";
+      [[30,-13],[29,4],[21,9],[12,11]].forEach(([tx,ty])=>{
+        ctx.beginPath(); ctx.moveTo(X(6),by-6); ctx.lineTo(X(tx),by+ty); ctx.stroke();
+      });
+    });
+    // orelhas
+    [-1,1].forEach(sg=>{
+      ctx.fillStyle=p.body; ctx.strokeStyle=p.edge; ctx.lineWidth=1.2;
+      ctx.beginPath(); ctx.moveTo(bx+sg*3,by-12); ctx.lineTo(bx+sg*6.5,by-23); ctx.lineTo(bx+sg*10,by-11); ctx.closePath(); ctx.fill(); ctx.stroke();
+      ctx.fillStyle=p.ear;
+      ctx.beginPath(); ctx.moveTo(bx+sg*5,by-12.5); ctx.lineTo(bx+sg*6.6,by-19); ctx.lineTo(bx+sg*8.4,by-12.5); ctx.closePath(); ctx.fill();
+    });
+    // corpo + cabeça
+    const bg=ctx.createRadialGradient(bx-3,by-6,2,bx,by,14);
+    bg.addColorStop(0,p.body2); bg.addColorStop(1,p.body);
+    ctx.fillStyle=bg; ctx.strokeStyle=p.edge; ctx.lineWidth=1.4;
+    ctx.beginPath(); ctx.ellipse(bx,by+3,8.5,10,0,0,Math.PI*2); ctx.fill(); ctx.stroke();
+    ctx.beginPath(); ctx.arc(bx,by-5,9.5,0,Math.PI*2); ctx.fill(); ctx.stroke();
+    // barriguinha clara
+    ctx.fillStyle=p.belly; ctx.globalAlpha=0.55;
+    ctx.beginPath(); ctx.ellipse(bx,by+7,4.6,5.5,0,0,Math.PI*2); ctx.fill(); ctx.globalAlpha=1;
+    // olhos brilhantes
+    [-1,1].forEach(sg=>{
+      ctx.fillStyle=p.eye; ctx.shadowColor=p.eye; ctx.shadowBlur=6;
+      ctx.beginPath(); ctx.ellipse(bx+sg*4,by-6,2.8,3.3,0,0,Math.PI*2); ctx.fill();
+      ctx.shadowBlur=0;
+      ctx.fillStyle="#1a0830";
+      ctx.beginPath(); ctx.ellipse(bx+sg*4+(p.angry?-sg*0.4:0),by-5.8,1.1,2.1,0,0,Math.PI*2); ctx.fill();
+      ctx.fillStyle="#fff"; ctx.beginPath(); ctx.arc(bx+sg*4-0.8,by-7.4,0.8,0,Math.PI*2); ctx.fill();
+    });
+    if(p.angry){ // sobrancelhas zangadas
+      ctx.strokeStyle="#12040a"; ctx.lineWidth=1.8; ctx.lineCap="round";
+      ctx.beginPath(); ctx.moveTo(bx-8,by-11.5); ctx.lineTo(bx-1.5,by-8.5); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(bx+8,by-11.5); ctx.lineTo(bx+1.5,by-8.5); ctx.stroke();
+    }
+    // focinho + boca + presinhas
+    ctx.fillStyle=p.edge; ctx.beginPath(); ctx.ellipse(bx,by-2.5,1.4,1,0,0,Math.PI*2); ctx.fill();
+    ctx.strokeStyle=p.edge; ctx.lineWidth=1.2; ctx.lineCap="round";
+    ctx.beginPath();
+    if(p.angry){ ctx.moveTo(bx-4.2,by+1.5); ctx.quadraticCurveTo(bx,by-1,bx+4.2,by+1.5); }
+    else { ctx.moveTo(bx-3.8,by-0.3); ctx.quadraticCurveTo(bx,by+3,bx+3.8,by-0.3); }
+    ctx.stroke();
+    ctx.fillStyle="#fff";
+    const fy=p.angry?by+1.2:by+0.9, fl=p.angry?3.6:2.6;
+    [-2.4,2.4].forEach(dx=>{ ctx.beginPath(); ctx.moveTo(bx+dx-1.1,fy); ctx.lineTo(bx+dx+1.1,fy); ctx.lineTo(bx+dx,fy+fl); ctx.closePath(); ctx.fill(); });
+    ctx.fillStyle=p.body; ctx.strokeStyle=p.edge; ctx.lineWidth=1;
+    [-4,4].forEach(dx=>{ ctx.beginPath(); ctx.ellipse(bx+dx,by+13.5,2.2,1.5,0,0,Math.PI*2); ctx.fill(); ctx.stroke(); });
+    if(p.hat){ // chapeuzinho de bruxa no morcego amigável
+      ctx.fillStyle="#ff8a1f"; ctx.strokeStyle=p.edge; ctx.lineWidth=1;
+      ctx.beginPath(); ctx.ellipse(bx,by-13.5,8,2,0,0,Math.PI*2); ctx.fill(); ctx.stroke();
+      ctx.fillStyle="#5a1d99";
+      ctx.beginPath(); ctx.moveTo(bx-4.5,by-14); ctx.lineTo(bx+0.5,by-25); ctx.lineTo(bx+4.5,by-14); ctx.closePath(); ctx.fill(); ctx.stroke();
+      ctx.fillStyle="#ffd23f"; ctx.fillRect(bx-4,by-16.5,8,2);
+    }
+  };
+
+  // Morcego amigável — apanhável, dá pontos
   if(!scene.textures.exists("item_drone")){
     const tex=scene.textures.createCanvas("item_drone",64,52), ctx=tex.getContext();
-    const bx=32, by=23; // centro do corpo
-
-    // --- AURA AMBIENTE (glow cyan por trás de tudo) ---
-    const aura=ctx.createRadialGradient(bx,by,4,bx,by,29);
-    aura.addColorStop(0,"rgba(80,220,255,0.22)");
-    aura.addColorStop(1,"rgba(80,220,255,0)");
-    ctx.fillStyle=aura;
-    ctx.beginPath(); ctx.arc(bx,by,29,0,Math.PI*2); ctx.fill();
-
-    // --- 4 BRAÇOS + ANÉIS DE PLASMA (atrás do corpo) ---
-    const arms=[[-21,-8],[21,-8],[-21,8],[21,8]];
-    arms.forEach(([dx,dy])=>{
-      const rx=bx+dx, ry=by+dy;
-      ctx.strokeStyle="#182230"; ctx.lineWidth=3; ctx.lineCap="round";
-      ctx.beginPath(); ctx.moveTo(bx+dx*0.22,by+dy*0.3); ctx.lineTo(rx,ry); ctx.stroke();
-      ctx.strokeStyle="rgba(110,225,255,0.85)"; ctx.lineWidth=1;
-      ctx.beginPath(); ctx.moveTo(bx+dx*0.22,by+dy*0.3); ctx.lineTo(rx,ry); ctx.stroke();
-      // housing do motor, hexagonal
-      ctx.fillStyle="#1c2836";
-      ctx.beginPath();
-      ctx.moveTo(rx-4,ry); ctx.lineTo(rx-2,ry-3); ctx.lineTo(rx+2,ry-3);
-      ctx.lineTo(rx+4,ry); ctx.lineTo(rx+2,ry+3); ctx.lineTo(rx-2,ry+3);
-      ctx.closePath(); ctx.fill();
-      ctx.strokeStyle="rgba(110,225,255,0.6)"; ctx.lineWidth=0.8; ctx.stroke();
-      // anel de plasma do motor, achatado para sugerir perspetiva
-      ctx.save();
-      ctx.translate(rx,ry-1); ctx.scale(1,0.38);
-      const ringGr=ctx.createRadialGradient(0,0,1,0,0,10);
-      ringGr.addColorStop(0,"rgba(200,245,255,0.95)");
-      ringGr.addColorStop(0.5,"rgba(70,200,255,0.55)");
-      ringGr.addColorStop(1,"rgba(70,200,255,0)");
-      ctx.fillStyle=ringGr;
-      ctx.shadowColor="#5ce1ff"; ctx.shadowBlur=6;
-      ctx.beginPath(); ctx.arc(0,0,10,0,Math.PI*2); ctx.fill();
-      ctx.shadowBlur=0;
-      ctx.strokeStyle="rgba(255,255,255,0.8)"; ctx.lineWidth=0.9;
-      ctx.beginPath(); ctx.arc(0,0,10,0,Math.PI*2); ctx.stroke();
-      ctx.restore();
-    });
-
-    // --- ESTABILIZADORES EM LÂMINA (em vez de pernas em L) ---
-    ctx.strokeStyle="#182230"; ctx.lineWidth=2;
-    [[-9,1],[9,1]].forEach(([dx])=>{
-      ctx.beginPath(); ctx.moveTo(bx+dx,by+8); ctx.lineTo(bx+dx*1.6,by+15); ctx.stroke();
-    });
-    ctx.strokeStyle="rgba(110,225,255,0.7)"; ctx.lineWidth=1.4; ctx.lineCap="round";
-    ctx.beginPath(); ctx.moveTo(bx-16,by+15); ctx.lineTo(bx-8,by+15); ctx.stroke();
-    ctx.beginPath(); ctx.moveTo(bx+8,by+15); ctx.lineTo(bx+16,by+15); ctx.stroke();
-
-    // --- ANTENA (estilo VanBerto's: haste fina + halo dourado da marca) ---
-    ctx.strokeStyle="#182230"; ctx.lineWidth=1.6;
-    ctx.beginPath(); ctx.moveTo(bx,by-9); ctx.lineTo(bx,by-16); ctx.stroke();
-    const halo=ctx.createRadialGradient(bx,by-18,0.5,bx,by-18,6);
-    halo.addColorStop(0,"rgba(255,210,74,0.7)"); halo.addColorStop(1,"rgba(255,210,74,0)");
-    ctx.fillStyle=halo; ctx.beginPath(); ctx.arc(bx,by-18,6,0,Math.PI*2); ctx.fill();
-    ctx.fillStyle="#ffd24a"; ctx.shadowColor="#ffd24a"; ctx.shadowBlur=5;
-    ctx.beginPath(); ctx.arc(bx,by-18,2,0,Math.PI*2); ctx.fill();
-    ctx.shadowBlur=0;
-
-    // --- CORPO (chassis angular facetado, tipo "stealth") ---
-    ctx.beginPath();
-    ctx.moveTo(bx-14,by);
-    ctx.lineTo(bx-7,by-9);
-    ctx.lineTo(bx+7,by-9);
-    ctx.lineTo(bx+14,by);
-    ctx.lineTo(bx+7,by+9);
-    ctx.lineTo(bx-7,by+9);
-    ctx.closePath();
-    const bodyGr=ctx.createLinearGradient(bx,by-9,bx,by+9);
-    bodyGr.addColorStop(0,"#3a4a60"); bodyGr.addColorStop(0.5,"#20293a"); bodyGr.addColorStop(1,"#10151f");
-    ctx.fillStyle=bodyGr; ctx.fill();
-    ctx.strokeStyle="rgba(110,225,255,0.9)"; ctx.lineWidth=1.3;
-    ctx.shadowColor="#5ce1ff"; ctx.shadowBlur=3;
-    ctx.stroke();
-    ctx.shadowBlur=0;
-
-    // faixa de luz central (linha de energia)
-    const stripGr=ctx.createLinearGradient(bx-11,by,bx+11,by);
-    stripGr.addColorStop(0,"rgba(90,225,255,0)");
-    stripGr.addColorStop(0.5,"rgba(150,240,255,0.9)");
-    stripGr.addColorStop(1,"rgba(90,225,255,0)");
-    ctx.fillStyle=stripGr;
-    ctx.beginPath(); ctx.roundRect(bx-11,by-1,22,2,1); ctx.fill();
-
-    // núcleo de energia (diamante pulsante ao centro)
-    ctx.save(); ctx.translate(bx,by-3); ctx.rotate(Math.PI/4);
-    const coreGr=ctx.createRadialGradient(0,0,0.5,0,0,4.5);
-    coreGr.addColorStop(0,"#ffffff"); coreGr.addColorStop(0.4,"#7fe0ff"); coreGr.addColorStop(1,"rgba(70,200,255,0)");
-    ctx.fillStyle=coreGr; ctx.shadowColor="#7fe0ff"; ctx.shadowBlur=6;
-    ctx.beginPath(); ctx.roundRect(-3.2,-3.2,6.4,6.4,1.5); ctx.fill();
-    ctx.restore(); ctx.shadowBlur=0;
-
-    // Luzes de estado verde/vermelho, pequenas e nítidas
-    ctx.fillStyle="#3ef07a"; ctx.shadowColor="#3ef07a"; ctx.shadowBlur=3;
-    ctx.beginPath(); ctx.arc(bx-10,by+4,1.3,0,Math.PI*2); ctx.fill();
-    ctx.fillStyle="#ff4a4a"; ctx.shadowColor="#ff4a4a";
-    ctx.beginPath(); ctx.arc(bx+10,by+4,1.3,0,Math.PI*2); ctx.fill();
-    ctx.shadowBlur=0;
-
-    // --- SCANNER PENDURADO POR BAIXO (lente com anel + feixe de luz) ---
-    ctx.strokeStyle="#182230"; ctx.lineWidth=1.6;
-    ctx.beginPath(); ctx.moveTo(bx,by+9); ctx.lineTo(bx,by+11); ctx.stroke();
-    ctx.fillStyle="#0e1420";
-    ctx.beginPath(); ctx.roundRect(bx-6,by+10,12,7,3); ctx.fill();
-    ctx.strokeStyle="rgba(110,225,255,0.6)"; ctx.lineWidth=0.9;
-    ctx.beginPath(); ctx.roundRect(bx-6,by+10,12,7,3); ctx.stroke();
-    const lensIris=ctx.createRadialGradient(bx-0.6,by+13.3,0.3,bx,by+13.8,3.2);
-    lensIris.addColorStop(0,"#ffffff"); lensIris.addColorStop(0.35,"#7fe0ff"); lensIris.addColorStop(1,"#0f6fb8");
-    ctx.fillStyle=lensIris; ctx.shadowColor="#7fe0ff"; ctx.shadowBlur=3;
-    ctx.beginPath(); ctx.arc(bx,by+13.8,3.2,0,Math.PI*2); ctx.fill();
-    ctx.shadowBlur=0;
-    // feixe de scan subtil
-    const beam=ctx.createLinearGradient(bx,by+16,bx,by+22);
-    beam.addColorStop(0,"rgba(120,230,255,0.5)"); beam.addColorStop(1,"rgba(120,230,255,0)");
-    ctx.fillStyle=beam;
-    ctx.beginPath(); ctx.moveTo(bx-3,by+16); ctx.lineTo(bx+3,by+16); ctx.lineTo(bx+5,by+22); ctx.lineTo(bx-5,by+22); ctx.closePath(); ctx.fill();
-
+    drawHwBat(ctx,{aura:"rgba(255,160,60,0.28)",wing1:"#8a4fd0",wing2:"#3b1766",edge:"#1a0830",bone:"rgba(255,200,255,0.45)",
+      body:"#2b1248",body2:"#5b2f9a",ear:"#ff9ad0",belly:"#b98cf0",eye:"#ffb347",angry:false,hat:false});
     tex.refresh();
   }
 
-  // Drone HOSTIL — 64×52. Inimigo aéreo exclusivo do nível Extremo (pedido:
-  // "drones maus"). Mesma família visual do item_drone (amigável, continua
-  // a existir e a dar pontos), mas paleta vermelha/laranja agressiva,
-  // silhueta mais espigada, e um único "olho" vermelho pulsante ao centro
-  // em vez do núcleo cyan + luzes verde/vermelho — para nunca se confundir
-  // com o drone bom, mesmo à distância ou num relance rápido.
+  // Morcego HOSTIL — Difícil/Extremo. Paleta vermelha, olhos de fogo, sobrancelhas zangadas e presas
+  // maiores: nunca se confunde com o morcego amigável (roxo, olhos laranja, sorriso).
   if(!scene.textures.exists("drone_hostil")){
     const tex=scene.textures.createCanvas("drone_hostil",64,52), ctx=tex.getContext();
-    const bx=32, by=23;
-
-    // --- AURA AMBIENTE (glow vermelho, mais intenso que a do drone bom) ---
-    const aura=ctx.createRadialGradient(bx,by,4,bx,by,30);
-    aura.addColorStop(0,"rgba(255,60,40,0.30)");
-    aura.addColorStop(1,"rgba(255,60,40,0)");
-    ctx.fillStyle=aura;
-    ctx.beginPath(); ctx.arc(bx,by,30,0,Math.PI*2); ctx.fill();
-
-    // --- 4 BRAÇOS + ANÉIS DE PLASMA VERMELHOS (atrás do corpo) ---
-    const arms=[[-22,-9],[22,-9],[-22,9],[22,9]];
-    arms.forEach(([dx,dy])=>{
-      const rx=bx+dx, ry=by+dy;
-      ctx.strokeStyle="#2a1010"; ctx.lineWidth=3; ctx.lineCap="round";
-      ctx.beginPath(); ctx.moveTo(bx+dx*0.22,by+dy*0.3); ctx.lineTo(rx,ry); ctx.stroke();
-      ctx.strokeStyle="rgba(255,90,60,0.9)"; ctx.lineWidth=1;
-      ctx.beginPath(); ctx.moveTo(bx+dx*0.22,by+dy*0.3); ctx.lineTo(rx,ry); ctx.stroke();
-      // housing do motor — hexagonal, mais afiado (pontas em vez de faces largas)
-      ctx.fillStyle="#20100e";
-      ctx.beginPath();
-      ctx.moveTo(rx-5,ry); ctx.lineTo(rx-2,ry-4); ctx.lineTo(rx+2,ry-4);
-      ctx.lineTo(rx+5,ry); ctx.lineTo(rx+2,ry+4); ctx.lineTo(rx-2,ry+4);
-      ctx.closePath(); ctx.fill();
-      ctx.strokeStyle="rgba(255,90,60,0.7)"; ctx.lineWidth=0.8; ctx.stroke();
-      // anel de plasma do motor, vermelho
-      ctx.save();
-      ctx.translate(rx,ry-1); ctx.scale(1,0.38);
-      const ringGr=ctx.createRadialGradient(0,0,1,0,0,10);
-      ringGr.addColorStop(0,"rgba(255,220,200,0.95)");
-      ringGr.addColorStop(0.5,"rgba(255,70,40,0.6)");
-      ringGr.addColorStop(1,"rgba(255,70,40,0)");
-      ctx.fillStyle=ringGr;
-      ctx.shadowColor="#ff3b1a"; ctx.shadowBlur=7;
-      ctx.beginPath(); ctx.arc(0,0,10,0,Math.PI*2); ctx.fill();
-      ctx.shadowBlur=0;
-      ctx.strokeStyle="rgba(255,255,255,0.7)"; ctx.lineWidth=0.9;
-      ctx.beginPath(); ctx.arc(0,0,10,0,Math.PI*2); ctx.stroke();
-      ctx.restore();
-    });
-
-    // --- ESTABILIZADORES EM LÂMINA ---
-    ctx.strokeStyle="#2a1010"; ctx.lineWidth=2;
-    [[-9,1],[9,1]].forEach(([dx])=>{
-      ctx.beginPath(); ctx.moveTo(bx+dx,by+8); ctx.lineTo(bx+dx*1.6,by+15); ctx.stroke();
-    });
-    ctx.strokeStyle="rgba(255,90,60,0.7)"; ctx.lineWidth=1.4; ctx.lineCap="round";
-    ctx.beginPath(); ctx.moveTo(bx-16,by+15); ctx.lineTo(bx-8,by+15); ctx.stroke();
-    ctx.beginPath(); ctx.moveTo(bx+8,by+15); ctx.lineTo(bx+16,by+15); ctx.stroke();
-
-    // --- DUAS "PONTAS" VERMELHAS NO TOPO (em vez da antena com halo
-    // dourado do drone bom — sem qualquer ligação à marca VanBerto's) ---
-    ctx.strokeStyle="#2a1010"; ctx.lineWidth=1.8;
-    [[-5,-1],[5,-1]].forEach(([dx])=>{
-      ctx.beginPath(); ctx.moveTo(bx+dx*0.6,by-9); ctx.lineTo(bx+dx,by-16); ctx.stroke();
-    });
-    ctx.fillStyle="#ff3b1a"; ctx.shadowColor="#ff3b1a"; ctx.shadowBlur=4;
-    ctx.beginPath(); ctx.arc(bx-5,by-16,1.6,0,Math.PI*2); ctx.fill();
-    ctx.beginPath(); ctx.arc(bx+5,by-16,1.6,0,Math.PI*2); ctx.fill();
-    ctx.shadowBlur=0;
-
-    // --- CORPO (chassis angular, mais espigado que o do drone bom) ---
-    ctx.beginPath();
-    ctx.moveTo(bx-15,by);
-    ctx.lineTo(bx-7,by-10);
-    ctx.lineTo(bx+7,by-10);
-    ctx.lineTo(bx+15,by);
-    ctx.lineTo(bx+7,by+10);
-    ctx.lineTo(bx-7,by+10);
-    ctx.closePath();
-    const bodyGr=ctx.createLinearGradient(bx,by-10,bx,by+10);
-    bodyGr.addColorStop(0,"#4a1c18"); bodyGr.addColorStop(0.5,"#2a1210"); bodyGr.addColorStop(1,"#120806");
-    ctx.fillStyle=bodyGr; ctx.fill();
-    ctx.strokeStyle="rgba(255,90,60,0.9)"; ctx.lineWidth=1.3;
-    ctx.shadowColor="#ff3b1a"; ctx.shadowBlur=3;
-    ctx.stroke();
-    ctx.shadowBlur=0;
-
-    // faixa de luz central (linha de energia vermelha)
-    const stripGr=ctx.createLinearGradient(bx-11,by,bx+11,by);
-    stripGr.addColorStop(0,"rgba(255,70,40,0)");
-    stripGr.addColorStop(0.5,"rgba(255,150,120,0.9)");
-    stripGr.addColorStop(1,"rgba(255,70,40,0)");
-    ctx.fillStyle=stripGr;
-    ctx.beginPath(); ctx.roundRect(bx-11,by-1,22,2,1); ctx.fill();
-
-    // --- OLHO ÚNICO, VERMELHO, PULSANTE (substitui núcleo + luzes de
-    // estado do drone bom) — a marca visual mais clara de "isto é hostil" ---
-    const eyeGr=ctx.createRadialGradient(bx,by,0.5,bx,by,6);
-    eyeGr.addColorStop(0,"#ffffff"); eyeGr.addColorStop(0.35,"#ff5a3c"); eyeGr.addColorStop(1,"rgba(255,30,10,0)");
-    ctx.fillStyle=eyeGr; ctx.shadowColor="#ff2a0a"; ctx.shadowBlur=8;
-    ctx.beginPath(); ctx.arc(bx,by,4,0,Math.PI*2); ctx.fill();
-    ctx.shadowBlur=0;
-    ctx.strokeStyle="rgba(60,10,5,0.9)"; ctx.lineWidth=1;
-    ctx.beginPath(); ctx.arc(bx,by,4,0,Math.PI*2); ctx.stroke();
-
-    // --- SCANNER PENDURADO POR BAIXO (feixe vermelho em vez de cyan) ---
-    ctx.strokeStyle="#2a1010"; ctx.lineWidth=1.6;
-    ctx.beginPath(); ctx.moveTo(bx,by+10); ctx.lineTo(bx,by+12); ctx.stroke();
-    ctx.fillStyle="#160908";
-    ctx.beginPath(); ctx.roundRect(bx-6,by+11,12,7,3); ctx.fill();
-    ctx.strokeStyle="rgba(255,90,60,0.6)"; ctx.lineWidth=0.9;
-    ctx.beginPath(); ctx.roundRect(bx-6,by+11,12,7,3); ctx.stroke();
-    const lensIris=ctx.createRadialGradient(bx-0.6,by+14.3,0.3,bx,by+14.8,3.2);
-    lensIris.addColorStop(0,"#ffffff"); lensIris.addColorStop(0.35,"#ff6a4a"); lensIris.addColorStop(1,"#a01e0e");
-    ctx.fillStyle=lensIris; ctx.shadowColor="#ff5a3c"; ctx.shadowBlur=3;
-    ctx.beginPath(); ctx.arc(bx,by+14.8,3.2,0,Math.PI*2); ctx.fill();
-    ctx.shadowBlur=0;
-    const beam2=ctx.createLinearGradient(bx,by+17,bx,by+23);
-    beam2.addColorStop(0,"rgba(255,90,60,0.5)"); beam2.addColorStop(1,"rgba(255,90,60,0)");
-    ctx.fillStyle=beam2;
-    ctx.beginPath(); ctx.moveTo(bx-3,by+17); ctx.lineTo(bx+3,by+17); ctx.lineTo(bx+5,by+23); ctx.lineTo(bx-5,by+23); ctx.closePath(); ctx.fill();
-
+    drawHwBat(ctx,{aura:"rgba(255,50,40,0.34)",wing1:"#a8202c",wing2:"#35060c",edge:"#12040a",bone:"rgba(255,150,120,0.5)",
+      body:"#1c0508",body2:"#5c1119",ear:"#ff5a3c",belly:"#8a2a30",eye:"#ff3a2a",angry:true,hat:false});
     tex.refresh();
   }
 

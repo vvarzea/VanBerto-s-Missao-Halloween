@@ -12,6 +12,8 @@
 > - **Mundos:** 1 Floresta Assombrada dos Vírus (boss Rei Abóbora), 2 Castelo das Palavras-Passe Perdidas (Fantasma Hacker), 3 Cemitério das Mensagens Malditas (Bruxa do Phishing), 4 Mansão das Sombras Digitais (Senhor das Sombras Digitais). Os fundos são `mundo1_n1e2.webp`, `mundo2_n6.webp`, `mundo3_n10e11.webp` e `mundo4_n16e17.webp` (um por mundo). Os temas de Halloween seguem a ordem dos níveis e encaixam nos mundos.
 > - **Quiz:** três bancos em `data-quiz.js`: Fácil (3 opções), Difícil (4 opções) e Extremo (perguntas extremas + o banco Difícil). Os 20 níveis usam os temas `h00`–`h19` (o nível 15 é o Pão-por-Deus); os 4 bosses usam `hb1`–`hb4` (revisão do mundo, montada por referência, mais enigmas). As perguntas de cibersegurança originais foram retiradas do jogo (ficam em `_dev/original-ciberseguranca/`).
 > - Os textos por nível (nomes, frases de entrada, sinais, dicas e artefactos) seguem a ordem dos temas de Halloween; as dicas de jogabilidade (trampolins, lava, plataformas móveis) ficam nos níveis 4, 14 e 18, onde o nível tem essas mecânicas.
+> - **Morcegos no jogo (v8):** os drones foram substituídos por morcegos. O morcego roxo (olhos laranja) é apanhável e dá pontos (+15); o morcego vermelho (olhos de fogo, sobrancelhas zangadas) é o inimigo voador do Difícil/Extremo e o «reforço» dos bosses no Extremo. Desenhados em `textures.js` (`drawHwBat`); as chaves internas `item_drone` e `drone_hostil` mantêm-se para não mexer no resto do código.
+> - **Botão «Sair»** (menu principal): pede confirmação, guarda o jogo e fecha a janela (`closeGameWindow`, em `game/ui.js`). Se o browser não deixar fechar um separador aberto à mão, a janela fica em branco (`about:blank`).
 > - O progresso e a cache offline têm nomes próprios (`vanbertos_ciberseguranca_halloween_save_v1`, `halloween-vanbertos-…`).
 
 
@@ -127,7 +129,7 @@ e abrir <http://localhost:8000>.
 ## Versões e cache
 
 Todos os ficheiros carregados pelo `index.html` e todos os `import` internos levam **a mesma**
-string `?v=…` (atualmente `20261029halloween7`). Tem de ser sempre igual em todo o lado: o mesmo módulo
+string `?v=…` (atualmente `20261029halloween8`). Tem de ser sempre igual em todo o lado: o mesmo módulo
 importado com strings diferentes é carregado duas vezes, como duas instâncias separadas, e os
 browsers que já têm o jogo podem ficar com uma mistura de ficheiros velhos e novos.
 
