@@ -76,3 +76,12 @@
 /* Mensagens de Halloween no ecrã de vitória e no certificado */
 .win-halloween { margin: 2px 0 6px; font-weight: 800; font-size: 14px; color: #ffb347; text-shadow: 0 1px 0 #5a2b00; text-align: center; }
 .halloween-cert-msg { margin-top: 8px; font-weight: 800; font-style: italic; color: #ffa24d; }
+
+/* Quiz: abóbora do canto mais afastada do texto da pergunta (a pergunta ganha margem à esquerda e à direita,
+   para não tocar na abóbora nem no selo). */
+#quizOverlay .card::before { top: 7px; left: 9px; font-size: 16px; }
+#quizOverlay .q { padding-left: 28px; padding-right: 34px; }
+@media (orientation: landscape) and (max-height: 520px) and (pointer: coarse) {
+  #quizOverlay .card::before { top: 4px; left: 6px; font-size: 13px; }
+  #quizOverlay .q { padding-left: 22px; padding-right: 26px; }
+}
