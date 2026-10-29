@@ -7,23 +7,23 @@
  * As variáveis de estado vivem em state.js; aqui alteram-se com set_<nome>().
  *************************************************/
 
-import { renderAlbum, resetAllProgress } from "./artefacts.js?v=20261028halloween6";
-import { btnMute, btnPause } from "./dom.js?v=20261028halloween6";
-import { playLevelTransition } from "./door.js?v=20261028halloween6";
-import { loadLevel, updateHearts } from "./level.js?v=20261028halloween6";
-import { BG_FILES } from "./map.js?v=20261028halloween6";
-import { closeOverlay, openOverlay, saveGame } from "./overlays.js?v=20261028halloween6";
-import { showHistory } from "./quiz.js?v=20261028halloween6";
-import { showPauseScreen } from "./scene.js?v=20261028halloween6";
-import { _certificateOpenedFrom, difficulty, getStartLives, mapProgress, pausedByTeacher, playerName, powerHaloGfx, sceneRef, score, scoreText, setDifficulty, set__certificateOpenedFrom, set__overlayPaused, set_awaitingQuiz, set_currentLevel, set_lives, set_livesLostThisLevel, set_pausedByTeacher, set_score, shadowGfx } from "./state.js?v=20261028halloween6";
-import { adventureScore, globalStats, medalTextCert, medalTier, updatePlayTime } from "./stats.js?v=20261028halloween6";
-import { toggleFullscreen } from "./ui.js?v=20261028halloween6";
-import { ensureAudio, SFX, isMuted, toggleMuted } from "../audio.js?v=20261028halloween6";
-import { renderAchievements, unlockedAchievements } from "../achievements.js?v=20261028halloween6";
-import { LEVELS } from "../data-levels.js?v=20261028halloween6";
-import { totalStarsEarned, levelStars } from "../stars.js?v=20261028halloween6";
-import { ACHIEVEMENTS_DEFS } from "../data-progression.js?v=20261028halloween6";
-import { loadNamespace, saveNamespace } from "../storage.js?v=20261028halloween6";
+import { renderAlbum, resetAllProgress } from "./artefacts.js?v=20261029halloween7";
+import { btnMute, btnPause } from "./dom.js?v=20261029halloween7";
+import { playLevelTransition } from "./door.js?v=20261029halloween7";
+import { loadLevel, updateHearts } from "./level.js?v=20261029halloween7";
+import { BG_FILES } from "./map.js?v=20261029halloween7";
+import { closeOverlay, openOverlay, saveGame } from "./overlays.js?v=20261029halloween7";
+import { showHistory } from "./quiz.js?v=20261029halloween7";
+import { showPauseScreen } from "./scene.js?v=20261029halloween7";
+import { _certificateOpenedFrom, difficulty, getStartLives, mapProgress, pausedByTeacher, playerName, powerHaloGfx, sceneRef, score, scoreText, setDifficulty, set__certificateOpenedFrom, set__overlayPaused, set_awaitingQuiz, set_currentLevel, set_lives, set_livesLostThisLevel, set_pausedByTeacher, set_score, shadowGfx } from "./state.js?v=20261029halloween7";
+import { adventureScore, globalStats, medalTextCert, medalTier, updatePlayTime } from "./stats.js?v=20261029halloween7";
+import { toggleFullscreen } from "./ui.js?v=20261029halloween7";
+import { ensureAudio, SFX, isMuted, toggleMuted } from "../audio.js?v=20261029halloween7";
+import { renderAchievements, unlockedAchievements } from "../achievements.js?v=20261029halloween7";
+import { LEVELS } from "../data-levels.js?v=20261029halloween7";
+import { totalStarsEarned, levelStars } from "../stars.js?v=20261029halloween7";
+import { ACHIEVEMENTS_DEFS } from "../data-progression.js?v=20261029halloween7";
+import { loadNamespace, saveNamespace } from "../storage.js?v=20261029halloween7";
 
 // =====================================================
 // ===== CONQUISTAS =====
@@ -246,20 +246,20 @@ function showCertificate() {
   if (certTitle) certTitle.textContent = finished ? "Certificado Oficial" : "Certificado de Progresso";
   const certSubtitle = document.getElementById("certSubtitle");
   if (certSubtitle) certSubtitle.textContent = finished
-    ? "de Guardião da Cibersegurança"
-    : `em Cibersegurança — ${levelsCompletedSoFar} de ${LEVELS.length} níveis`;
+    ? "de Guardião do Halloween"
+    : `no Halloween — ${levelsCompletedSoFar} de ${LEVELS.length} níveis`;
   const certIntro2 = document.getElementById("certIntro2");
   if (certIntro2) certIntro2.textContent = finished
     ? "que, com coragem, atenção e sabedoria, concluiu a missão das"
     : "que, com coragem, atenção e sabedoria, está a completar a missão das";
   const certHighlight = document.getElementById("certHighlight");
   if (certHighlight) certHighlight.textContent = finished
-    ? "20 Competências de Cibersegurança"
-    : `${levelsCompletedSoFar} de 20 Competências de Cibersegurança`;
+    ? "20 Tesouros do Halloween"
+    : `${levelsCompletedSoFar} de 20 Tesouros do Halloween`;
   const certOutro = document.getElementById("certOutro");
   if (certOutro) certOutro.textContent = finished
-    ? "tornando-se oficialmente Guardião da Cibersegurança."
-    : "e está a caminho de se tornar Guardião da Cibersegurança.";
+    ? "tornando-se oficialmente Guardião do Halloween."
+    : "e está a caminho de se tornar Guardião do Halloween.";
   // "Jogar de novo" apaga TODO o progresso (resetAllProgress, ver o próprio botão mais abaixo) —
   // faz sentido logo depois de terminar o jogo, mas seria perigoso deixá-lo à vista a meio da
   // aventura: um clique sem querer, a pensar que era só fechar o certificado, apagava tudo.

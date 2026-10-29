@@ -10,7 +10,7 @@
 > - Ícones da aplicação com chapéu de bruxa e abóbora (o ícone de Natal original ficou em `_dev/icon-512.orig.png`).
 > - **Bosses redesenhados** (`textures.js`, função `halloweenBossesRedraw`): Rei Abóbora (chave interna `virus_gigante`), Fantasma Hacker (`monstro_phishing`), Bruxa do Phishing (`robo_spam`) e Senhor das Sombras Digitais (`espiao_sombras`), cada um com as 7 expressões e projéteis próprios (abóbora, chave, carta amaldiçoada e morcego). Os nomes internos dos ficheiros e das chaves mantêm-se, para não mexer no resto do código.
 > - **Mundos:** 1 Floresta Assombrada dos Vírus (boss Rei Abóbora), 2 Castelo das Palavras-Passe Perdidas (Fantasma Hacker), 3 Cemitério das Mensagens Malditas (Bruxa do Phishing), 4 Mansão das Sombras Digitais (Senhor das Sombras Digitais). Os fundos são `mundo1_n1e2.webp`, `mundo2_n6.webp`, `mundo3_n10e11.webp` e `mundo4_n16e17.webp` (um por mundo). Os temas de Halloween seguem a ordem dos níveis e encaixam nos mundos.
-> - **Quiz:** os 20 níveis usam perguntas de Halloween e do Pão-por-Deus (temas `h00`–`h19` em `data-quiz.js`; o nível 15 é dedicado ao Pão-por-Deus). Os 4 bosses usam bancos de revisão do seu mundo (`hb1`–`hb4`), também de Halloween e Pão-por-Deus. Os bancos de cibersegurança originais ficaram no ficheiro, sem uso.
+> - **Quiz:** três bancos em `data-quiz.js`: Fácil (3 opções), Difícil (4 opções) e Extremo (perguntas extremas + o banco Difícil). Os 20 níveis usam os temas `h00`–`h19` (o nível 15 é o Pão-por-Deus); os 4 bosses usam `hb1`–`hb4` (revisão do mundo, montada por referência, mais enigmas). As perguntas de cibersegurança originais foram retiradas do jogo (ficam em `_dev/original-ciberseguranca/`).
 > - Os textos por nível (nomes, frases de entrada, sinais, dicas e artefactos) seguem a ordem dos temas de Halloween; as dicas de jogabilidade (trampolins, lava, plataformas móveis) ficam nos níveis 4, 14 e 18, onde o nível tem essas mecânicas.
 > - O progresso e a cache offline têm nomes próprios (`vanbertos_ciberseguranca_halloween_save_v1`, `halloween-vanbertos-…`).
 
@@ -127,7 +127,7 @@ e abrir <http://localhost:8000>.
 ## Versões e cache
 
 Todos os ficheiros carregados pelo `index.html` e todos os `import` internos levam **a mesma**
-string `?v=…` (atualmente `20261028halloween6`). Tem de ser sempre igual em todo o lado: o mesmo módulo
+string `?v=…` (atualmente `20261029halloween7`). Tem de ser sempre igual em todo o lado: o mesmo módulo
 importado com strings diferentes é carregado duas vezes, como duas instâncias separadas, e os
 browsers que já têm o jogo podem ficar com uma mistura de ficheiros velhos e novos.
 

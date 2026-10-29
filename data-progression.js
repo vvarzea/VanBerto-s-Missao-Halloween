@@ -55,9 +55,9 @@ export const ARTEFACT_SETS = [
 ];
 
 export const SET_REACTIONS = [
-  "🎃 Conjunto da FLORESTA completo! Os vírus não passam!",
+  "🎃 Conjunto da FLORESTA completo! Nenhum susto te apanha!",
   "🏰 Conjunto do CASTELO completo! As tuas contas estão protegidas!",
-  "🪦 Conjunto do CEMITÉRIO completo! Ninguém te engana com phishing!",
+  "🪦 Conjunto do CEMITÉRIO completo! Os fantasmas não te enganam!",
   "🕯️ Conjunto COMPLETO! GUARDIÃO SUPREMO do Halloween digital!",
 ];
 

@@ -1,7 +1,7 @@
 {
-  "name": "VanBerto's — Missão Cibersegurança · Halloween",
+  "name": "VanBerto's — Missão Halloween",
   "short_name": "VanBerto's Halloween",
-  "description": "Edição de Halloween: um jogo de plataformas sobre cibersegurança para crianças, com o VanBerto's!",
+  "description": "Edição de Halloween: um jogo de plataformas com perguntas de Halloween e do Pão-por-Deus para crianças, com o VanBerto's!",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",

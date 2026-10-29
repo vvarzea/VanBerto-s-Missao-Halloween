@@ -48,7 +48,7 @@ export const LEVEL_ENTRY_PHRASES = [
 
 export const DYNAMIC_MSGS_CORRECT = [
   "🌟 Fantástico!", "✨ Excelente!", "🎉 És incrível!",
-  "🛡️ Sabia que conseguias!", "🏆 Competência protegida!", "🔐 Muito bem!"
+  "🛡️ Sabia que conseguias!", "🏆 Tesouro protegido!", "🔐 Muito bem!"
 ];
 
 export const DYNAMIC_MSGS_WRONG = [
@@ -93,9 +93,9 @@ export const VB_HIT = [
 
 export const VB_QUIZ_CORRECT = [
   "INCRÍVEL! Sabias mesmo a resposta! 🏆",
-  "Que craque! Competência recuperada! ✨",
+  "Que craque! Tesouro recuperado! ✨",
   "Fantástico! Estou tão orgulhoso de ti! 🎉",
-  "Isso mesmo! A cibersegurança agradece! 🛡️",
+  "Isso mesmo! O Halloween agradece! 🎃",
   "Brilhante! Nada te escapa! 🌟",
   "Que resposta! Mereces uma estrela! ⭐"
 ];
@@ -118,6 +118,6 @@ export const VB_STAR_POWER = [
 export const VB_PERFECT_LEVEL = [
   "PERFEITO! Nenhuma vida perdida! Lendário! 🏆",
   "Uau! Passaste o nível sem um arranhão! ⭐",
-  "Impecável! Guardião da Cibersegurança nível máximo! 🌟",
+  "Impecável! Guardião do Halloween nível máximo! 🌟",
   "Incrível! Isso merecia um bónus extra! 🎉"
 ];
