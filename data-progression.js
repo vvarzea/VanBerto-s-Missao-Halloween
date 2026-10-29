@@ -69,5 +69,7 @@ export const ACHIEVEMENTS_DEFS = [
   { id:"caca_tesouros",    tier:"🏆", name:"Caçador de Tesouros",      desc:"Encontra todas as salas secretas do jogo." },
   { id:"guardiao",         tier:"🥇", name:"Guardião do Halloween Digital",desc:"Completa o jogo." },
   { id:"mestre",           tier:"🥇", name:"Mestre VanBerto's",        desc:"Acerta todas as perguntas à primeira tentativa." },
+  { id:"cacador_morcegos", tier:"🥈", name:"Caçador de Morcegos",      desc:"Apanha 25 morcegos." },
+  { id:"morcego_dourado",  tier:"🥉", name:"Brilho Dourado",           desc:"Apanha um morcego dourado." },
   { id:"lenda",            tier:"🏆", name:"Lenda Digital",            desc:"100% de conclusão — todos os níveis e todas as estrelas." },
 ];

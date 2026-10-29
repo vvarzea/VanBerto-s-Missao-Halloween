@@ -7,30 +7,30 @@
  * As variáveis de estado vivem em state.js; aqui alteram-se com set_<nome>().
  *************************************************/
 
-import { createArtOrbs } from "./artefacts.js?v=20261029halloween10";
-import { updateBossFight } from "./boss-combat.js?v=20261029halloween10";
-import { btnCloseQuiz, btnMute, btnPause, btnRestart, btnRestartGame, gameOverOverlay, historyOverlay, quizOverlay, startOverlay, winOverlay } from "./dom.js?v=20261029halloween10";
-import { playLevelTransition } from "./door.js?v=20261029halloween10";
-import { pickPraise, showFloat } from "./feedback.js?v=20261029halloween10";
-import { createTouchInput } from "./input.js?v=20261029halloween10";
-import { onCollectItem, onHitMalware, poweredCountdownVal } from "./items.js?v=20261029halloween10";
-import { loadLevel, updateHUD, updateHearts, updateProgressBar } from "./level.js?v=20261029halloween10";
-import { BG_FILES, _bootLevelIdx, bgKeyForLevel, prefersReducedMotion, renderMap, setupBackgroundLoading } from "./map.js?v=20261029halloween10";
-import { SECONDARY_OVERLAYS, closeAllSecondaryOverlays, loadGame, openOverlay, saveGame } from "./overlays.js?v=20261029halloween10";
-import { quizStats, resetQuizStats, showHistory, usedQuizByLevel, usedQuizByTheme } from "./quiz.js?v=20261029halloween10";
-import { exitCrouch, setCrouchHitbox, tryEnterPipe } from "./rooms.js?v=20261029halloween10";
-import { COYOTE_MS, GRAVITY, JUMP_BUFFER_MS, _critterSession, _doorAnimRunning, _doorWatchdogTimer, _hudDirty, _landingCheckTimer, _overlayPaused, _pipeDownWasHeld, _pipeWarping, _suppressCrouchUntilRelease, awaitingQuiz, awaitingStory, balloons, bossState, controlsInvertedUntil, coyoteUntil, critters, currentLevel, cursors, door, doorOverlap, doubleJumpActive, doubleJumpUsed, getStartLives, hazards, inBossFight, inSecretRoom, invuln, isCrouching, itemsGroup, jumpBufferedUntil, keyS, keySpace, lives, malwareGroup, mapProgress, pauseOverlayGfx, pausedByTeacher, pipes, platforms, player, powerHaloGfx, powered, progressBg, progressFill, resetPipeWarpState, sceneRef, score, scoreText, set__doorAnimRunning, set__doorWatchdogTimer, set__historySubOpen, set__hudDirty, set__landingCheckTimer, set__overlayPaused, set__pipeDownWasHeld, set__suppressCrouchUntilRelease, set_awaitingQuiz, set_awaitingStory, set_coyoteUntil, set_cursors, set_difficultyBadge, set_doorOverlap, set_doubleJumpUsed, set_heartsGfx, set_hudText, set_isCrouching, set_itemCountText, set_itemsGroup, set_jumpBufferedUntil, set_keyS, set_keySpace, set_lives, set_livesLostThisLevel, set_malwareGroup, set_pauseOverlayGfx, set_pausedByTeacher, set_platforms, set_player, set_playerNameHUD, set_powerHaloGfx, set_powerIndicator, set_progressBg, set_progressFill, set_sceneRef, set_score, set_scoreText, set_shadowGfx, set_sunAngle, set_tipText, set_transitionGfx, set_transitionLabel, shadowGfx, starPower, starPowerCountVal, sunAngle, touch, updateDifficultyBadge } from "./state.js?v=20261029halloween10";
-import { flushScoreToStats } from "./stats.js?v=20261029halloween10";
-import { applyVanBertoTexture, scheduleBlink, triggerVanBertoWink } from "./vanberto.js?v=20261029halloween10";
-import { updateDecorativePipeReactions, updateHazards, updateMovingPlatforms, updatePipeHintSign, updateSecretSigns, updateSecrets, updateSigns, updateTrampolines } from "./world.js?v=20261029halloween10";
-import { makeTextures } from "../textures.js?v=20261029halloween10";
-import { initBackground, drawSun, NIGHT_THEMES, drawStars, clouds, drawCloud, updateTrail, updateFootsteps, updateDoorGlow, updatePlatformDecor, bgConfetti } from "../background.js?v=20261029halloween10";
-import { isMuted, ensureAudio, SFX, beep } from "../audio.js?v=20261029halloween10";
-import { LEVELS, THEMES } from "../data-levels.js?v=20261029halloween10";
-import { ACHIEVEMENTS_DEFS } from "../data-progression.js?v=20261029halloween10";
-import { unlockedAchievements } from "../achievements.js?v=20261029halloween10";
-import { totalStarsEarned } from "../stars.js?v=20261029halloween10";
-import { PAUSE_TIPS } from "../data-flavor.js?v=20261029halloween10";
+import { createArtOrbs } from "./artefacts.js?v=20261029halloween11";
+import { updateBossFight } from "./boss-combat.js?v=20261029halloween11";
+import { btnCloseQuiz, btnMute, btnPause, btnRestart, btnRestartGame, gameOverOverlay, historyOverlay, quizOverlay, startOverlay, winOverlay } from "./dom.js?v=20261029halloween11";
+import { playLevelTransition } from "./door.js?v=20261029halloween11";
+import { pickPraise, showFloat } from "./feedback.js?v=20261029halloween11";
+import { createTouchInput } from "./input.js?v=20261029halloween11";
+import { givePower, onCollectItem, onHitMalware, poweredCountdownVal } from "./items.js?v=20261029halloween11";
+import { loadLevel, updateHUD, updateHearts, updateProgressBar } from "./level.js?v=20261029halloween11";
+import { BG_FILES, _bootLevelIdx, bgKeyForLevel, prefersReducedMotion, renderMap, setupBackgroundLoading } from "./map.js?v=20261029halloween11";
+import { SECONDARY_OVERLAYS, closeAllSecondaryOverlays, loadGame, openOverlay, saveGame } from "./overlays.js?v=20261029halloween11";
+import { quizStats, resetQuizStats, showHistory, usedQuizByLevel, usedQuizByTheme } from "./quiz.js?v=20261029halloween11";
+import { exitCrouch, setCrouchHitbox, tryEnterPipe } from "./rooms.js?v=20261029halloween11";
+import { COYOTE_MS, GRAVITY, JUMP_BUFFER_MS, _critterSession, _doorAnimRunning, _doorWatchdogTimer, _hudDirty, _landingCheckTimer, _overlayPaused, _pipeDownWasHeld, _pipeWarping, _suppressCrouchUntilRelease, awaitingQuiz, awaitingStory, balloons, bossState, controlsInvertedUntil, coyoteUntil, critters, currentLevel, cursors, difficulty, door, doorOverlap, doubleJumpActive, doubleJumpUsed, getStartLives, hazards, inBossFight, inSecretRoom, invuln, isCrouching, itemsGroup, jumpBufferedUntil, keyS, keySpace, lives, malwareGroup, mapProgress, pauseOverlayGfx, pausedByTeacher, pipes, platforms, player, powerHaloGfx, powered, progressBg, progressFill, resetPipeWarpState, sceneRef, score, scoreText, set__doorAnimRunning, set__doorWatchdogTimer, set__historySubOpen, set__hudDirty, set__landingCheckTimer, set__overlayPaused, set__pipeDownWasHeld, set__suppressCrouchUntilRelease, set_awaitingQuiz, set_awaitingStory, set_coyoteUntil, set_cursors, set_difficultyBadge, set_doorOverlap, set_doubleJumpUsed, set_heartsGfx, set_hudText, set_isCrouching, set_itemCountText, set_itemsGroup, set_jumpBufferedUntil, set_keyS, set_keySpace, set_lives, set_livesLostThisLevel, set_malwareGroup, set_pauseOverlayGfx, set_pausedByTeacher, set_platforms, set_player, set_playerNameHUD, set_powerHaloGfx, set_powerIndicator, set_progressBg, set_progressFill, set_sceneRef, set_score, set_scoreText, set_shadowGfx, set_sunAngle, set_tipText, set_transitionGfx, set_transitionLabel, shadowGfx, starPower, starPowerCountVal, sunAngle, touch, updateDifficultyBadge } from "./state.js?v=20261029halloween11";
+import { flushScoreToStats } from "./stats.js?v=20261029halloween11";
+import { applyVanBertoTexture, scheduleBlink, triggerVanBertoWink } from "./vanberto.js?v=20261029halloween11";
+import { scheduleGoldenBat, updateGoldenBat, updateDecorativePipeReactions, updateHazards, updateMovingPlatforms, updatePipeHintSign, updateSecretSigns, updateSecrets, updateSigns, updateTrampolines } from "./world.js?v=20261029halloween11";
+import { makeTextures } from "../textures.js?v=20261029halloween11";
+import { initBackground, drawSun, NIGHT_THEMES, drawStars, clouds, drawCloud, updateTrail, updateFootsteps, updateDoorGlow, updatePlatformDecor, bgConfetti } from "../background.js?v=20261029halloween11";
+import { isMuted, ensureAudio, SFX, beep } from "../audio.js?v=20261029halloween11";
+import { LEVELS, THEMES } from "../data-levels.js?v=20261029halloween11";
+import { ACHIEVEMENTS_DEFS } from "../data-progression.js?v=20261029halloween11";
+import { BAT_GOAL, getBatsCaught, onBatCaughtForAchievements, unlockedAchievements } from "../achievements.js?v=20261029halloween11";
+import { totalStarsEarned } from "../stars.js?v=20261029halloween11";
+import { PAUSE_TIPS } from "../data-flavor.js?v=20261029halloween11";
 
 // ===== Salas secretas isoladas ("tipo os bosses") =====
 // Em vez de uma plataforma algures no mesmo mundo do nível, entrar num
@@ -132,6 +132,7 @@ function create() {
   // sem ser tapado pelo botão HTML "☰ Menu" (fixo no verdadeiro canto do
   // ecrã, fora do canvas — y=10 ficava por baixo dele, reportado com print).
   set_difficultyBadge( this.add.text(960-14, 76, "", { fontSize:"13px", fontStyle:"900", color:"#8affc1", stroke:"#200040", strokeThickness:3 }).setScrollFactor(0).setDepth(102).setOrigin(1,0));
+  batHudText = this.add.text(960-14, 98, "", { fontSize:"13px", fontStyle:"900", color:"#ffb347", stroke:"#200040", strokeThickness:3 }).setScrollFactor(0).setDepth(102).setOrigin(1,0); refreshBatHud();
   updateDifficultyBadge();
 
   // ── HUD de orbes dos artefactos ────────────────────────────────
@@ -518,15 +519,26 @@ export function showPauseScreen(on) {
 
 // ===== UPDATE =====
 
+// ===== Morcegos e guloseimas apanháveis: combo, contador, morcego dourado e fantasminha =====
+let _comboCount = 0, _comboLast = -99999;   // combo: apanhar vários seguidos (menos de 4 s entre eles) dá pontos extra
+let batHudText = null;                       // «🦇 Morcegos: n/25» (canto superior direito)
+function refreshBatHud() {
+  if (!batHudText) return;
+  const n = getBatsCaught();
+  batHudText.setText(n >= BAT_GOAL ? `🦇 Morcegos: ${n} ✔` : `🦇 Morcegos: ${n}/${BAT_GOAL}`);
+}
+
 function updateCritters() {
   if(player){
     const px=player.x, py=player.y;
     const now=sceneRef.time.now*0.001;
     critters.forEach(c=>{
+      if(c.isGolden) updateGoldenBat(sceneRef, c);   // aparece/foge à hora marcada
       if(c.collected||!c.sprite||!c.sprite.active) return;
 
       // Garantir velocidade mínima robusta — nunca ficam paradas
-      if(Math.abs(c.speedX) < 0.7) c.speedX = (c.speedX >= 0 ? 1 : -1) * 0.7;
+      const minX = c.isGolden ? 2.0 : 0.7;
+      if(Math.abs(c.speedX) < minX) c.speedX = (c.speedX >= 0 ? 1 : -1) * minX;
       if(Math.abs(c.speedY) < 0.5) c.speedY = (c.speedY >= 0 ? 1 : -1) * 0.5;
       // Acumular angulo proprio por critter
       if(c.angle === undefined) c.angle = c.phase;
@@ -538,9 +550,9 @@ function updateCritters() {
       if(c.x > c.worldW-40) { c.x=c.worldW-40; c.speedX=-Math.abs(c.speedX); }
       if(c.y < 30)  { c.y=30;  c.speedY= Math.abs(c.speedY); }
       if(c.y > 310) { c.y=310; c.speedY=-Math.abs(c.speedY); }
-      const sc=c.isDrone?0.75:0.80;
-      // Batimento de asas — scaleY oscilante
-      const wingFlap=1+Math.sin(now*(c.isDrone?16:9)+c.wingPhase)*(c.isDrone?0.22:0.12);
+      const sc=c.isGolden?0.9:(c.isDrone?0.75:0.80);
+      // Batimento de asas — morcegos batem as asas na horizontal, guloseimas balançam na vertical
+      const wingFlap=1+Math.sin(now*(c.isGolden?24:(c.isDrone?16:9))+c.wingPhase)*(c.isDrone?0.22:0.12);
       c.sprite.setFlipX(c.speedX < 0);
       c.isDrone ? c.sprite.setScale(sc*wingFlap, sc) : c.sprite.setScale(sc, sc*wingFlap);
       c.sprite.setPosition(c.x, c.y);
@@ -548,16 +560,30 @@ function updateCritters() {
       const pb=player.body;
       if(pb.right>c.x-32&&pb.left<c.x+32&&pb.bottom>c.y-26&&pb.top<c.y+26){
         c.collected=true; c.sprite.destroy(); c.sprite=null;
-        const pts=c.isDrone?15:10;
-        set_score(score + (pts)); scoreText.setText(`🌟 Pontos: ${score}`);
-        showFloat(sceneRef,px,py-68,c.isDrone?`🦇 Morcego +${pts}`:`🍬 Guloseima +${pts}`,c.isDrone?"#ffb347":"#ff80c0");
-        if(Math.random()<0.4) showFloat(sceneRef,px,py-100,pickPraise(),"#ffd700");
-        ensureAudio(); if(c.isDrone) SFX.bat(); else SFX.treat();
-        const tint=c.isDrone?[0xffb347,0x9b4dff,0xffffff]:[0xff80c0,0xd0a0ff,0x80d0ff,0xffffff];
-        const pt=sceneRef.add.particles(0,0,"spark_item",{x:px,y:py,speed:{min:50,max:170},lifespan:380,quantity:c.isDrone?14:12,scale:{start:0.9,end:0},gravityY:280,tint});
+        const isGhost = !c.isDrone && c.key === "item_pacote_1";
+        const pts=c.isGolden?50:(c.isDrone?15:10);
+        // Combo
+        const tNow=sceneRef.time.now;
+        _comboCount = (tNow-_comboLast < 4000) ? _comboCount+1 : 1;
+        _comboLast = tNow;
+        const comboBonus = _comboCount >= 2 ? Math.min(25, (_comboCount-1)*5) : 0;
+        set_score(score + pts + comboBonus); scoreText.setText(`🌟 Pontos: ${score}`);
+        const label = c.isGolden ? `✨ Morcego dourado +${pts}` : c.isDrone ? `🦇 Morcego +${pts}` : isGhost ? `👻 Fantasminha +${pts}` : `🍬 Guloseima +${pts}`;
+        showFloat(sceneRef,px,py-68,label,c.isGolden?"#ffd700":(c.isDrone?"#ffb347":"#ff80c0"));
+        if(comboBonus){
+          showFloat(sceneRef,px,py-100,`🔥 Combo x${_comboCount}! +${comboBonus}`,"#ff8a1f");
+          ensureAudio(); beep({freq:700+_comboCount*60,dur:0.08,type:"triangle",vol:0.05,slideTo:1000+_comboCount*60});
+        } else if(Math.random()<0.4) showFloat(sceneRef,px,py-100,pickPraise(),"#ffd700");
+        ensureAudio();
+        if(c.isGolden){ SFX.secretRoom(); SFX.bat(); } else if(c.isDrone) SFX.bat(); else SFX.treat();
+        if(c.isDrone){ onBatCaughtForAchievements(!!c.isGolden); refreshBatHud(); }
+        if(isGhost){ givePower(sceneRef); showFloat(sceneRef,px,py-132,"👻 Escudo fantasma!","#c8b0ff"); }
+        const tint=c.isGolden?[0xffd700,0xffffff,0xffb347]:c.isDrone?[0xffb347,0x9b4dff,0xffffff]:[0xff80c0,0xd0a0ff,0x80d0ff,0xffffff];
+        const pt=sceneRef.add.particles(0,0,"spark_item",{x:px,y:py,speed:{min:50,max:170},lifespan:380,quantity:c.isGolden?26:(c.isDrone?14:12),scale:{start:0.9,end:0},gravityY:280,tint});
         sceneRef.time.delayedCall(280,()=>pt.destroy());
         saveGame();
-        // Respawnar após 5-9 segundos — usar session para ignorar se o nível mudou
+        // Dourado: volta muito mais tarde. Os outros: respawn após 5-9 s (session ignora se o nível mudou)
+        if(c.isGolden){ scheduleGoldenBat(sceneRef, c, 25000+Math.random()*20000); return; }
         const wW=LEVELS[currentLevel]?.worldW||2600;
         const mySession = c.session;
         sceneRef.time.delayedCall(5000+Math.random()*4000,()=>{
@@ -1018,21 +1044,51 @@ function updateGameFrame() {
       if (Math.abs(m.body.velocity.x) < 8) { m.setVelocityX(spd * dir); }
       if (!isBoss) m.rotation += 0.012;
     } else if (pat === "drone_hostil") {
-      // Drone Extremo — voa em patrulha horizontal (mesmo esquema de
-      // minLeft/minRight do "mini"), mas SEM tocar no chão: gravidade
-      // desligada em spawnHostileDrone(), e oscila em altura com um seno
-      // em torno de "baseY" para dar sensação de voo, em vez de girar
-      // como os vilões de chão (não faz sentido um drone rodar sobre si
-      // próprio).
-      const minL = m.getData("minLeft") ?? (m.x - 140);
-      const minR = m.getData("minRight") ?? (m.x + 140);
-      if (m.x <= minL || m.body.blocked.left)  { m.setVelocityX(spd);  m.setData("dir", 1); }
-      if (m.x >= minR || m.body.blocked.right) { m.setVelocityX(-spd); m.setData("dir", -1); }
-      if (Math.abs(m.body.velocity.x) < 8) { m.setVelocityX(spd * dir); }
+      // Morcego hostil — patrulha a voar (sem gravidade) e, de vez em quando, MERGULHA sobre o jogador:
+      // 0 = a patrulhar, 1 = a preparar (treme 0,45 s, aviso), 2 = mergulho, 3 = a regressar ao seu posto.
+      const tNow = sceneRef.time.now;
+      let ds = m.getData("diveState") || 0;
       const baseY = m.getData("baseY") ?? m.y;
-      const phase = (m.getData("bobPhase") || 0) + sceneRef.time.now * 0.0018;
-      m.y = baseY + Math.sin(phase) * 16;
-      m.rotation = Math.sin(phase * 0.5) * 0.06; // ligeira inclinação ao voar, nunca gira 360°
+      if (ds === 0) {
+        const minL = m.getData("minLeft") ?? (m.x - 140);
+        const minR = m.getData("minRight") ?? (m.x + 140);
+        if (m.x <= minL || m.body.blocked.left)  { m.setVelocityX(spd);  m.setData("dir", 1); }
+        if (m.x >= minR || m.body.blocked.right) { m.setVelocityX(-spd); m.setData("dir", -1); }
+        if (Math.abs(m.body.velocity.x) < 8) { m.setVelocityX(spd * dir); }
+        const phase = (m.getData("bobPhase") || 0) + tNow * 0.0018;
+        m.y = baseY + Math.sin(phase) * 16;
+        m.rotation = Math.sin(phase * 0.5) * 0.06;
+        if (m.getData("nextDive") == null) m.setData("nextDive", tNow + 2500 + Math.random() * 3000);
+        if (!m.getData("isMiniHazard") && player && tNow > m.getData("nextDive")
+            && Math.abs(player.x - m.x) < 280 && player.y > m.y + 60) {
+          m.setVelocityX(0); m.setData("diveState", 1); m.setData("diveT", tNow);
+          m.setTint(0xff9a9a);                     // aviso: fica avermelhado e treme
+          showFloat(sceneRef, m.x, m.y - 34, "❗", "#ff5a3c");
+        }
+      } else if (ds === 1) {
+        m.x += Math.sin(tNow * 0.09) * 1.6;        // treme
+        if (tNow - m.getData("diveT") > 450) {
+          const tx = player.x, ty = Math.min(player.y, 440);
+          const ang = Math.atan2(ty - m.y, tx - m.x), v = Math.min(520, spd * 3.6);
+          m.clearTint(); m.setVelocity(Math.cos(ang) * v, Math.sin(ang) * v);
+          m.setData("diveState", 2); m.setData("diveT", tNow);
+        }
+      } else if (ds === 2) {
+        m.rotation = Math.atan2(m.body.velocity.y, m.body.velocity.x) * 0.15;
+        if (tNow - m.getData("diveT") > 750 || m.y > 445 || m.body.blocked.down || m.body.blocked.left || m.body.blocked.right) {
+          m.setData("diveState", 3);
+        }
+      } else {
+        const ox = m.getData("originX") ?? m.x;
+        const dx = ox - m.x, dy = baseY - m.y, dist = Math.hypot(dx, dy);
+        if (dist < 14) {
+          m.setVelocity(0, 0); m.setData("diveState", 0); m.rotation = 0;
+          m.setVelocityX(spd * (m.getData("dir") || 1));
+          m.setData("nextDive", tNow + (difficulty === "extremo" ? 3500 : 5500) + Math.random() * 3000);
+        } else {
+          m.setVelocity(dx / dist * 170, dy / dist * 170);
+        }
+      }
     } else {
       // minLeft/minRight (opcional, ver spawnVilao) — prende "patrol"/
       // "jumper" à largura de uma plataforma específica, exatamente como

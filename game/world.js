@@ -7,20 +7,20 @@
  * As variáveis de estado vivem em state.js; aqui alteram-se com set_<nome>().
  *************************************************/
 
-import { hitFlash } from "./dom.js?v=20261029halloween10";
-import { applyHitStop, showFloat } from "./feedback.js?v=20261029halloween10";
-import { showGameOver } from "./flow.js?v=20261029halloween10";
-import { clearPower, setInvuln } from "./items.js?v=20261029halloween10";
-import { updateHearts } from "./level.js?v=20261029halloween10";
-import { saveGame } from "./overlays.js?v=20261029halloween10";
-import { snapPlayerToGround } from "./rooms.js?v=20261029halloween10";
-import { _critterSession, _overlayPaused, awaitingQuiz, balloons, collectedItemIndices, collectedRoomPipes, critters, currentLevel, currentSign, decorativePipes, extraShieldCounted, getVillainSpeedMult, hazards, invuln, isStarAllowedExtremo, itemCountText, itemsCollected, itemsGroup, itemsTotal, lives, livesLostThisLevel, malwareGroup, movingPlatforms, pausedByTeacher, pipeHintSign, player, powered, sceneRef, secretDoors, secretSigns, set__critterSession, set__hudDirty, set_awaitingQuiz, set_balloons, set_critters, set_currentSign, set_extraShieldCounted, set_hazards, set_invuln, set_itemsCollected, set_itemsTotal, set_lives, set_livesLostThisLevel, set_movingPlatforms, set_pipeHintSign, set_secretDoors, set_secretSigns, set_trampolines, tipText, touch, trampolines } from "./state.js?v=20261029halloween10";
-import { triggerVanBertoSad } from "./vanberto.js?v=20261029halloween10";
-import { THEMES, LEVELS } from "../data-levels.js?v=20261029halloween10";
-import { makePlatformTextureThemed } from "../textures.js?v=20261029halloween10";
-import { ensureAudio, SFX, beep } from "../audio.js?v=20261029halloween10";
-import { onSecretFoundForAchievements } from "../achievements.js?v=20261029halloween10";
-import { NPC_SIGNS } from "../data-story.js?v=20261029halloween10";
+import { hitFlash } from "./dom.js?v=20261029halloween11";
+import { applyHitStop, showFloat } from "./feedback.js?v=20261029halloween11";
+import { showGameOver } from "./flow.js?v=20261029halloween11";
+import { clearPower, setInvuln } from "./items.js?v=20261029halloween11";
+import { updateHearts } from "./level.js?v=20261029halloween11";
+import { saveGame } from "./overlays.js?v=20261029halloween11";
+import { snapPlayerToGround } from "./rooms.js?v=20261029halloween11";
+import { _critterSession, _overlayPaused, awaitingQuiz, balloons, collectedItemIndices, collectedRoomPipes, critters, currentLevel, currentSign, decorativePipes, extraShieldCounted, getVillainSpeedMult, hazards, invuln, isStarAllowedExtremo, itemCountText, itemsCollected, itemsGroup, itemsTotal, lives, livesLostThisLevel, malwareGroup, movingPlatforms, pausedByTeacher, pipeHintSign, player, powered, sceneRef, secretDoors, secretSigns, set__critterSession, set__hudDirty, set_awaitingQuiz, set_balloons, set_critters, set_currentSign, set_extraShieldCounted, set_hazards, set_invuln, set_itemsCollected, set_itemsTotal, set_lives, set_livesLostThisLevel, set_movingPlatforms, set_pipeHintSign, set_secretDoors, set_secretSigns, set_trampolines, tipText, touch, trampolines } from "./state.js?v=20261029halloween11";
+import { triggerVanBertoSad } from "./vanberto.js?v=20261029halloween11";
+import { THEMES, LEVELS } from "../data-levels.js?v=20261029halloween11";
+import { makePlatformTextureThemed } from "../textures.js?v=20261029halloween11";
+import { ensureAudio, SFX, beep } from "../audio.js?v=20261029halloween11";
+import { onSecretFoundForAchievements } from "../achievements.js?v=20261029halloween11";
+import { NPC_SIGNS } from "../data-story.js?v=20261029halloween11";
 
 // ===== Balões flutuantes apanháveis =====
 
@@ -79,6 +79,43 @@ export function spawnCritters(scene, worldW){
       collected: false, worldW,
       session // identificador de sessão para cancelar respawns obsoletos
     });
+  }
+  // Morcego dourado: raro, começa escondido e aparece passados 10–20 s (ver scheduleGoldenBat)
+  const golden = {
+    sprite:null, x:0, y:0, isDrone:true, isGolden:true, key:"item_morcego_dourado",
+    speedX:0, speedY:0, phase:0, wingPhase:0, collected:true, worldW, session
+  };
+  critters.push(golden);
+  scheduleGoldenBat(scene, golden, 10000 + Math.random()*10000);
+}
+
+// Agenda a próxima aparição do morcego dourado (daqui a delayMs). Em vez de delayedCall (que se perde quando o
+// nível limpa os temporizadores), guarda-se a hora e updateGoldenBat() verifica-a a cada imagem.
+export function scheduleGoldenBat(scene, c, delayMs){
+  c.collected = true;
+  c.appearAt = scene.time.now + delayMs;
+  c.vanishAt = null;
+}
+
+// Chamado a cada imagem para o morcego dourado: faz-o aparecer na hora marcada e fugir se ninguém o apanhar em 14 s.
+export function updateGoldenBat(scene, c){
+  const t = scene.time.now;
+  if (c.collected) {
+    if (c.appearAt == null || t < c.appearAt) return;
+    const wW = c.worldW || 2600;
+    c.collected = false; c.appearAt = null; c.vanishAt = t + 14000;
+    c.x = Math.random() < 0.5 ? 60 : wW - 60;
+    c.y = 70 + Math.random() * 200;
+    c.speedX = (c.x < wW/2 ? 1 : -1) * (2.4 + Math.random() * 0.6);   // muito mais depressa que os outros
+    c.speedY = (Math.random() < 0.5 ? 1 : -1) * 1.2;
+    c.angle = Math.random() * Math.PI * 2;
+    c.wingPhase = Math.random() * Math.PI * 2;
+    c.sprite = scene.add.image(c.x, c.y, c.key).setDepth(3).setScale(0.9).setAlpha(1);
+    showFloat(scene, Math.max(80, Math.min(c.x, wW-80)), c.y, "✨ Morcego dourado!", "#ffd700");
+  } else if (c.vanishAt != null && t > c.vanishAt) {
+    try { if (c.sprite) c.sprite.destroy(); } catch {}
+    c.sprite = null;
+    scheduleGoldenBat(scene, c, 25000 + Math.random()*20000);
   }
 }
 

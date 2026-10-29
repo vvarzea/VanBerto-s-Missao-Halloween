@@ -1,15 +1,16 @@
 // ===== Sistema de Conquistas — Fase 2 =====
 // Persistente em localStorage. Critérios ligados a eventos já existentes no jogo.
 
-import { LEVELS } from "./data-levels.js?v=20261029halloween10";
-import { ACHIEVEMENTS_DEFS } from "./data-progression.js?v=20261029halloween10";
-import { ensureAudio, beep } from "./audio.js?v=20261029halloween10";
-import { levelStars, starsForLevel, incrementSecretsFound, markFirstTryThisLevel } from "./stars.js?v=20261029halloween10";
-import { loadNamespace, saveNamespace } from "./storage.js?v=20261029halloween10";
+import { LEVELS } from "./data-levels.js?v=20261029halloween11";
+import { ACHIEVEMENTS_DEFS } from "./data-progression.js?v=20261029halloween11";
+import { ensureAudio, beep } from "./audio.js?v=20261029halloween11";
+import { levelStars, starsForLevel, incrementSecretsFound, markFirstTryThisLevel } from "./stars.js?v=20261029halloween11";
+import { loadNamespace, saveNamespace } from "./storage.js?v=20261029halloween11";
 
 export let unlockedAchievements = {}; // { [id]: true }
 let historiesReadCount = 0;
 let correctAnswersTotal = 0;
+let batsCaughtTotal = 0;      // morcegos apanhados em todo o jogo (contador da conquista «Caçador de Morcegos»)
 let secretRoomsFoundGlobal = []; // chaves (roomKey) únicas de salas secretas já encontradas, em todo o jogo
 
 export function loadAchievements() {
@@ -18,13 +19,15 @@ export function loadAchievements() {
   historiesReadCount = d.historiesReadCount || 0;
   correctAnswersTotal = d.correctAnswersTotal || 0;
   secretRoomsFoundGlobal = d.secretRoomsFoundGlobal || [];
+  batsCaughtTotal = d.batsCaughtTotal || 0;
 }
 export function saveAchievements() {
   saveNamespace("achievements", {
     unlocked: unlockedAchievements,
     historiesReadCount,
     correctAnswersTotal,
-    secretRoomsFoundGlobal
+    secretRoomsFoundGlobal,
+    batsCaughtTotal
   });
 }
 loadAchievements();
@@ -34,6 +37,7 @@ export function resetAchievements() {
   historiesReadCount = 0;
   correctAnswersTotal = 0;
   secretRoomsFoundGlobal = [];
+  batsCaughtTotal = 0;
   saveAchievements();
 }
 
@@ -137,4 +141,16 @@ export function renderAchievements() {
   const count = ACHIEVEMENTS_DEFS.filter(d => unlockedAchievements[d.id]).length;
   const counterEl = document.getElementById("achievementsCounter");
   if (counterEl) counterEl.textContent = `${count}/${ACHIEVEMENTS_DEFS.length}`;
+}
+
+// ===== Morcegos apanhados =====
+export const BAT_GOAL = 25;
+export function getBatsCaught() { return batsCaughtTotal; }
+// Chamado sempre que o jogador apanha um morcego (golden = morcego dourado). Devolve o total.
+export function onBatCaughtForAchievements(golden) {
+  batsCaughtTotal += 1;
+  saveAchievements();
+  if (batsCaughtTotal >= BAT_GOAL) unlockAchievement("cacador_morcegos");
+  if (golden) unlockAchievement("morcego_dourado");
+  return batsCaughtTotal;
 }
