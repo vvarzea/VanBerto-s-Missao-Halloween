@@ -242,9 +242,11 @@ function create() {
   // vitória/derrota ou onde quer que o jogador esteja. Usada pelo botão
   // "🚪 Sair para o Menu" do menu suspenso.
   function exitToMainMenu() {
-    if (!sceneRef) return;
-    try { sceneRef.physics.pause(); } catch {}
-    try { sceneRef.tweens.killAll(); } catch {}
+    // Sem cena (ex.: mapa aberto logo a seguir a «Nova Aventura», ainda sem nível) basta fechar os ecrãs e mostrar o menu.
+    if (sceneRef) {
+      try { sceneRef.physics.pause(); } catch {}
+      try { sceneRef.tweens.killAll(); } catch {}
+    }
     resetPipeWarpState();
     set__doorAnimRunning( false);
     touch.left = touch.right = touch.jump = touch.crouch = false;
@@ -260,6 +262,8 @@ function create() {
     startOverlay.classList.remove("hidden");
     saveGame();
   }
+  // Também usada pelo botão «🏠 Menu principal» do Mapa (game/ui.js).
+  window.__vb_exitToMenu = exitToMainMenu;
 
   if (btnRestartGame) {
     btnRestartGame.onclick = () => {

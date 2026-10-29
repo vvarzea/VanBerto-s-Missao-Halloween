@@ -361,6 +361,17 @@ export function init_ui_0() {
     }
     closeOverlay("mapOverlay");
   });
+  // «🏠 Menu principal»: o Mapa tem sempre uma saída para o menu, mesmo antes do primeiro nível.
+  document.getElementById("btnMapMenu")?.addEventListener("click", () => {
+    const mo = document.getElementById("mapOverlay");
+    const noLevelYet = mo?.dataset.fromStart === "1" || !document.body.classList.contains("game-started");
+    if (!noLevelYet && !confirm("🏠 Voltar ao menu principal?\nO progresso deste nível ainda não guardado perde-se.")) return;
+    if (mo) delete mo.dataset.fromStart;
+    ensureAudio(); SFX.coin();
+    window.__vb_exitToMenu?.();
+    startOverlay.classList.remove("hidden");   // rede de segurança, caso a função não exista
+    closeOverlay("mapOverlay");
+  });
   document.getElementById("btnBackToMap")?.addEventListener("click", () => {
     ensureAudio(); SFX.coin();
     openOverlay("mapOverlay", renderMap);
