@@ -7,19 +7,19 @@
  * As variáveis de estado vivem em state.js; aqui alteram-se com set_<nome>().
  *************************************************/
 
-import { resetAllProgress } from "./artefacts.js?v=20261029halloween7";
-import { startBossFight } from "./boss-core.js?v=20261029halloween7";
-import { btnCloseHow, btnHow, btnMute, btnPause, btnStart, gameOverOverlay, playerNameInput, quizAnswers, quizOverlay, startOverlay, winOverlay } from "./dom.js?v=20261029halloween7";
-import { playLevelTransition } from "./door.js?v=20261029halloween7";
-import { loadLevel, updateHearts } from "./level.js?v=20261029halloween7";
-import { renderMap } from "./map.js?v=20261029halloween7";
-import { closeOverlay, openOverlay, saveGame } from "./overlays.js?v=20261029halloween7";
-import { resetQuizStats, showHistory, usedQuizByLevel, usedQuizByTheme } from "./quiz.js?v=20261029halloween7";
-import { showPauseScreen } from "./scene.js?v=20261029halloween7";
-import { bossState, currentLevel, getStartLives, inBossFight, pausedByTeacher, powerHaloGfx, sceneRef, score, scoreText, setDifficulty, set__overlayPaused, set_awaitingQuiz, set_currentLevel, set_lives, set_livesLostThisLevel, set_pausedByTeacher, set_playerName, set_score, shadowGfx } from "./state.js?v=20261029halloween7";
-import { flushScoreToStats } from "./stats.js?v=20261029halloween7";
-import { toggleMuted, ensureAudio, SFX } from "../audio.js?v=20261029halloween7";
-import { loadNamespace, saveNamespace } from "../storage.js?v=20261029halloween7";
+import { resetAllProgress } from "./artefacts.js?v=20261029halloween8";
+import { startBossFight } from "./boss-core.js?v=20261029halloween8";
+import { btnCloseHow, btnHow, btnMute, btnPause, btnStart, gameOverOverlay, playerNameInput, quizAnswers, quizOverlay, startOverlay, winOverlay } from "./dom.js?v=20261029halloween8";
+import { playLevelTransition } from "./door.js?v=20261029halloween8";
+import { loadLevel, updateHearts } from "./level.js?v=20261029halloween8";
+import { renderMap } from "./map.js?v=20261029halloween8";
+import { closeOverlay, openOverlay, saveGame } from "./overlays.js?v=20261029halloween8";
+import { resetQuizStats, showHistory, usedQuizByLevel, usedQuizByTheme } from "./quiz.js?v=20261029halloween8";
+import { showPauseScreen } from "./scene.js?v=20261029halloween8";
+import { bossState, currentLevel, getStartLives, inBossFight, pausedByTeacher, powerHaloGfx, sceneRef, score, scoreText, setDifficulty, set__overlayPaused, set_awaitingQuiz, set_currentLevel, set_lives, set_livesLostThisLevel, set_pausedByTeacher, set_playerName, set_score, shadowGfx } from "./state.js?v=20261029halloween8";
+import { flushScoreToStats } from "./stats.js?v=20261029halloween8";
+import { toggleMuted, ensureAudio, SFX } from "../audio.js?v=20261029halloween8";
+import { loadNamespace, saveNamespace } from "../storage.js?v=20261029halloween8";
 
 // Botão "Sair" no menu principal — fecha mesmo o jogo (diferente do
 // "Sair para o Menu" que existe durante o jogo, que só volta ao menu
@@ -30,6 +30,18 @@ import { loadNamespace, saveNamespace } from "../storage.js?v=20261029halloween7
 // separador não se fechar sozinho.
 
 const btnExitGame = document.getElementById("btnExitGame");
+
+// Fecha mesmo a janela. 1.º window.close(); 2.º o truque window.open("","_self"); 3.º se o browser não deixar
+// (separador aberto pelo utilizador), esvazia a janela com about:blank — assim o jogo deixa de estar lá.
+function closeGameWindow() {
+  try { window.close(); } catch {}
+  try { window.open("", "_self"); window.close(); } catch {}
+  setTimeout(() => {
+    try { document.body.innerHTML = ""; } catch {}
+    try { location.replace("about:blank"); } catch {}
+  }, 250);
+}
+
 
 // ===== Ecrã todo =====
 
@@ -190,11 +202,9 @@ export function init_ui_0() {
   window.__vb_openHow = () => { openOverlay("howOverlay"); };
   if (btnExitGame) {
     btnExitGame.onclick = () => {
-      if (!confirm("🚪 Sair do jogo?")) return;
-      window.close();
-      setTimeout(() => {
-        alert("👋 Já podes fechar este separador. Até à próxima aventura!");
-      }, 300);
+      if (!confirm("🚪 Fechar o jogo e a janela?")) return;
+      try { saveGame(); } catch {}
+      closeGameWindow();
     };
   }
   document.addEventListener("fullscreenchange",()=>updateFsButtons(!!document.fullscreenElement));

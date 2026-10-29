@@ -7,18 +7,18 @@
  * As variáveis de estado vivem em state.js; aqui alteram-se com set_<nome>().
  *************************************************/
 
-import { isLastLevelOfRegion, saveMapProgress } from "./map.js?v=20261029halloween7";
-import { resetQuizStats, usedQuizByLevel, usedQuizByTheme } from "./quiz.js?v=20261029halloween7";
-import { itemsTotal, mapProgress, score, scoreText, set_mapProgress, set_score } from "./state.js?v=20261029halloween7";
-import { globalStats, saveGlobalStats } from "./stats.js?v=20261029halloween7";
-import { loadNamespace, saveNamespace } from "../storage.js?v=20261029halloween7";
-import { resetAchievements } from "../achievements.js?v=20261029halloween7";
-import { resetAllStars, getStarRecord, starsForLevel } from "../stars.js?v=20261029halloween7";
-import { ARTEFACTS, ARTEFACT_SETS, SET_REACTIONS } from "../data-progression.js?v=20261029halloween7";
-import { ensureAudio, beep, SFX } from "../audio.js?v=20261029halloween7";
-import { LEVELS, THEMES } from "../data-levels.js?v=20261029halloween7";
-import { QUIZ_ARTICLE, HISTORY } from "../data-quiz.js?v=20261029halloween7";
-import { BOSSES } from "../data-bosses.js?v=20261029halloween7";
+import { isLastLevelOfRegion, saveMapProgress } from "./map.js?v=20261029halloween8";
+import { resetQuizStats, usedQuizByLevel, usedQuizByTheme } from "./quiz.js?v=20261029halloween8";
+import { itemsTotal, mapProgress, score, scoreText, set_mapProgress, set_score } from "./state.js?v=20261029halloween8";
+import { globalStats, saveGlobalStats } from "./stats.js?v=20261029halloween8";
+import { loadNamespace, saveNamespace } from "../storage.js?v=20261029halloween8";
+import { resetAchievements } from "../achievements.js?v=20261029halloween8";
+import { resetAllStars, getStarRecord, starsForLevel } from "../stars.js?v=20261029halloween8";
+import { ARTEFACTS, ARTEFACT_SETS, SET_REACTIONS } from "../data-progression.js?v=20261029halloween8";
+import { ensureAudio, beep, SFX } from "../audio.js?v=20261029halloween8";
+import { LEVELS, THEMES } from "../data-levels.js?v=20261029halloween8";
+import { QUIZ_ARTICLE, HISTORY } from "../data-quiz.js?v=20261029halloween8";
+import { BOSSES } from "../data-bosses.js?v=20261029halloween8";
 
 // Popup curto "Direito recuperado!" — mostrado ao concluir um nível
 // =====================================================
