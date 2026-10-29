@@ -7,30 +7,30 @@
  * As variáveis de estado vivem em state.js; aqui alteram-se com set_<nome>().
  *************************************************/
 
-import { createArtOrbs } from "./artefacts.js?v=20261029halloween8";
-import { updateBossFight } from "./boss-combat.js?v=20261029halloween8";
-import { btnCloseQuiz, btnMute, btnPause, btnRestart, btnRestartGame, gameOverOverlay, historyOverlay, quizOverlay, startOverlay, winOverlay } from "./dom.js?v=20261029halloween8";
-import { playLevelTransition } from "./door.js?v=20261029halloween8";
-import { pickPraise, showFloat } from "./feedback.js?v=20261029halloween8";
-import { createTouchInput } from "./input.js?v=20261029halloween8";
-import { onCollectItem, onHitMalware, poweredCountdownVal } from "./items.js?v=20261029halloween8";
-import { loadLevel, updateHUD, updateHearts, updateProgressBar } from "./level.js?v=20261029halloween8";
-import { BG_FILES, _bootLevelIdx, bgKeyForLevel, prefersReducedMotion, renderMap, setupBackgroundLoading } from "./map.js?v=20261029halloween8";
-import { SECONDARY_OVERLAYS, closeAllSecondaryOverlays, loadGame, openOverlay, saveGame } from "./overlays.js?v=20261029halloween8";
-import { quizStats, resetQuizStats, showHistory, usedQuizByLevel, usedQuizByTheme } from "./quiz.js?v=20261029halloween8";
-import { exitCrouch, setCrouchHitbox, tryEnterPipe } from "./rooms.js?v=20261029halloween8";
-import { COYOTE_MS, GRAVITY, JUMP_BUFFER_MS, _critterSession, _doorAnimRunning, _doorWatchdogTimer, _hudDirty, _landingCheckTimer, _overlayPaused, _pipeDownWasHeld, _pipeWarping, _suppressCrouchUntilRelease, awaitingQuiz, awaitingStory, balloons, bossState, controlsInvertedUntil, coyoteUntil, critters, currentLevel, cursors, door, doorOverlap, doubleJumpActive, doubleJumpUsed, getStartLives, hazards, inBossFight, inSecretRoom, invuln, isCrouching, itemsGroup, jumpBufferedUntil, keyS, keySpace, lives, malwareGroup, mapProgress, pauseOverlayGfx, pausedByTeacher, pipes, platforms, player, powerHaloGfx, powered, progressBg, progressFill, resetPipeWarpState, sceneRef, score, scoreText, set__doorAnimRunning, set__doorWatchdogTimer, set__historySubOpen, set__hudDirty, set__landingCheckTimer, set__overlayPaused, set__pipeDownWasHeld, set__suppressCrouchUntilRelease, set_awaitingQuiz, set_awaitingStory, set_coyoteUntil, set_cursors, set_difficultyBadge, set_doorOverlap, set_doubleJumpUsed, set_heartsGfx, set_hudText, set_isCrouching, set_itemCountText, set_itemsGroup, set_jumpBufferedUntil, set_keyS, set_keySpace, set_lives, set_livesLostThisLevel, set_malwareGroup, set_pauseOverlayGfx, set_pausedByTeacher, set_platforms, set_player, set_playerNameHUD, set_powerHaloGfx, set_powerIndicator, set_progressBg, set_progressFill, set_sceneRef, set_score, set_scoreText, set_shadowGfx, set_sunAngle, set_tipText, set_transitionGfx, set_transitionLabel, shadowGfx, starPower, starPowerCountVal, sunAngle, touch, updateDifficultyBadge } from "./state.js?v=20261029halloween8";
-import { flushScoreToStats } from "./stats.js?v=20261029halloween8";
-import { applyVanBertoTexture, scheduleBlink, triggerVanBertoWink } from "./vanberto.js?v=20261029halloween8";
-import { updateDecorativePipeReactions, updateHazards, updateMovingPlatforms, updatePipeHintSign, updateSecretSigns, updateSecrets, updateSigns, updateTrampolines } from "./world.js?v=20261029halloween8";
-import { makeTextures } from "../textures.js?v=20261029halloween8";
-import { initBackground, drawSun, NIGHT_THEMES, drawStars, clouds, drawCloud, updateTrail, updateFootsteps, updateDoorGlow, updatePlatformDecor, bgConfetti } from "../background.js?v=20261029halloween8";
-import { isMuted, ensureAudio, SFX, beep } from "../audio.js?v=20261029halloween8";
-import { LEVELS, THEMES } from "../data-levels.js?v=20261029halloween8";
-import { ACHIEVEMENTS_DEFS } from "../data-progression.js?v=20261029halloween8";
-import { unlockedAchievements } from "../achievements.js?v=20261029halloween8";
-import { totalStarsEarned } from "../stars.js?v=20261029halloween8";
-import { PAUSE_TIPS } from "../data-flavor.js?v=20261029halloween8";
+import { createArtOrbs } from "./artefacts.js?v=20261029halloween10";
+import { updateBossFight } from "./boss-combat.js?v=20261029halloween10";
+import { btnCloseQuiz, btnMute, btnPause, btnRestart, btnRestartGame, gameOverOverlay, historyOverlay, quizOverlay, startOverlay, winOverlay } from "./dom.js?v=20261029halloween10";
+import { playLevelTransition } from "./door.js?v=20261029halloween10";
+import { pickPraise, showFloat } from "./feedback.js?v=20261029halloween10";
+import { createTouchInput } from "./input.js?v=20261029halloween10";
+import { onCollectItem, onHitMalware, poweredCountdownVal } from "./items.js?v=20261029halloween10";
+import { loadLevel, updateHUD, updateHearts, updateProgressBar } from "./level.js?v=20261029halloween10";
+import { BG_FILES, _bootLevelIdx, bgKeyForLevel, prefersReducedMotion, renderMap, setupBackgroundLoading } from "./map.js?v=20261029halloween10";
+import { SECONDARY_OVERLAYS, closeAllSecondaryOverlays, loadGame, openOverlay, saveGame } from "./overlays.js?v=20261029halloween10";
+import { quizStats, resetQuizStats, showHistory, usedQuizByLevel, usedQuizByTheme } from "./quiz.js?v=20261029halloween10";
+import { exitCrouch, setCrouchHitbox, tryEnterPipe } from "./rooms.js?v=20261029halloween10";
+import { COYOTE_MS, GRAVITY, JUMP_BUFFER_MS, _critterSession, _doorAnimRunning, _doorWatchdogTimer, _hudDirty, _landingCheckTimer, _overlayPaused, _pipeDownWasHeld, _pipeWarping, _suppressCrouchUntilRelease, awaitingQuiz, awaitingStory, balloons, bossState, controlsInvertedUntil, coyoteUntil, critters, currentLevel, cursors, door, doorOverlap, doubleJumpActive, doubleJumpUsed, getStartLives, hazards, inBossFight, inSecretRoom, invuln, isCrouching, itemsGroup, jumpBufferedUntil, keyS, keySpace, lives, malwareGroup, mapProgress, pauseOverlayGfx, pausedByTeacher, pipes, platforms, player, powerHaloGfx, powered, progressBg, progressFill, resetPipeWarpState, sceneRef, score, scoreText, set__doorAnimRunning, set__doorWatchdogTimer, set__historySubOpen, set__hudDirty, set__landingCheckTimer, set__overlayPaused, set__pipeDownWasHeld, set__suppressCrouchUntilRelease, set_awaitingQuiz, set_awaitingStory, set_coyoteUntil, set_cursors, set_difficultyBadge, set_doorOverlap, set_doubleJumpUsed, set_heartsGfx, set_hudText, set_isCrouching, set_itemCountText, set_itemsGroup, set_jumpBufferedUntil, set_keyS, set_keySpace, set_lives, set_livesLostThisLevel, set_malwareGroup, set_pauseOverlayGfx, set_pausedByTeacher, set_platforms, set_player, set_playerNameHUD, set_powerHaloGfx, set_powerIndicator, set_progressBg, set_progressFill, set_sceneRef, set_score, set_scoreText, set_shadowGfx, set_sunAngle, set_tipText, set_transitionGfx, set_transitionLabel, shadowGfx, starPower, starPowerCountVal, sunAngle, touch, updateDifficultyBadge } from "./state.js?v=20261029halloween10";
+import { flushScoreToStats } from "./stats.js?v=20261029halloween10";
+import { applyVanBertoTexture, scheduleBlink, triggerVanBertoWink } from "./vanberto.js?v=20261029halloween10";
+import { updateDecorativePipeReactions, updateHazards, updateMovingPlatforms, updatePipeHintSign, updateSecretSigns, updateSecrets, updateSigns, updateTrampolines } from "./world.js?v=20261029halloween10";
+import { makeTextures } from "../textures.js?v=20261029halloween10";
+import { initBackground, drawSun, NIGHT_THEMES, drawStars, clouds, drawCloud, updateTrail, updateFootsteps, updateDoorGlow, updatePlatformDecor, bgConfetti } from "../background.js?v=20261029halloween10";
+import { isMuted, ensureAudio, SFX, beep } from "../audio.js?v=20261029halloween10";
+import { LEVELS, THEMES } from "../data-levels.js?v=20261029halloween10";
+import { ACHIEVEMENTS_DEFS } from "../data-progression.js?v=20261029halloween10";
+import { unlockedAchievements } from "../achievements.js?v=20261029halloween10";
+import { totalStarsEarned } from "../stars.js?v=20261029halloween10";
+import { PAUSE_TIPS } from "../data-flavor.js?v=20261029halloween10";
 
 // ===== Salas secretas isoladas ("tipo os bosses") =====
 // Em vez de uma plataforma algures no mesmo mundo do nível, entrar num
@@ -550,9 +550,9 @@ function updateCritters() {
         c.collected=true; c.sprite.destroy(); c.sprite=null;
         const pts=c.isDrone?15:10;
         set_score(score + (pts)); scoreText.setText(`🌟 Pontos: ${score}`);
-        showFloat(sceneRef,px,py-68,c.isDrone?`🦇 Morcego +${pts}`:`📦 Pacote +${pts}`,c.isDrone?"#ffb347":"#ff80c0");
+        showFloat(sceneRef,px,py-68,c.isDrone?`🦇 Morcego +${pts}`:`🍬 Guloseima +${pts}`,c.isDrone?"#ffb347":"#ff80c0");
         if(Math.random()<0.4) showFloat(sceneRef,px,py-100,pickPraise(),"#ffd700");
-        ensureAudio(); SFX.coin();
+        ensureAudio(); if(c.isDrone) SFX.bat(); else SFX.treat();
         const tint=c.isDrone?[0xffb347,0x9b4dff,0xffffff]:[0xff80c0,0xd0a0ff,0x80d0ff,0xffffff];
         const pt=sceneRef.add.particles(0,0,"spark_item",{x:px,y:py,speed:{min:50,max:170},lifespan:380,quantity:c.isDrone?14:12,scale:{start:0.9,end:0},gravityY:280,tint});
         sceneRef.time.delayedCall(280,()=>pt.destroy());

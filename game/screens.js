@@ -7,23 +7,23 @@
  * As variáveis de estado vivem em state.js; aqui alteram-se com set_<nome>().
  *************************************************/
 
-import { renderAlbum, resetAllProgress } from "./artefacts.js?v=20261029halloween8";
-import { btnMute, btnPause } from "./dom.js?v=20261029halloween8";
-import { playLevelTransition } from "./door.js?v=20261029halloween8";
-import { loadLevel, updateHearts } from "./level.js?v=20261029halloween8";
-import { BG_FILES } from "./map.js?v=20261029halloween8";
-import { closeOverlay, openOverlay, saveGame } from "./overlays.js?v=20261029halloween8";
-import { showHistory } from "./quiz.js?v=20261029halloween8";
-import { showPauseScreen } from "./scene.js?v=20261029halloween8";
-import { _certificateOpenedFrom, difficulty, getStartLives, mapProgress, pausedByTeacher, playerName, powerHaloGfx, sceneRef, score, scoreText, setDifficulty, set__certificateOpenedFrom, set__overlayPaused, set_awaitingQuiz, set_currentLevel, set_lives, set_livesLostThisLevel, set_pausedByTeacher, set_score, shadowGfx } from "./state.js?v=20261029halloween8";
-import { adventureScore, globalStats, medalTextCert, medalTier, updatePlayTime } from "./stats.js?v=20261029halloween8";
-import { toggleFullscreen } from "./ui.js?v=20261029halloween8";
-import { ensureAudio, SFX, isMuted, toggleMuted } from "../audio.js?v=20261029halloween8";
-import { renderAchievements, unlockedAchievements } from "../achievements.js?v=20261029halloween8";
-import { LEVELS } from "../data-levels.js?v=20261029halloween8";
-import { totalStarsEarned, levelStars } from "../stars.js?v=20261029halloween8";
-import { ACHIEVEMENTS_DEFS } from "../data-progression.js?v=20261029halloween8";
-import { loadNamespace, saveNamespace } from "../storage.js?v=20261029halloween8";
+import { renderAlbum, resetAllProgress } from "./artefacts.js?v=20261029halloween10";
+import { btnMute, btnPause } from "./dom.js?v=20261029halloween10";
+import { playLevelTransition } from "./door.js?v=20261029halloween10";
+import { loadLevel, updateHearts } from "./level.js?v=20261029halloween10";
+import { BG_FILES } from "./map.js?v=20261029halloween10";
+import { closeOverlay, openOverlay, saveGame } from "./overlays.js?v=20261029halloween10";
+import { showHistory } from "./quiz.js?v=20261029halloween10";
+import { showPauseScreen } from "./scene.js?v=20261029halloween10";
+import { _certificateOpenedFrom, difficulty, getStartLives, mapProgress, pausedByTeacher, playerName, powerHaloGfx, sceneRef, score, scoreText, setDifficulty, set__certificateOpenedFrom, set__overlayPaused, set_awaitingQuiz, set_currentLevel, set_lives, set_livesLostThisLevel, set_pausedByTeacher, set_score, shadowGfx } from "./state.js?v=20261029halloween10";
+import { adventureScore, globalStats, medalTextCert, medalTier, updatePlayTime } from "./stats.js?v=20261029halloween10";
+import { toggleFullscreen } from "./ui.js?v=20261029halloween10";
+import { ensureAudio, SFX, isMuted, toggleMuted } from "../audio.js?v=20261029halloween10";
+import { renderAchievements, unlockedAchievements } from "../achievements.js?v=20261029halloween10";
+import { LEVELS } from "../data-levels.js?v=20261029halloween10";
+import { totalStarsEarned, levelStars } from "../stars.js?v=20261029halloween10";
+import { ACHIEVEMENTS_DEFS } from "../data-progression.js?v=20261029halloween10";
+import { loadNamespace, saveNamespace } from "../storage.js?v=20261029halloween10";
 
 // =====================================================
 // ===== CONQUISTAS =====

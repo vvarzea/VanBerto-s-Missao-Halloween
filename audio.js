@@ -57,6 +57,13 @@ export const SFX = {
   jump()    { beep({ freq:560, dur:0.08, type:"square",   vol:0.06,  slideTo:720  }); },
   coin()    { beep({ freq:960, dur:0.06, type:"square",   vol:0.055, slideTo:1500 });
               beep({ freq:1900, dur:0.18, type:"sine", vol:0.03, slideTo:1250 }); }, // HALLOWEEN: «blip» fantasmagórico
+  // HALLOWEEN: guinchinho de morcego (dois "pi-pi" agudos) e «bu!» doce com sininho misterioso
+  bat()     { beep({ freq:2100, dur:0.06, type:"sine", vol:0.05, slideTo:3000 });
+              setTimeout(() => beep({ freq:2600, dur:0.08, type:"sine", vol:0.045, slideTo:1800 }), 70);
+              setTimeout(() => beep({ freq:300, dur:0.14, type:"triangle", vol:0.035, slideTo:180 }), 40); },
+  treat()   { beep({ freq:392, dur:0.09, type:"triangle", vol:0.055, slideTo:330 });
+              setTimeout(() => beep({ freq:784, dur:0.22, type:"sine", vol:0.045, slideTo:740 }), 70);
+              setTimeout(() => beep({ freq:1175, dur:0.28, type:"sine", vol:0.025 }), 110); },
   hit()     { beep({ freq:220, dur:0.10, type:"sawtooth", vol:0.055, slideTo:160  }); setTimeout(() => beep({ freq:140, dur:0.14, type:"square", vol:0.05, slideTo:110 }), 120); },
   door()    { beep({ freq:700, dur:0.10, type:"triangle", vol:0.055, slideTo:1050 }); },
   doorOpen() {
