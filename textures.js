@@ -2727,73 +2727,60 @@ function makeItemTextures(scene){
   // Pacote de Dados — envelope digital selado com cadeado dourado no lacre.
   // Substitui o "avião de papel" anterior: este lê-se de imediato como
   // "mensagem/dado protegido", em vez de um símbolo genérico de correio.
-  const PACKET_COLORS=[
-    {top:"#ff9ad0",bot:"#c8158a"}, // rosa
-    {top:"#9adcff",bot:"#1470c8"}, // azul
-    {top:"#b0ffa0",bot:"#1ca858"}, // verde
-    {top:"#ffe680",bot:"#ff9500"}, // laranja-dourado
-    {top:"#dcb0ff",bot:"#7e20d0"}, // lilás
+  // Guloseimas e criaturinhas de Halloween (substituem os antigos «pacotes de dados»).
+  // Mantêm as chaves item_pacote_0..4: 0 abóbora, 1 fantasminha, 2 doce embrulhado, 3 doce de milho, 4 caveirinha.
+  const HW_TREATS=[
+    (ctx,cx,cy)=>{ // abóbora
+      ctx.fillStyle="#ff8a1f"; ctx.strokeStyle="#7a2f00"; ctx.lineWidth=1.4;
+      [-8,8,-4,4,0].forEach((dx,i)=>{ ctx.beginPath(); ctx.ellipse(cx+dx,cy+2,i<2?7:8,10-(i<2?1.5:0),0,0,Math.PI*2); ctx.fill(); ctx.stroke(); });
+      ctx.fillStyle="#ffb347"; ctx.beginPath(); ctx.ellipse(cx,cy+2,5,8.5,0,0,Math.PI*2); ctx.fill();
+      ctx.fillStyle="#3a7a1a"; ctx.fillRect(cx-1.5,cy-11,3,5);
+      ctx.fillStyle="#2a0a40";
+      [-5,5].forEach(dx=>{ ctx.beginPath(); ctx.moveTo(cx+dx-2.5,cy+1); ctx.lineTo(cx+dx+2.5,cy+1); ctx.lineTo(cx+dx,cy-4); ctx.closePath(); ctx.fill(); });
+      ctx.beginPath(); ctx.moveTo(cx-6,cy+5); ctx.lineTo(cx-3,cy+8); ctx.lineTo(cx,cy+5.5); ctx.lineTo(cx+3,cy+8); ctx.lineTo(cx+6,cy+5); ctx.lineTo(cx+4,cy+10); ctx.lineTo(cx-4,cy+10); ctx.closePath(); ctx.fill();
+    },
+    (ctx,cx,cy)=>{ // fantasminha
+      ctx.fillStyle="#f4eeff"; ctx.strokeStyle="#4a2a80"; ctx.lineWidth=1.4;
+      ctx.beginPath(); ctx.moveTo(cx-10,cy+13); ctx.lineTo(cx-10,cy-2); ctx.quadraticCurveTo(cx-10,cy-14,cx,cy-14); ctx.quadraticCurveTo(cx+10,cy-14,cx+10,cy-2); ctx.lineTo(cx+10,cy+13);
+      ctx.lineTo(cx+6.7,cy+9.5); ctx.lineTo(cx+3.3,cy+13); ctx.lineTo(cx,cy+9.5); ctx.lineTo(cx-3.3,cy+13); ctx.lineTo(cx-6.7,cy+9.5); ctx.closePath(); ctx.fill(); ctx.stroke();
+      ctx.fillStyle="#1a0830";
+      [-4,4].forEach(dx=>{ ctx.beginPath(); ctx.ellipse(cx+dx,cy-4,1.8,2.6,0,0,Math.PI*2); ctx.fill(); });
+      ctx.beginPath(); ctx.ellipse(cx,cy+2.5,2,2.6,0,0,Math.PI*2); ctx.fill();
+      ctx.fillStyle="rgba(255,130,200,0.5)"; [-7,7].forEach(dx=>{ ctx.beginPath(); ctx.arc(cx+dx,cy,1.8,0,Math.PI*2); ctx.fill(); });
+    },
+    (ctx,cx,cy)=>{ // doce embrulhado (roxo)
+      ctx.fillStyle="#b86bff"; ctx.strokeStyle="#3a1070"; ctx.lineWidth=1.3;
+      [-1,1].forEach(sg=>{ ctx.beginPath(); ctx.moveTo(cx+sg*8,cy); ctx.lineTo(cx+sg*17,cy-8); ctx.lineTo(cx+sg*17,cy+8); ctx.closePath(); ctx.fill(); ctx.stroke(); });
+      const g=ctx.createLinearGradient(cx,cy-8,cx,cy+8); g.addColorStop(0,"#ffb347"); g.addColorStop(1,"#e0600a");
+      ctx.fillStyle=g; ctx.beginPath(); ctx.ellipse(cx,cy,10,8,0,0,Math.PI*2); ctx.fill(); ctx.stroke();
+      ctx.strokeStyle="rgba(255,255,255,0.7)"; ctx.lineWidth=2; ctx.beginPath(); ctx.arc(cx,cy,5,Math.PI*1.1,Math.PI*1.7); ctx.stroke();
+    },
+    (ctx,cx,cy)=>{ // doce de milho
+      const tri=(y1,y2,w1,w2,c)=>{ ctx.fillStyle=c; ctx.beginPath(); ctx.moveTo(cx-w1,y1); ctx.lineTo(cx+w1,y1); ctx.lineTo(cx+w2,y2); ctx.lineTo(cx-w2,y2); ctx.closePath(); ctx.fill(); };
+      tri(cy+10,cy+3,11,8.5,"#fff4d0"); tri(cy+3,cy-4,8.5,6,"#ffa81f"); tri(cy-4,cy-11,6,1.5,"#ffd23f");
+      ctx.strokeStyle="#7a4a00"; ctx.lineWidth=1.3; ctx.beginPath(); ctx.moveTo(cx-11,cy+10); ctx.lineTo(cx+11,cy+10); ctx.lineTo(cx+1.5,cy-11); ctx.lineTo(cx-1.5,cy-11); ctx.closePath(); ctx.stroke();
+    },
+    (ctx,cx,cy)=>{ // caveirinha
+      ctx.fillStyle="#f2ecdc"; ctx.strokeStyle="#3a2a1a"; ctx.lineWidth=1.4;
+      ctx.beginPath(); ctx.ellipse(cx,cy-3,11,10,0,0,Math.PI*2); ctx.fill(); ctx.stroke();
+      ctx.beginPath(); ctx.roundRect(cx-6,cy+5,12,7,2); ctx.fill(); ctx.stroke();
+      ctx.strokeStyle="#3a2a1a"; ctx.lineWidth=1; [-2,2].forEach(dx=>{ ctx.beginPath(); ctx.moveTo(cx+dx,cy+6); ctx.lineTo(cx+dx,cy+11); ctx.stroke(); });
+      ctx.fillStyle="#1a0830"; [-4.5,4.5].forEach(dx=>{ ctx.beginPath(); ctx.ellipse(cx+dx,cy-3,3,3.6,0,0,Math.PI*2); ctx.fill(); });
+      ctx.fillStyle="#7dff5a"; [-4.5,4.5].forEach(dx=>{ ctx.beginPath(); ctx.arc(cx+dx,cy-3,1,0,Math.PI*2); ctx.fill(); });
+      ctx.fillStyle="#1a0830"; ctx.beginPath(); ctx.moveTo(cx,cy+1); ctx.lineTo(cx-1.8,cy+4); ctx.lineTo(cx+1.8,cy+4); ctx.closePath(); ctx.fill();
+    },
   ];
-  PACKET_COLORS.forEach((bc,ci)=>{
+  const HW_GLOW=["255,138,31","200,170,255","190,110,255","255,200,60","180,255,120"];
+  HW_TREATS.forEach((draw,ci)=>{
     const key="item_pacote_"+ci;
     if(scene.textures.exists(key)) return;
     const tex=scene.textures.createCanvas(key,48,36), ctx=tex.getContext();
-    const cx=24, cy=18, ew=32, eh=22;
-
-    // Halo de brilho por trás
+    const cx=24, cy=18;
     const halo=ctx.createRadialGradient(cx,cy,2,cx,cy,22);
-    halo.addColorStop(0,bc.top+"50"); halo.addColorStop(1,bc.top+"00");
-    ctx.fillStyle=halo;
-    ctx.beginPath(); ctx.arc(cx,cy,22,0,Math.PI*2); ctx.fill();
-
-    // Rasto de movimento (mantido do design anterior — ainda faz sentido
-    // para uma mensagem "em trânsito" na rede)
-    ctx.strokeStyle=bc.top; ctx.lineCap="round";
-    [[0,0.5,9],[3,0.34,6],[6,0.2,4]].forEach(([dy,alpha,len])=>{
-      ctx.globalAlpha=alpha; ctx.lineWidth=2;
-      ctx.beginPath(); ctx.moveTo(cx-ew/2-6,cy-2+dy); ctx.lineTo(cx-ew/2-6+len,cy-2+dy); ctx.stroke();
-    });
-    ctx.globalAlpha=1;
-
-    // Corpo do envelope
-    const bodyGr=ctx.createLinearGradient(cx,cy-eh/2,cx,cy+eh/2);
-    bodyGr.addColorStop(0,bc.top); bodyGr.addColorStop(1,bc.bot);
-    ctx.fillStyle=bodyGr;
-    ctx.beginPath(); ctx.roundRect(cx-ew/2,cy-eh/2,ew,eh,4); ctx.fill();
-    ctx.strokeStyle="#3a1030"; ctx.lineWidth=1.4;
-    ctx.beginPath(); ctx.roundRect(cx-ew/2,cy-eh/2,ew,eh,4); ctx.stroke();
-
-    // Aba triangular (dobra do envelope)
-    ctx.fillStyle="rgba(255,255,255,0.28)";
-    ctx.beginPath();
-    ctx.moveTo(cx-ew/2+1,cy-eh/2+1);
-    ctx.lineTo(cx,cy+2);
-    ctx.lineTo(cx+ew/2-1,cy-eh/2+1);
-    ctx.closePath(); ctx.fill();
-    ctx.strokeStyle="rgba(60,16,48,0.5)"; ctx.lineWidth=1;
-    ctx.stroke();
-
-    // Símbolo "@" na aba — reforça a leitura de "mensagem/email digital",
-    // ligando o objeto ao tema de cibersegurança.
-    ctx.fillStyle="rgba(58,16,48,0.7)";
-    ctx.font="bold 10px sans-serif";
-    ctx.textAlign="center"; ctx.textBaseline="middle";
-    ctx.fillText("@", cx, cy-7);
-
-    // Cadeado dourado no lacre — o elemento que liga isto ao tema de
-    // cibersegurança (mensagem fechada = dado protegido).
-    const lockY=cy+1;
-    ctx.fillStyle="#3a2200";
-    ctx.beginPath(); ctx.roundRect(cx-4.5,lockY-1,9,7,2); ctx.fill();
-    ctx.strokeStyle="#3a2200"; ctx.lineWidth=1.6; ctx.lineCap="round";
-    ctx.beginPath(); ctx.arc(cx,lockY-1,3,Math.PI,0); ctx.stroke();
-    const lockGr=ctx.createLinearGradient(cx,lockY-1,cx,lockY+6);
-    lockGr.addColorStop(0,"#ffe680"); lockGr.addColorStop(1,"#ffb020");
-    ctx.fillStyle=lockGr;
-    ctx.beginPath(); ctx.roundRect(cx-4,lockY-0.3,8,6,1.6); ctx.fill();
-    ctx.fillStyle="#7a3a00";
-    ctx.beginPath(); ctx.arc(cx,lockY+2.6,1,0,Math.PI*2); ctx.fill();
-
+    halo.addColorStop(0,"rgba("+HW_GLOW[ci]+",0.38)"); halo.addColorStop(1,"rgba("+HW_GLOW[ci]+",0)");
+    ctx.fillStyle=halo; ctx.beginPath(); ctx.arc(cx,cy,22,0,Math.PI*2); ctx.fill();
+    ctx.lineJoin="round"; ctx.lineCap="round";
+    draw(ctx,cx,cy);
     tex.refresh();
   });
 
