@@ -2873,6 +2873,14 @@ function makeItemTextures(scene){
     tex.refresh();
   }
 
+  // Morcego DOURADO — raro, vale +50
+  if(!scene.textures.exists("item_morcego_dourado")){
+    const tex=scene.textures.createCanvas("item_morcego_dourado",64,52), ctx=tex.getContext();
+    drawHwBat(ctx,{aura:"rgba(255,215,0,0.55)",wing1:"#ffe680",wing2:"#c88a00",edge:"#5a3a00",bone:"rgba(255,255,255,0.75)",
+      body:"#8a5a00",body2:"#ffd34a",ear:"#fff2a0",belly:"#fff0b0",eye:"#ffffff",angry:false,hat:false});
+    tex.refresh();
+  }
+
   // Morcego HOSTIL — Difícil/Extremo. Paleta vermelha, olhos de fogo, sobrancelhas zangadas e presas
   // maiores: nunca se confunde com o morcego amigável (roxo, olhos laranja, sorriso).
   if(!scene.textures.exists("drone_hostil")){
