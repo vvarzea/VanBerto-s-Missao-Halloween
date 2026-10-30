@@ -17,7 +17,9 @@
 > - **Sons (v10):** `SFX.bat()` (guincho de morcego) ao apanhar um morcego e `SFX.treat()` («bu!» com sininho) ao apanhar uma guloseima (`audio.js`).
 > - **Morcegos e guloseimas (v11):** contador «🦇 Morcegos: n/25» no ecrã e conquistas «Caçador de Morcegos» (25) e «Brilho Dourado»; **combo** (apanhar vários em menos de 4 s dá até +25); **morcego dourado** raro (+50, aparece 10–20 s depois de começar o nível e foge ao fim de 14 s; `updateGoldenBat` em `game/world.js`); **fantasminha** 👻 dá o escudo de 8 s; o **morcego vermelho** (Difícil/Extremo) avisa com ❗ e mergulha sobre o jogador (`drone_hostil` em `game/scene.js`). Secção «Morcegos e guloseimas» no ecrã «Como Jogar».
 > - **Botão «Sair»** (menu principal): pede confirmação, guarda o jogo e fecha a janela (`closeGameWindow`, em `game/ui.js`). Se o browser não deixar fechar um separador aberto à mão, a janela fica em branco (`about:blank`).
-> - **v12:** todas as perguntas (20 níveis + enigmas dos 4 bosses; Fácil, Difícil e Extremo) substituídas pelas versões do documento «Perguntas_Todas_20_Niveis_REVISTAS»; no quiz, a 🎃 do canto ficou afastada do texto da pergunta (`halloween.css`); o Mapa ganhou «🏠 Menu principal» (sempre disponível, mesmo antes do 1.º nível; pede confirmação se houver um nível em curso) e «🚪 Sair do jogo» (confirma, guarda e fecha a janela), enquanto «Fechar» só fecha o mapa — e, se o mapa abriu logo depois de «Nova Aventura» (ainda sem nível em jogo), «Fechar» volta ao menu principal em vez de deixar o ecrã escuro (`data-from-start` no `#mapOverlay`).
+> - **v13:** o número da versão já não aparece no ecrã inicial (a etiqueta `#versionTag` continua no HTML, escondida, porque os testes em `_dev/` leem-na para confirmar que a versão certa carregou).
+- **v13 (cont.):** +3 perguntas Fácil em cada um dos níveis 1, 2 e 3 (passam de 5 para 8).
+- **v12:** o Mapa ficou mais compacto em janelas entre 521 e 820 px de altura (os 5 cartões cabem sem cortar o último, `halloween.css`); todas as perguntas (20 níveis + enigmas dos 4 bosses; Fácil, Difícil e Extremo) substituídas pelas versões do documento «Perguntas_Todas_20_Niveis_REVISTAS»; no quiz, a 🎃 do canto ficou afastada do texto da pergunta (`halloween.css`); o Mapa ganhou «🏠 Menu principal» (sempre disponível, mesmo antes do 1.º nível; pede confirmação se houver um nível em curso) e «🚪 Sair do jogo» (confirma, guarda e fecha a janela), enquanto «Fechar» só fecha o mapa — e, se o mapa abriu logo depois de «Nova Aventura» (ainda sem nível em jogo), «Fechar» volta ao menu principal em vez de deixar o ecrã escuro (`data-from-start` no `#mapOverlay`).
 - O progresso e a cache offline têm nomes próprios (`vanbertos_ciberseguranca_halloween_save_v1`, `halloween-vanbertos-…`).
 
 
@@ -133,7 +135,7 @@ e abrir <http://localhost:8000>.
 ## Versões e cache
 
 Todos os ficheiros carregados pelo `index.html` e todos os `import` internos levam **a mesma**
-string `?v=…` (atualmente `20261029halloween12`). Tem de ser sempre igual em todo o lado: o mesmo módulo
+string `?v=…` (atualmente `20261029halloween13`). Tem de ser sempre igual em todo o lado: o mesmo módulo
 importado com strings diferentes é carregado duas vezes, como duas instâncias separadas, e os
 browsers que já têm o jogo podem ficar com uma mistura de ficheiros velhos e novos.
 
