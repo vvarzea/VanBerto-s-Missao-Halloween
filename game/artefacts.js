@@ -7,18 +7,19 @@
  * As variáveis de estado vivem em state.js; aqui alteram-se com set_<nome>().
  *************************************************/
 
-import { isLastLevelOfRegion, saveMapProgress } from "./map.js?v=20261114halloween14";
-import { resetQuizStats, usedQuizByLevel, usedQuizByTheme } from "./quiz.js?v=20261114halloween14";
-import { itemsTotal, mapProgress, score, scoreText, set_mapProgress, set_score } from "./state.js?v=20261114halloween14";
-import { globalStats, saveGlobalStats } from "./stats.js?v=20261114halloween14";
-import { loadNamespace, saveNamespace } from "../storage.js?v=20261114halloween14";
-import { resetAchievements } from "../achievements.js?v=20261114halloween14";
-import { resetAllStars, getStarRecord, starsForLevel } from "../stars.js?v=20261114halloween14";
-import { ARTEFACTS, ARTEFACT_SETS, SET_REACTIONS } from "../data-progression.js?v=20261114halloween14";
-import { ensureAudio, beep, SFX } from "../audio.js?v=20261114halloween14";
-import { LEVELS, THEMES } from "../data-levels.js?v=20261114halloween14";
-import { QUIZ_ARTICLE, HISTORY } from "../data-quiz.js?v=20261114halloween14";
-import { BOSSES } from "../data-bosses.js?v=20261114halloween14";
+import { isLastLevelOfRegion, saveMapProgress } from "./map.js?v=20261114halloween15";
+import { resetQuizStats, usedQuizByLevel, usedQuizByTheme } from "./quiz.js?v=20261114halloween15";
+import { itemsTotal, mapProgress, score, scoreText, set_mapProgress, set_score } from "./state.js?v=20261114halloween15";
+import { globalStats, saveGlobalStats } from "./stats.js?v=20261114halloween15";
+import { loadNamespace, saveNamespace } from "../storage.js?v=20261114halloween15";
+import { resetAchievements } from "../achievements.js?v=20261114halloween15";
+import { resetAllStars, getStarRecord, starsForLevel } from "../stars.js?v=20261114halloween15";
+import { ARTEFACTS, ARTEFACT_SETS, SET_REACTIONS } from "../data-progression.js?v=20261114halloween15";
+import { ensureAudio, beep, SFX } from "../audio.js?v=20261114halloween15";
+import { LEVELS, THEMES } from "../data-levels.js?v=20261114halloween15";
+import { resetKeys } from "./blocks.js?v=20261114halloween15";
+import { QUIZ_ARTICLE, HISTORY } from "../data-quiz.js?v=20261114halloween15";
+import { BOSSES } from "../data-bosses.js?v=20261114halloween15";
 
 // Popup curto "Direito recuperado!" — mostrado ao concluir um nível
 // =====================================================
@@ -72,6 +73,7 @@ export function saveBossRights() {
 // =====================================================
 
 export function resetAllProgress() {
+  resetKeys(); // contador de mini-abóboras 🎃
   // Progresso do mapa da aventura
   set_mapProgress( { highestLevelReached: 0, levelsCompleted: [] });
   saveMapProgress();

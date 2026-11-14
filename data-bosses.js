@@ -12,7 +12,7 @@ export const BOSSES = [
     afterLevel: 8,           // Fecha o mundo "Vale da Comunicação Segura" (Níveis 6-9 —
                               // jogos seguros, pegada digital, fake news, phishing).
     name: "Fantasma Hacker",
-    emoji: "👾",
+    emoji: "👻",
     // Cor alinhada com o redesenho "pirata-hacker" (ver makeBossTextures em
     // textures.js) — antes era roxo (0x8a5cff), a cor do blob antigo; agora
     // é o mesmo ciano da orla/olhos/brilho do novo boss. Usada no overlay
@@ -99,7 +99,7 @@ export const BOSSES = [
     // → 49*1.5≈73px) até à superfície do chão da arena (plataforma principal
     // agora em y=521 com 30px de altura → topo em y=506). 506-73=433.
     bossY: 433,
-    bossScale: 1.5,          // ~2x a altura do VanBerto's — dá para saltar-lhe em cima sem dificuldade
+    bossScale: 0.75,          // ~2x a altura do VanBerto's — dá para saltar-lhe em cima sem dificuldade
     // A textura (116x116) tem bastante espaço vazio por cima da cabeça (o
     // corpo começa só a ~1/5 do canvas) — sem isto a barra de vida usava a
     // conta genérica (baseada no canvas inteiro) e ficava muito afastada da
@@ -178,7 +178,7 @@ export const BOSSES = [
     afterLevel: 4,            // Fecha o mundo "Reino dos Fundamentos" (Níveis 1-5 — internet,
                                // palavras-passe, dados pessoais, instituições de apoio, vírus).
     name: "Rei Abóbora",
-    emoji: "🦠",
+    emoji: "🎃",
     // Cor alinhada com o redesenho "robô-vírus" (ver makeBossTextures em
     // textures.js) — antes era rosa (0xe0409a), a cor da esfera antiga;
     // agora é o vermelho do brilho da cara/garras/tentáculos do novo boss.
@@ -301,7 +301,7 @@ export const BOSSES = [
     // os pés exatamente na mesma posição da família (~49px abaixo do
     // centro × bossScale 1.5 ≈ 73,5 → 506-73,5≈433).
     bossY: 433,
-    bossScale: 1.5,
+    bossScale: 0.75,
     // hpBarOffset: também recalculado — a bola vírica espinhosa no topo da
     // cabeça chega quase ao topo da tela (116px), tal como o chapéu do
     // Monstro do Phishing ou o capuz do Espião das Sombras, por isso usa a
@@ -358,7 +358,7 @@ export const BOSSES = [
                               // nextLevel() já não tem mais níveis a seguir (ver next>=LEVELS.length
                               // em goToNextLevel) e mostra o ecrã de vitória final.
     name: "Senhor das Sombras Digitais",
-    emoji: "🌑",
+    emoji: "🧛",
     // Cor alinhada com o redesenho "feiticeiro-espião" (ver makeBossTextures
     // em textures.js, secção 3) — antes era um cinzento-arroxeado neutro
     // (0x3a3a5c) da capa lisa antiga; agora é o mesmo magenta do brilho da
@@ -433,7 +433,7 @@ export const BOSSES = [
     // o Monstro do Phishing, com os pés exatamente na mesma posição
     // (~49px abaixo do centro × bossScale 1.5 ≈ 73,5 → 506-73,5≈433).
     bossY: 433,
-    bossScale: 1.5,
+    bossScale: 0.75,
     // hpBarOffset: também recalculado — o capuz agora chega quase ao topo
     // da tela (116px), tal como o chapéu do Monstro do Phishing, por isso
     // usa a mesma folga (96) em vez do valor antigo (82, medido para a
@@ -490,7 +490,7 @@ export const BOSSES = [
     afterLevel: 14,          // Fecha o mundo "Fortaleza da Proteção Digital" (Níveis 10-15 —
                              // dispositivos, família, wi-fi, backups, acessibilidade, spam).
     name: "Bruxa do Phishing",
-    emoji: "📮",
+    emoji: "🧙",
     color: 0xc7291f,
     // Mesma conversão para stompBoss — mantém a patrulha rápida (sensação
     // industrial) mas larga as plataformas móveis e a arena poluída, para
@@ -577,7 +577,7 @@ export const BOSSES = [
     // canvas, bem menos que os outros porque não tem "cabeça" alta, só caixa
     // + chaminé). 506 - 26*1.5 = 467.
     bossY: 467,
-    bossScale: 1.5,
+    bossScale: 0.75,
     // CORRIGIDO — a barra de vida sobrepunha o boss em jogo. hpBarOffset
     // ficou em 82 desde antes da tampa+pilha de envelopes serem
     // redesenhadas (mais altas — ver drawPoluidorBody em textures.js); nunca
