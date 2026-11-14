@@ -1,5 +1,8 @@
 # VanBerto's — Missão Halloween
 
+> **v14 (20261114halloween14) — estética da Internet Segura:** ecrãs e cartões no tema claro da Missão Internet Segura (fundo creme, **pontinhos roxos**, cartões brancos com contorno marinho grosso e sombra dura, botões principais amarelos, letra Nunito); ecrã inicial com a mascote VanBerto's e «Olá! Como te chamas?». O Halloween mantém-se no conteúdo, nos mundos noturnos, nos morcegos, nas luzinhas, na fita «Edição de Halloween» e nos cantos 🎃/🦇 dos cartões. `dia-crianca.css` vem da Internet Segura (só mudou a cor dos pontinhos) e `halloween.css` só acrescenta os enfeites.
+
+
 > **Edição de Halloween** (jogo à parte, não é um modo do jogo normal nem da edição de Natal): os mesmos 20 níveis, bosses e mecânicas, com ambiente de Halloween.
 > - Chapéu de bruxa no VanBerto's, nos vilões e nos bosses (o Monstro do Phishing mantém o chapéu de pirata); coroa de mini-abóboras com morcego no portal; gosma roxa nas plataformas e nos canos (`textures.js`).
 > - Itens: 🍬 Doce, 🧪 Poção e 🎃 Abóbora (as mesmas chaves de textura de sempre).
@@ -135,7 +138,7 @@ e abrir <http://localhost:8000>.
 ## Versões e cache
 
 Todos os ficheiros carregados pelo `index.html` e todos os `import` internos levam **a mesma**
-string `?v=…` (atualmente `20261029halloween13`). Tem de ser sempre igual em todo o lado: o mesmo módulo
+string `?v=…` (atualmente `20261114halloween14`). Tem de ser sempre igual em todo o lado: o mesmo módulo
 importado com strings diferentes é carregado duas vezes, como duas instâncias separadas, e os
 browsers que já têm o jogo podem ficar com uma mistura de ficheiros velhos e novos.
 
