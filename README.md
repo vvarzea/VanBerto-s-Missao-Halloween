@@ -1,5 +1,10 @@
 # VanBerto's — Missão Halloween
 
+> **v15 (20261114halloween15) — bosses com imagens + novidades de jogo da Internet Segura:**
+> - **Bosses com as novas imagens** (tiras de 7 expressões em `boss-abobora/fantasma/bruxa/vampiro.png`, ligadas por `game/boss-art.js`): Rei Abóbora (mundo 1), Fantasma Hacker (2), Bruxa do Phishing (3) e Senhor das Sombras Digitais (4, vampiro). A expressão muda no combate: ameaçador, a rir, atingido (olhos em X), furioso, triste e piscar de olho. `bossScale` passou de 1.5 para 0.75 (tela de 232 px), a hitbox é a mesma.
+> - **`game/blocks.js`:** blocos «?» e tijolos roxos para dar cabeçadas, 🎃 mini-abóboras espalhadas (100 = +1 vida, contador no ecrã), pedras que caem, chamas encantadas que ligam/desligam e vento (névoa roxa). Ver «Como jogar».
+> - Texto do HUD no estilo Internet Segura (Nunito, contorno marinho) e correção: se o clique para fechar o ☰ Menu abre o Mapa, o jogo fica em pausa.
+
 > **v14 (20261114halloween14) — estética da Internet Segura:** ecrãs e cartões no tema claro da Missão Internet Segura (fundo creme, **pontinhos roxos**, cartões brancos com contorno marinho grosso e sombra dura, botões principais amarelos, letra Nunito); ecrã inicial com a mascote VanBerto's e «Olá! Como te chamas?». O Halloween mantém-se no conteúdo, nos mundos noturnos, nos morcegos, nas luzinhas, na fita «Edição de Halloween» e nos cantos 🎃/🦇 dos cartões. `dia-crianca.css` vem da Internet Segura (só mudou a cor dos pontinhos) e `halloween.css` só acrescenta os enfeites.
 
 
@@ -138,7 +143,7 @@ e abrir <http://localhost:8000>.
 ## Versões e cache
 
 Todos os ficheiros carregados pelo `index.html` e todos os `import` internos levam **a mesma**
-string `?v=…` (atualmente `20261114halloween14`). Tem de ser sempre igual em todo o lado: o mesmo módulo
+string `?v=…` (atualmente `20261114halloween15`). Tem de ser sempre igual em todo o lado: o mesmo módulo
 importado com strings diferentes é carregado duas vezes, como duas instâncias separadas, e os
 browsers que já têm o jogo podem ficar com uma mistura de ficheiros velhos e novos.
 

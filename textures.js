@@ -317,12 +317,14 @@ function halloweenWreath(ctx,cx,cy,r){
   ctx.fillStyle="#ffd23f"; ctx.beginPath(); ctx.arc(bx-1.6,by+1,0.9,0,Math.PI*2); ctx.arc(bx+1.6,by+1,0.9,0,Math.PI*2); ctx.fill();
   ctx.restore();
 }
+import { buildBossArt } from "./game/boss-art.js?v=20261114halloween15";
 export function makeTextures(scene){
   makePlatformTexture(scene);
   makeDoorTexture(scene);
   makeVilaosTextures(scene);
   makeBossTextures(scene);
-  halloweenBossesRedraw(scene); // HALLOWEEN: os 4 bosses e projéteis redesenhados (substituem os originais)
+  halloweenBossesRedraw(scene); // HALLOWEEN: os 4 bosses e projéteis redesenhados (ficam como reserva)
+  buildBossArt(scene); // imagens dos bosses (ver game/boss-art.js) — substituem os desenhos acima
   makeSparkTexture(scene);
   makeItemTextures(scene);
   makeVanBertoTexture(scene,"vanberto_open",false,-1);

@@ -75,3 +75,14 @@
   #mapOverlay .map-region { min-height: 0; padding: 6px 14px; }
   #mapOverlay .map-regions-grid { gap: 8px; }
 }
+
+/* Menu inicial compacto: com a mascote e o «Olá! Como te chamas?» o cartão tem de continuar a caber sem scroll */
+@media (max-height: 800px) {
+  #startOverlay .start-robot { width: 42px; height: 42px; margin: 0 auto -2px; }
+  #startOverlay .card h1 { font-size: 20px; margin: 0 0 2px; }
+  #startOverlay .halloween-ribbon { margin-bottom: 4px; padding: 1px 12px; font-size: 11.5px; }
+}
+@media (max-height: 700px) {
+  #startOverlay .start-robot { width: 34px; height: 34px; }
+  #startOverlay .card h1 { font-size: 18px; }
+}
