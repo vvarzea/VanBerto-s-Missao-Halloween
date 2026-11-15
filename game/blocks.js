@@ -12,14 +12,14 @@
  * escondidos nas salas secretas, sem mexer nesses sistemas.
  *************************************************/
 
-import { platforms, itemsGroup, player, powered, starPower, lives, set_lives, getMaxLives, score, set_score, scoreText, set__hudDirty, difficulty } from "./state.js?v=20261114halloween15";
-import { showFloat } from "./feedback.js?v=20261114halloween15";
-import { makePlatformTextureThemed } from "../textures.js?v=20261114halloween15";
-import { ensureAudio, SFX, beep } from "../audio.js?v=20261114halloween15";
-import { THEMES } from "../data-levels.js?v=20261114halloween15";
-import { onHitMalware } from "./items.js?v=20261114halloween15";
-import { updateHearts } from "./level.js?v=20261114halloween15";
-import { loadNamespace, saveNamespace } from "../storage.js?v=20261114halloween15";
+import { platforms, itemsGroup, player, powered, starPower, lives, set_lives, getMaxLives, score, set_score, scoreText, set__hudDirty, difficulty } from "./state.js?v=20261114halloween17";
+import { showFloat } from "./feedback.js?v=20261114halloween17";
+import { makePlatformTextureThemed } from "../textures.js?v=20261114halloween17";
+import { ensureAudio, SFX, beep } from "../audio.js?v=20261114halloween17";
+import { THEMES } from "../data-levels.js?v=20261114halloween17";
+import { onHitMalware } from "./items.js?v=20261114halloween17";
+import { updateHearts } from "./level.js?v=20261114halloween17";
+import { loadNamespace, saveNamespace } from "../storage.js?v=20261114halloween17";
 
 const BLOCK = 40;
 let windVx = 0;
@@ -547,14 +547,28 @@ export function addBlocksAndPlatforms(scene, L, idx) {
   const nRowK = difficulty === "extremo" ? 1 : 3;
   const anchorsShuffled = anchors.filter(a => a.t >= 300 && a.t <= 520 && a.r - a.l >= 100)
     .map(a => [rnd(), a]).sort((u, v) => u[0] - v[0]).map(u => u[1]);
-  let krows = 0;
+  let krows = 0; const keyRowX = [];
   for (const a of anchorsShuffled) {
     if (krows >= nRowK) break;
     const cx = (a.l + a.r) / 2;
     if (hitsSpecial(cx - 50, cx + 50, a.t - 95, a.t)) continue;
     if (hits(cx - 60, cx + 60, a.t - 95, a.t - 2, a, a.t - 2)) continue;
     [-36, 0, 36].forEach(dx => putKey(cx + dx, a.t - 42));
-    obst.push(rect(cx, a.t - 45, 130, 60)); krows++;
+    obst.push(rect(cx, a.t - 45, 130, 60)); krows++; keyRowX.push(cx);
+  }
+
+  // Reforço: em níveis apertados (poucas arcos/filas possíveis) acrescentam-se filas de 3 sobre as plataformas mais largas
+  if (kn < 10) {
+    const rowsAt = keyRowX.slice();
+    const wide = anchors.filter(a => a.r - a.l >= 80 && a.t >= 250 && a.t <= 540).sort((u, v) => (v.r - v.l) - (u.r - u.l));
+    for (const a of wide) {
+      if (kn >= 10) break;
+      const cx = (a.l + a.r) / 2;
+      if (centers.some(c => Math.abs(c - cx) < 60) || rowsAt.some(c => Math.abs(c - cx) < 60)) continue;
+      if (hitsSpecial(cx - 50, cx + 50, a.t - 95, a.t)) continue;
+      [-36, 0, 36].forEach(dx => putKey(cx + dx, a.t - 42));
+      rowsAt.push(cx);
+    }
   }
 
   if (beams.length || winds.length || keyList.length) {

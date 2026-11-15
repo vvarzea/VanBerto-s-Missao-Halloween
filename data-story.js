@@ -8,15 +8,15 @@ export const REGION_INTRO = {
   },
   desenvolvimento: {
     vanberto: "Este castelo está cheio de fantasmas, teias e vassouras... mas sabemos que os sustos têm explicação!",
-    arrival: "Bem-vindo ao Castelo das Palavras-Passe Perdidas — aranhas, fantasmas, bruxas e monstros famosos. 👻 O Fantasma Hacker guarda as chaves digitais! 🔐"
+    arrival: "Bem-vindo ao Castelo das Palavras-Passe Perdidas — aranhas, fantasmas, bruxas e monstros famosos. 👻 O Fantasma do Cadeado guarda as chaves digitais! 🔐"
   },
   protecao: {
     vanberto: "Neste cemitério vamos descobrir tradições, a Lua e os animais da noite!",
-    arrival: "Bem-vindo ao Cemitério das Mensagens Malditas — esqueletos, Todos os Santos, a Lua e os animais da noite. 🪦 A Bruxa do Phishing prepara mensagens tentadoras! ✉️"
+    arrival: "Bem-vindo ao Cemitério das Mensagens Malditas — esqueletos, Todos os Santos, a Lua e os animais da noite. 🪦 A Bruxa das Poções prepara feitiços e mensagens tentadoras! ✉️"
   },
   participacao: {
     vanberto: "Estamos quase lá! Esta mansão guarda poções, histórias e o desafio final...",
-    arrival: "Bem-vindo à Mansão das Sombras Digitais — poções, lendas, matemática e segurança. 🧪 O Senhor das Sombras espera pelo desafio final! 🕯️"
+    arrival: "Bem-vindo à Mansão das Sombras Digitais — poções, lendas, matemática e segurança. 🧪 O Conde Vampiro espera pelo desafio final! 🕯️"
   }
 };
 
@@ -31,15 +31,15 @@ export const BOSS_OBJECTIVE = {
   // antes do redesenho "pirata-hacker" (ver orbTexture:"boss_proj_hook" e
   // hookDrift em data-bosses.js): o ataque deste boss já tinha passado a
   // ser um anzol lançado na horizontal, mas o letreiro nunca foi atualizado.
-  monstro_phishing: "Desvia-te das chaves 🔑 que o Fantasma Hacker lança e salta-lhe em cima {N} vezes para o vencer!",
-  robo_spam: "A Bruxa do Phishing patrulha depressa e atira morcegos 🦇 para apanhar — apanha o ritmo e salta-lhe em cima {N} vezes para o vencer!",
+  monstro_phishing: "Desvia-te das chaves 🔑 que o Fantasma do Cadeado lança e salta-lhe em cima {N} vezes para o vencer!",
+  robo_spam: "A Bruxa das Poções patrulha depressa e atira morcegos 🦇 para apanhar — apanha o ritmo e salta-lhe em cima {N} vezes para o vencer!",
   // CORRIGIDO (pedido: "no nível do último boss faz isto, não quero nada
   // disto") — este texto ainda descrevia o teletransporte antigo ("ele
   // teleporta-se... assim que ele reaparecer"), que já foi removido (ver
   // movementType em data-bosses.js: passou de "teleport" para "patrol",
   // mais rápido que todos os outros 3, mas nunca desaparece do ecrã). O
   // texto ficava a prometer um comportamento que já não existe.
-  espiao_sombras: "O Senhor das Sombras Digitais anda muito depressa a atirar morcegos 🦇! Salta-lhe em cima {N} vezes para o vencer!"
+  espiao_sombras: "O Conde Vampiro anda muito depressa a atirar morcegos 🦇! Salta-lhe em cima {N} vezes para o vencer!"
 };
 
 // Diálogo de boss, por boss.
@@ -67,13 +67,13 @@ export const BOSS_INTRO_VB = {
 // Uma única fala de vitória por boss, ligada à competência que acabou de ser recuperada.
 export const BOSS_VICTORY_VB = {
   virus_gigante: "Conseguimos! O Rei Abóbora foi derrotado e a floresta está protegida!",
-  monstro_phishing: "Vencemos! O Fantasma Hacker não nos assusta! Sabemos muito mais agora!",
+  monstro_phishing: "Vencemos! O Fantasma do Cadeado não nos assusta! Sabemos muito mais agora!",
   robo_spam: "Feitiço desfeito! Agora sabemos mais sobre o Halloween e o Pão-por-Deus! 🧙",
   espiao_sombras: "A nossa curiosidade venceu as Sombras Digitais! Está tudo em segurança!"
 };
 
 // Frases curtas mostradas (sem parar o jogo, só um "floatie") sempre que se
-// apanha um objeto de conhecimento no combate do Fantasma Hacker.
+// apanha um objeto de conhecimento no combate do Fantasma do Cadeado.
 export const KNOWLEDGE_FACTS = [
   "🎃 O Samhain foi a festa celta que deu origem ao Halloween.",
   "🧺 No Pão-por-Deus, as crianças recebem pão, broas e romãs.",

@@ -11,7 +11,7 @@ export const BOSSES = [
     id: "monstro_phishing",
     afterLevel: 8,           // Fecha o mundo "Vale da Comunicação Segura" (Níveis 6-9 —
                               // jogos seguros, pegada digital, fake news, phishing).
-    name: "Fantasma Hacker",
+    name: "Fantasma do Cadeado",
     emoji: "👻",
     // Cor alinhada com o redesenho "pirata-hacker" (ver makeBossTextures em
     // textures.js) — antes era roxo (0x8a5cff), a cor do blob antigo; agora
@@ -357,7 +357,7 @@ export const BOSSES = [
                               // Digital" (Níveis 16-20) E o jogo inteiro. Ao ser derrotado,
                               // nextLevel() já não tem mais níveis a seguir (ver next>=LEVELS.length
                               // em goToNextLevel) e mostra o ecrã de vitória final.
-    name: "Senhor das Sombras Digitais",
+    name: "Conde Vampiro",
     emoji: "🧛",
     // Cor alinhada com o redesenho "feiticeiro-espião" (ver makeBossTextures
     // em textures.js, secção 3) — antes era um cinzento-arroxeado neutro
@@ -394,7 +394,7 @@ export const BOSSES = [
     patrolSpeed: 190,
     hopEvery: 2200,
     qmarkEvery: 1600,          // 2000→1600: pedido "demoram muito a atirar" (ver mesmo ajuste nos outros 2 bosses "normais", em monstro_phishing e robo_spam)
-    orbTexture: "boss_proj_spam", // HALLOWEEN: o Senhor das Sombras atira fantasminhas (sombras) — antes: orbe sombrio, sem sentido temático para um guardião das sombras
+    orbTexture: "boss_proj_spam", // HALLOWEEN: o Conde Vampiro atira fantasminhas (sombras) — antes: orbe sombrio, sem sentido temático para um guardião das sombras
     orbTint: 0xffffff,
     // Personalidade do arremesso (ver doBossRollQmark em dia-crianca.js):
     // a orbe parte mais devagar que os outros 3, mas vai-se "puxando"
@@ -489,7 +489,7 @@ export const BOSSES = [
     id: "robo_spam",
     afterLevel: 14,          // Fecha o mundo "Fortaleza da Proteção Digital" (Níveis 10-15 —
                              // dispositivos, família, wi-fi, backups, acessibilidade, spam).
-    name: "Bruxa do Phishing",
+    name: "Bruxa das Poções",
     emoji: "🧙",
     color: 0xc7291f,
     // Mesma conversão para stompBoss — mantém a patrulha rápida (sensação

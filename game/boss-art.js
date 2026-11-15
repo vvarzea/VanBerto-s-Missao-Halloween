@@ -8,9 +8,9 @@
  *************************************************/
 export const BOSS_ART = {
   virus_gigante:    { file: "boss-abobora.png",  cw: 258, ch: 230 },   // Rei Abóbora (mundo 1)
-  monstro_phishing: { file: "boss-fantasma.png", cw: 241, ch: 248 },   // Fantasma Hacker (mundo 2)
-  robo_spam:        { file: "boss-bruxa.png",    cw: 221, ch: 260 },   // Bruxa do Phishing (mundo 3)
-  espiao_sombras:   { file: "boss-vampiro.png",  cw: 231, ch: 248 }    // Senhor das Sombras Digitais (mundo 4)
+  monstro_phishing: { file: "boss-fantasma.png", cw: 241, ch: 248 },   // Fantasma do Cadeado (mundo 2)
+  robo_spam:        { file: "boss-bruxa.png",    cw: 221, ch: 260 },   // Bruxa das Poções (mundo 3)
+  espiao_sombras:   { file: "boss-vampiro.png",  cw: 231, ch: 248 }    // Conde Vampiro (mundo 4)
 };
 // variante do motor → coluna da tira
 const VARIANTS = [["", 0], ["_laugh", 4], ["_ouch", 3], ["_angry", 5], ["_sad", 6], ["_blink", 2], ["_armsdown", 1]];
@@ -51,4 +51,11 @@ export function buildBossArt(scene) {
       draw(c, 0); t.refresh();
     });
   });
+}
+
+/** Cara do boss para o balão de diálogo: devolve {src, w, h, bgW, bgX} (coluna = expressão da tira). */
+export function bossPortrait(id, col = 0, h = 54) {
+  const a = BOSS_ART[id]; if (!a) return null;
+  const w = Math.round(h * a.cw / a.ch);
+  return { src: a.file, w, h, bgW: w * 7, bgX: -col * w };
 }

@@ -7,17 +7,18 @@
  * As variáveis de estado vivem em state.js; aqui alteram-se com set_<nome>().
  *************************************************/
 
-import { collectedBossRights, saveBossRights } from "./artefacts.js?v=20261114halloween15";
-import { clearMiniViruses, clearPopupHazard, clearToxicZones, stopPhishingDecoy } from "./boss-attacks.js?v=20261114halloween15";
-import { destroyBossHpBar, showBossBanner } from "./boss-core.js?v=20261114halloween15";
-import { bossDialogueAnchor, playBossDialogue, vbDialogueAnchor } from "./dialogue.js?v=20261114halloween15";
-import { clearExtremoAllies } from "./level.js?v=20261114halloween15";
-import { pickQuizForLevel, showQuiz } from "./quiz.js?v=20261114halloween15";
-import { bossLockIcon, bossOverlay, bossRageIcon, bossState, bossVignette, currentLevel, hudText, itemCountText, player, sceneRef, set__doorAnimRunning, set_awaitingQuiz, set_bossLockIcon, set_bossOverlay, set_bossRageIcon, set_bossState, set_bossVignette, set_inBossFight, tipText } from "./state.js?v=20261114halloween15";
-import { playVanBertoDance } from "./vanberto.js?v=20261114halloween15";
-import { ensureAudio, SFX, beep } from "../audio.js?v=20261114halloween15";
-import { showAchievementToast } from "../achievements.js?v=20261114halloween15";
-import { BOSS_VICTORY_VB } from "../data-story.js?v=20261114halloween15";
+import { bossPortrait } from "./boss-art.js?v=20261114halloween17";
+import { collectedBossRights, saveBossRights } from "./artefacts.js?v=20261114halloween17";
+import { clearMiniViruses, clearPopupHazard, clearToxicZones, stopPhishingDecoy } from "./boss-attacks.js?v=20261114halloween17";
+import { destroyBossHpBar, showBossBanner } from "./boss-core.js?v=20261114halloween17";
+import { bossDialogueAnchor, playBossDialogue, vbDialogueAnchor } from "./dialogue.js?v=20261114halloween17";
+import { clearExtremoAllies } from "./level.js?v=20261114halloween17";
+import { pickQuizForLevel, showQuiz } from "./quiz.js?v=20261114halloween17";
+import { bossLockIcon, bossOverlay, bossRageIcon, bossState, bossVignette, currentLevel, hudText, itemCountText, player, sceneRef, set__doorAnimRunning, set_awaitingQuiz, set_bossLockIcon, set_bossOverlay, set_bossRageIcon, set_bossState, set_bossVignette, set_inBossFight, tipText } from "./state.js?v=20261114halloween17";
+import { playVanBertoDance } from "./vanberto.js?v=20261114halloween17";
+import { ensureAudio, SFX, beep } from "../audio.js?v=20261114halloween17";
+import { showAchievementToast } from "../achievements.js?v=20261114halloween17";
+import { BOSS_VICTORY_VB } from "../data-story.js?v=20261114halloween17";
 
 // ===== Flourish de vitória próprio de cada boss — Fase "Batalhas Épicas" =====
 // Substitui/complementa o confetti genérico por algo ligado ao tema do boss
@@ -165,7 +166,7 @@ export function startBossQuizPhase() {
     };
     try {
       playBossDialogue([
-        { speaker:"boss", name:def.name, emoji:def.emoji, text: def.defeatLine, anchor: bossDialogueAnchor() },
+        { speaker:"boss", name:def.name, emoji:def.emoji, portrait: bossPortrait(def.id, 6), text: def.defeatLine, anchor: bossDialogueAnchor() },
         { speaker:"vb", text: BOSS_VICTORY_VB[def.id] || "Conseguimos! Mais um direito está a salvo!", anchor: vbDialogueAnchor() }
       ], startBossPortalPhase);
     } catch (err) {

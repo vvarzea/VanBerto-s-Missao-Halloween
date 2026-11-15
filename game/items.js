@@ -7,22 +7,22 @@
  * As variáveis de estado vivem em state.js; aqui alteram-se com set_<nome>().
  *************************************************/
 
-import { handleBossItemCollect, handleBossMalwareCollision } from "./boss-combat.js?v=20261114halloween15";
-import { vbSayRandom } from "./dialogue.js?v=20261114halloween15";
-import { hitFlash } from "./dom.js?v=20261114halloween15";
-import { applyHitStop, pickPraise, showFloat } from "./feedback.js?v=20261114halloween15";
-import { showGameOver } from "./flow.js?v=20261114halloween15";
-import { updateHearts } from "./level.js?v=20261114halloween15";
-import { saveGame } from "./overlays.js?v=20261114halloween15";
-import { snapPlayerToGround } from "./rooms.js?v=20261114halloween15";
-import { _critterSession, _overlayPaused, _starMelodyInterval, awaitingQuiz, collectedItemIndices, collectedRoomPipes, currentLevel, currentLevelTip, difficulty, doubleJumpActive, doubleJumpCountdown, doubleJumpTimer, getMaxLives, heartsGfx, inSecretRoom, invuln, invulnBlinkEvent, invulnEndEvent, isStarAllowedExtremo, itemCountText, itemsCollected, itemsGroup, itemsTotal, lives, livesLostThisLevel, pausedByTeacher, player, powerCountdown, powerIndicator, powered, poweredTimer, sceneRef, score, scoreText, secretRoomTemp, set__hudDirty, set__starMelodyInterval, set_awaitingQuiz, set_doubleJumpActive, set_doubleJumpCountdown, set_doubleJumpTimer, set_doubleJumpUsed, set_invuln, set_invulnBlinkEvent, set_invulnEndEvent, set_itemsCollected, set_lives, set_livesLostThisLevel, set_powerCountdown, set_powered, set_poweredTimer, set_score, set_starPower, set_starPowerCountVal, set_starPowerCountdown, set_starPowerTimer, starPower, starPowerCountVal, starPowerCountdown, starPowerTimer, tipText, touch } from "./state.js?v=20261114halloween15";
-import { globalStats, saveGlobalStats } from "./stats.js?v=20261114halloween15";
-import { triggerVanBertoHappy, triggerVanBertoSad } from "./vanberto.js?v=20261114halloween15";
-import { spawnShields } from "./world.js?v=20261114halloween15";
-import { onSecretRoomFoundForAchievements } from "../achievements.js?v=20261114halloween15";
-import { ensureAudio, SFX, beep } from "../audio.js?v=20261114halloween15";
-import { LEVELS } from "../data-levels.js?v=20261114halloween15";
-import { VB_HIT, VB_STAR_POWER } from "../data-flavor.js?v=20261114halloween15";
+import { handleBossItemCollect, handleBossMalwareCollision } from "./boss-combat.js?v=20261114halloween17";
+import { vbSayRandom } from "./dialogue.js?v=20261114halloween17";
+import { hitFlash } from "./dom.js?v=20261114halloween17";
+import { applyHitStop, pickPraise, showFloat } from "./feedback.js?v=20261114halloween17";
+import { showGameOver } from "./flow.js?v=20261114halloween17";
+import { updateHearts } from "./level.js?v=20261114halloween17";
+import { saveGame } from "./overlays.js?v=20261114halloween17";
+import { snapPlayerToGround } from "./rooms.js?v=20261114halloween17";
+import { _critterSession, _overlayPaused, _starMelodyInterval, awaitingQuiz, collectedItemIndices, collectedRoomPipes, currentLevel, currentLevelTip, difficulty, doubleJumpActive, doubleJumpCountdown, doubleJumpTimer, getMaxLives, heartsGfx, inSecretRoom, invuln, invulnBlinkEvent, invulnEndEvent, isStarAllowedExtremo, itemCountText, itemsCollected, itemsGroup, itemsTotal, lives, livesLostThisLevel, pausedByTeacher, player, powerCountdown, powerIndicator, powered, poweredTimer, sceneRef, score, scoreText, secretRoomTemp, set__hudDirty, set__starMelodyInterval, set_awaitingQuiz, set_doubleJumpActive, set_doubleJumpCountdown, set_doubleJumpTimer, set_doubleJumpUsed, set_invuln, set_invulnBlinkEvent, set_invulnEndEvent, set_itemsCollected, set_lives, set_livesLostThisLevel, set_powerCountdown, set_powered, set_poweredTimer, set_score, set_starPower, set_starPowerCountVal, set_starPowerCountdown, set_starPowerTimer, starPower, starPowerCountVal, starPowerCountdown, starPowerTimer, tipText, touch } from "./state.js?v=20261114halloween17";
+import { globalStats, saveGlobalStats } from "./stats.js?v=20261114halloween17";
+import { triggerVanBertoHappy, triggerVanBertoSad } from "./vanberto.js?v=20261114halloween17";
+import { spawnShields } from "./world.js?v=20261114halloween17";
+import { onSecretRoomFoundForAchievements } from "../achievements.js?v=20261114halloween17";
+import { ensureAudio, SFX, beep } from "../audio.js?v=20261114halloween17";
+import { LEVELS } from "../data-levels.js?v=20261114halloween17";
+import { VB_HIT, VB_STAR_POWER } from "../data-flavor.js?v=20261114halloween17";
 
 // ===== Itens =====
 

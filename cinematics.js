@@ -98,8 +98,16 @@ export function playCinematic(slides, onComplete, bars = true) {
     const style = SPEAKER_STYLE[s.speaker] || SPEAKER_STYLE.vb;
     dialogEl.className = "cine-show " + style.cls;
     const avatarEmoji = s.emoji || style.emoji;
-    dlgAvatar.textContent = avatarEmoji;
-    dlgAvatar.style.display = avatarEmoji ? "" : "none";
+    const pt = s.portrait;
+    if (pt) {   // cara do boss (imagem) em vez do emoji
+      dlgAvatar.textContent = "";
+      Object.assign(dlgAvatar.style, { display: "", width: pt.w + "px", height: pt.h + "px", backgroundImage: `url(${pt.src})`,
+        backgroundSize: pt.bgW + "px " + pt.h + "px", backgroundPosition: pt.bgX + "px 0", backgroundRepeat: "no-repeat" });
+    } else {
+      Object.assign(dlgAvatar.style, { width: "", height: "", backgroundImage: "", backgroundSize: "", backgroundPosition: "" });
+      dlgAvatar.textContent = avatarEmoji;
+      dlgAvatar.style.display = avatarEmoji ? "" : "none";
+    }
     dlgName.textContent = s.name || style.name;
     dlgText.textContent = s.text || "";
     dlgHint.textContent = (i === slides.length - 1) ? "Toca para continuar ▶" : "Toca para avançar ▶";
