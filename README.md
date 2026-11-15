@@ -1,7 +1,9 @@
 # VanBerto's — Missão Halloween
 
+> **v17 (20261114halloween17) — cara do boss no balão de diálogo; nomes novos: Fantasma do Cadeado e Bruxa das Poções (Conde Vampiro e Rei Abóbora mantêm-se); mais mini-abóboras nos níveis apertados.**
+> **v16 (20261114halloween16) — o boss do mundo 4 passa a chamar-se «Conde Vampiro».**
 > **v15 (20261114halloween15) — bosses com imagens + novidades de jogo da Internet Segura:**
-> - **Bosses com as novas imagens** (tiras de 7 expressões em `boss-abobora/fantasma/bruxa/vampiro.png`, ligadas por `game/boss-art.js`): Rei Abóbora (mundo 1), Fantasma Hacker (2), Bruxa do Phishing (3) e Senhor das Sombras Digitais (4, vampiro). A expressão muda no combate: ameaçador, a rir, atingido (olhos em X), furioso, triste e piscar de olho. `bossScale` passou de 1.5 para 0.75 (tela de 232 px), a hitbox é a mesma.
+> - **Bosses com as novas imagens** (tiras de 7 expressões em `boss-abobora/fantasma/bruxa/vampiro.png`, ligadas por `game/boss-art.js`): Rei Abóbora (mundo 1), Fantasma do Cadeado (2), Bruxa das Poções (3) e Conde Vampiro (4, vampiro). A expressão muda no combate: ameaçador, a rir, atingido (olhos em X), furioso, triste e piscar de olho. `bossScale` passou de 1.5 para 0.75 (tela de 232 px), a hitbox é a mesma.
 > - **`game/blocks.js`:** blocos «?» e tijolos roxos para dar cabeçadas, 🎃 mini-abóboras espalhadas (100 = +1 vida, contador no ecrã), pedras que caem, chamas encantadas que ligam/desligam e vento (névoa roxa). Ver «Como jogar».
 > - Texto do HUD no estilo Internet Segura (Nunito, contorno marinho) e correção: se o clique para fechar o ☰ Menu abre o Mapa, o jogo fica em pausa.
 
@@ -16,8 +18,8 @@
 > - Sons: motivos misteriosos compostos de raiz (`audio.js`).
 > - «🎃 Dica de Halloween» no fim de cada um dos 20 cartões «Sabias que…?» (`data-quiz.js`, lista `HALLOWEEN_TIPS`).
 > - Ícones da aplicação com chapéu de bruxa e abóbora (o ícone de Natal original ficou em `_dev/icon-512.orig.png`).
-> - **Bosses redesenhados** (`textures.js`, função `halloweenBossesRedraw`): Rei Abóbora (chave interna `virus_gigante`), Fantasma Hacker (`monstro_phishing`), Bruxa do Phishing (`robo_spam`) e Senhor das Sombras Digitais (`espiao_sombras`), cada um com as 7 expressões e projéteis próprios (abóbora, chave, carta amaldiçoada e morcego). Os nomes internos dos ficheiros e das chaves mantêm-se, para não mexer no resto do código.
-> - **Mundos:** 1 Floresta Assombrada dos Vírus (boss Rei Abóbora), 2 Castelo das Palavras-Passe Perdidas (Fantasma Hacker), 3 Cemitério das Mensagens Malditas (Bruxa do Phishing), 4 Mansão das Sombras Digitais (Senhor das Sombras Digitais). Os fundos são `mundo1_n1e2.webp`, `mundo2_n6.webp`, `mundo3_n10e11.webp` e `mundo4_n16e17.webp` (um por mundo). Os temas de Halloween seguem a ordem dos níveis e encaixam nos mundos.
+> - **Bosses redesenhados** (`textures.js`, função `halloweenBossesRedraw`): Rei Abóbora (chave interna `virus_gigante`), Fantasma do Cadeado (`monstro_phishing`), Bruxa das Poções (`robo_spam`) e Conde Vampiro (`espiao_sombras`), cada um com as 7 expressões e projéteis próprios (abóbora, chave, carta amaldiçoada e morcego). Os nomes internos dos ficheiros e das chaves mantêm-se, para não mexer no resto do código.
+> - **Mundos:** 1 Floresta Assombrada dos Vírus (boss Rei Abóbora), 2 Castelo das Palavras-Passe Perdidas (Fantasma do Cadeado), 3 Cemitério das Mensagens Malditas (Bruxa das Poções), 4 Mansão das Sombras Digitais (Conde Vampiro). Os fundos são `mundo1_n1e2.webp`, `mundo2_n6.webp`, `mundo3_n10e11.webp` e `mundo4_n16e17.webp` (um por mundo). Os temas de Halloween seguem a ordem dos níveis e encaixam nos mundos.
 > - **Quiz:** três bancos em `data-quiz.js`: Fácil (3 opções), Difícil (4 opções) e Extremo (perguntas extremas + o banco Difícil). Os 20 níveis usam os temas `h00`–`h19` (o nível 15 é o Pão-por-Deus); os 4 bosses usam `hb1`–`hb4` (revisão do mundo, montada por referência, mais enigmas). As perguntas de cibersegurança originais foram retiradas do jogo (ficam em `_dev/original-ciberseguranca/`).
 > - Os textos por nível (nomes, frases de entrada, sinais, dicas e artefactos) seguem a ordem dos temas de Halloween; as dicas de jogabilidade (trampolins, lava, plataformas móveis) ficam nos níveis 4, 14 e 18, onde o nível tem essas mecânicas.
 > - **Morcegos no jogo (v8):** os drones foram substituídos por morcegos. O morcego roxo (olhos laranja) é apanhável e dá pontos (+15); o morcego vermelho (olhos de fogo, sobrancelhas zangadas) é o inimigo voador do Difícil/Extremo e o «reforço» dos bosses no Extremo. Desenhados em `textures.js` (`drawHwBat`); as chaves internas `item_drone` e `drone_hostil` mantêm-se para não mexer no resto do código.
@@ -143,7 +145,7 @@ e abrir <http://localhost:8000>.
 ## Versões e cache
 
 Todos os ficheiros carregados pelo `index.html` e todos os `import` internos levam **a mesma**
-string `?v=…` (atualmente `20261114halloween15`). Tem de ser sempre igual em todo o lado: o mesmo módulo
+string `?v=…` (atualmente `20261114halloween17`). Tem de ser sempre igual em todo o lado: o mesmo módulo
 importado com strings diferentes é carregado duas vezes, como duas instâncias separadas, e os
 browsers que já têm o jogo podem ficar com uma mistura de ficheiros velhos e novos.
 

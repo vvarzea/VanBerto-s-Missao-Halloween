@@ -317,7 +317,7 @@ function halloweenWreath(ctx,cx,cy,r){
   ctx.fillStyle="#ffd23f"; ctx.beginPath(); ctx.arc(bx-1.6,by+1,0.9,0,Math.PI*2); ctx.arc(bx+1.6,by+1,0.9,0,Math.PI*2); ctx.fill();
   ctx.restore();
 }
-import { buildBossArt } from "./game/boss-art.js?v=20261114halloween15";
+import { buildBossArt } from "./game/boss-art.js?v=20261114halloween17";
 export function makeTextures(scene){
   makePlatformTexture(scene);
   makeDoorTexture(scene);
